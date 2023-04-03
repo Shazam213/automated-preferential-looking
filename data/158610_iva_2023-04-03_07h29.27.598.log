@@ -1,0 +1,238 @@
+1.6195 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+6.1650 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=True, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001F145F7D460>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000001F14B7A04F0>, multiSample=False, name='window1', numSamples=2, pos=(0, 0), screen=0, size=array([1920, 1080]), stencilBits=8, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+6.1652 	EXP 	window1: mouseVisible = True
+6.1653 	EXP 	window1: mouseVisible = False
+6.1653 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+6.1654 	EXP 	window1: recordFrameIntervals = False
+6.2337 	EXP 	window1: recordFrameIntervals = True
+6.3104 	EXP 	Screen (0) actual frame rate measured at 143.96Hz
+6.3105 	EXP 	window1: recordFrameIntervals = False
+8.2053 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='text', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+8.2190 	EXP 	Created GA = GratingStim(__class__=<class 'psychopy.visual.grating.GratingStim'>, anchor='center', autoDraw=False, autoLog=True, blendmode='avg', color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=-1.0, interpolate=True, mask=None, maskParams=None, name='GA', opacity=1.0, ori=0.0, phase=array([0., 0.]), pos=array([0., 0.]), rgbPedestal=array([0., 0., 0.]), sf=array([0.8, 0.8]), size=array([32., 64.]), tex='sqr', texRes=512.0, units='deg', win=Window(...))
+8.2225 	EXP 	Created aperture = Aperture(__class__=<class 'psychopy.visual.aperture.Aperture'>, anchor=('center', 'center'), autoLog=True, inverted=False, nVert=UNKNOWN, name='aperture', ori=0.0, pos=array([0., 0.]), shape=UNKNOWN, size=array([128.]), units='deg', win=Window(...))
+8.2280 	EXP 	Created placeholder = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='placeholder', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+8.2357 	EXP 	aperture: enabled = False
+8.2357 	EXP 	text: autoDraw = True
+10.5116 	EXP 	Created sequence: sequential, trialTypes=1, nReps=4, seed=None
+10.5117 	EXP 	New trial (rep=0, index=0): None
+10.5121 	EXP 	Created sequence: random, trialTypes=1, nReps=4, seed=None
+10.5122 	EXP 	New trial (rep=0, index=0): None
+10.5534 	DATA 	Keypress: space
+10.5578 	EXP 	text: autoDraw = False
+10.5578 	EXP 	aperture: enabled = True
+10.5578 	EXP 	GA: autoDraw = True
+10.5578 	EXP 	aperture: enabled = True
+10.5578 	EXP 	GA: tex = 'sqr'
+11.4172 	DATA 	Keypress: right
+11.5595 	EXP 	GA: autoDraw = False
+11.5595 	EXP 	aperture: enabled = False
+11.5595 	EXP 	GA: autoDraw = False
+11.5595 	EXP 	aperture: autoDraw = False
+11.5595 	EXP 	aperture: enabled = False
+11.5595 	EXP 	placeholder: autoDraw = True
+14.1298 	EXP 	New trial (rep=1, index=0): None
+14.1396 	DATA 	Keypress: right
+14.1439 	EXP 	placeholder: autoDraw = False
+14.1439 	EXP 	aperture: enabled = True
+14.1439 	EXP 	GA: autoDraw = True
+14.1439 	EXP 	aperture: enabled = True
+14.1439 	EXP 	GA: tex = 'sqr'
+14.5623 	DATA 	Keypress: left
+15.1428 	EXP 	GA: autoDraw = False
+15.1428 	EXP 	aperture: enabled = False
+15.1428 	EXP 	GA: autoDraw = False
+15.1428 	EXP 	aperture: autoDraw = False
+15.1428 	EXP 	aperture: enabled = False
+15.1428 	EXP 	placeholder: autoDraw = True
+15.5464 	EXP 	New trial (rep=2, index=0): None
+15.5569 	DATA 	Keypress: left
+15.5613 	EXP 	placeholder: autoDraw = False
+15.5613 	EXP 	aperture: enabled = True
+15.5613 	EXP 	GA: autoDraw = True
+15.5613 	EXP 	aperture: enabled = True
+15.5613 	EXP 	GA: tex = 'sqr'
+16.5594 	EXP 	GA: autoDraw = False
+16.5594 	EXP 	aperture: enabled = False
+16.5594 	EXP 	GA: autoDraw = False
+16.5594 	EXP 	aperture: autoDraw = False
+16.5594 	EXP 	aperture: enabled = False
+16.5594 	EXP 	placeholder: autoDraw = True
+16.8034 	EXP 	New trial (rep=3, index=0): None
+16.8155 	DATA 	Keypress: left
+16.8196 	EXP 	placeholder: autoDraw = False
+16.8196 	EXP 	aperture: enabled = True
+16.8196 	EXP 	GA: autoDraw = True
+16.8196 	EXP 	aperture: enabled = True
+16.8196 	EXP 	GA: tex = 'sqr'
+17.8163 	EXP 	GA: autoDraw = False
+17.8163 	EXP 	aperture: enabled = False
+17.8163 	EXP 	GA: autoDraw = False
+17.8163 	EXP 	aperture: autoDraw = False
+17.8163 	EXP 	aperture: enabled = False
+17.8163 	EXP 	placeholder: autoDraw = True
+18.0115 	EXP 	New trial (rep=1, index=0): None
+18.0119 	EXP 	Created sequence: random, trialTypes=1, nReps=4, seed=None
+18.0120 	EXP 	New trial (rep=0, index=0): None
+18.0216 	DATA 	Keypress: left
+18.0261 	EXP 	placeholder: autoDraw = False
+18.0261 	EXP 	aperture: enabled = True
+18.0261 	EXP 	GA: autoDraw = True
+18.0261 	EXP 	aperture: enabled = True
+18.0261 	EXP 	GA: tex = 'sqr'
+19.0246 	EXP 	GA: autoDraw = False
+19.0246 	EXP 	aperture: enabled = False
+19.0246 	EXP 	GA: autoDraw = False
+19.0246 	EXP 	aperture: autoDraw = False
+19.0246 	EXP 	aperture: enabled = False
+19.0246 	EXP 	placeholder: autoDraw = True
+19.1850 	EXP 	New trial (rep=1, index=0): None
+19.1930 	DATA 	Keypress: right
+19.1974 	EXP 	placeholder: autoDraw = False
+19.1974 	EXP 	aperture: enabled = True
+19.1974 	EXP 	GA: autoDraw = True
+19.1974 	EXP 	aperture: enabled = True
+19.1974 	EXP 	GA: tex = 'sqr'
+20.1982 	EXP 	GA: autoDraw = False
+20.1982 	EXP 	aperture: enabled = False
+20.1982 	EXP 	GA: autoDraw = False
+20.1982 	EXP 	aperture: autoDraw = False
+20.1982 	EXP 	aperture: enabled = False
+20.1982 	EXP 	placeholder: autoDraw = True
+20.3168 	EXP 	New trial (rep=2, index=0): None
+20.3249 	DATA 	Keypress: right
+20.3293 	EXP 	placeholder: autoDraw = False
+20.3293 	EXP 	aperture: enabled = True
+20.3293 	EXP 	GA: autoDraw = True
+20.3293 	EXP 	aperture: enabled = True
+20.3293 	EXP 	GA: tex = 'sqr'
+21.3300 	EXP 	GA: autoDraw = False
+21.3300 	EXP 	aperture: enabled = False
+21.3300 	EXP 	GA: autoDraw = False
+21.3300 	EXP 	aperture: autoDraw = False
+21.3300 	EXP 	aperture: enabled = False
+21.3300 	EXP 	placeholder: autoDraw = True
+21.3584 	EXP 	New trial (rep=3, index=0): None
+21.3677 	DATA 	Keypress: left
+21.3722 	EXP 	placeholder: autoDraw = False
+21.3722 	EXP 	aperture: enabled = True
+21.3722 	EXP 	GA: autoDraw = True
+21.3722 	EXP 	aperture: enabled = True
+21.3722 	EXP 	GA: tex = 'sqr'
+22.3717 	EXP 	GA: autoDraw = False
+22.3717 	EXP 	aperture: enabled = False
+22.3717 	EXP 	GA: autoDraw = False
+22.3717 	EXP 	aperture: autoDraw = False
+22.3717 	EXP 	aperture: enabled = False
+22.3717 	EXP 	placeholder: autoDraw = True
+22.5252 	EXP 	New trial (rep=2, index=0): None
+22.5257 	EXP 	Created sequence: random, trialTypes=1, nReps=4, seed=None
+22.5258 	EXP 	New trial (rep=0, index=0): None
+22.5349 	DATA 	Keypress: left
+22.5396 	EXP 	placeholder: autoDraw = False
+22.5396 	EXP 	aperture: enabled = True
+22.5396 	EXP 	GA: autoDraw = True
+22.5396 	EXP 	aperture: enabled = True
+22.5396 	EXP 	GA: tex = 'sqr'
+23.5384 	EXP 	GA: autoDraw = False
+23.5384 	EXP 	aperture: enabled = False
+23.5384 	EXP 	GA: autoDraw = False
+23.5384 	EXP 	aperture: autoDraw = False
+23.5384 	EXP 	aperture: enabled = False
+23.5384 	EXP 	placeholder: autoDraw = True
+23.5878 	EXP 	New trial (rep=1, index=0): None
+23.5972 	DATA 	Keypress: right
+23.6015 	EXP 	placeholder: autoDraw = False
+23.6015 	EXP 	aperture: enabled = True
+23.6015 	EXP 	GA: autoDraw = True
+23.6015 	EXP 	aperture: enabled = True
+23.6015 	EXP 	GA: tex = 'sqr'
+24.5840 	DATA 	Keypress: left
+24.6008 	EXP 	GA: autoDraw = False
+24.6008 	EXP 	aperture: enabled = False
+24.6008 	EXP 	GA: autoDraw = False
+24.6008 	EXP 	aperture: autoDraw = False
+24.6008 	EXP 	aperture: enabled = False
+24.6008 	EXP 	placeholder: autoDraw = True
+25.0529 	EXP 	New trial (rep=2, index=0): None
+25.0608 	DATA 	Keypress: left
+25.0656 	EXP 	placeholder: autoDraw = False
+25.0656 	EXP 	aperture: enabled = True
+25.0656 	EXP 	GA: autoDraw = True
+25.0656 	EXP 	aperture: enabled = True
+25.0656 	EXP 	GA: tex = 'sqr'
+26.0662 	EXP 	GA: autoDraw = False
+26.0662 	EXP 	aperture: enabled = False
+26.0662 	EXP 	GA: autoDraw = False
+26.0662 	EXP 	aperture: autoDraw = False
+26.0662 	EXP 	aperture: enabled = False
+26.0662 	EXP 	placeholder: autoDraw = True
+26.2684 	EXP 	New trial (rep=3, index=0): None
+26.2827 	DATA 	Keypress: right
+26.2876 	EXP 	placeholder: autoDraw = False
+26.2876 	EXP 	aperture: enabled = True
+26.2876 	EXP 	GA: autoDraw = True
+26.2876 	EXP 	aperture: enabled = True
+26.2876 	EXP 	GA: tex = 'sqr'
+27.2882 	EXP 	GA: autoDraw = False
+27.2882 	EXP 	aperture: enabled = False
+27.2882 	EXP 	GA: autoDraw = False
+27.2882 	EXP 	aperture: autoDraw = False
+27.2882 	EXP 	aperture: enabled = False
+27.2882 	EXP 	placeholder: autoDraw = True
+27.4142 	EXP 	New trial (rep=3, index=0): None
+27.4147 	EXP 	Created sequence: random, trialTypes=1, nReps=4, seed=None
+27.4148 	EXP 	New trial (rep=0, index=0): None
+27.4257 	DATA 	Keypress: right
+27.4304 	EXP 	placeholder: autoDraw = False
+27.4304 	EXP 	aperture: enabled = True
+27.4304 	EXP 	GA: autoDraw = True
+27.4304 	EXP 	aperture: enabled = True
+27.4304 	EXP 	GA: tex = 'sqr'
+28.4272 	EXP 	GA: autoDraw = False
+28.4272 	EXP 	aperture: enabled = False
+28.4272 	EXP 	GA: autoDraw = False
+28.4272 	EXP 	aperture: autoDraw = False
+28.4272 	EXP 	aperture: enabled = False
+28.4272 	EXP 	placeholder: autoDraw = True
+28.6303 	DATA 	Keypress: right
+28.6364 	EXP 	New trial (rep=1, index=0): None
+28.6529 	EXP 	placeholder: autoDraw = False
+28.6529 	EXP 	aperture: enabled = True
+28.6529 	EXP 	GA: autoDraw = True
+28.6529 	EXP 	aperture: enabled = True
+28.6529 	EXP 	GA: tex = 'sqr'
+29.6494 	EXP 	GA: autoDraw = False
+29.6494 	EXP 	aperture: enabled = False
+29.6494 	EXP 	GA: autoDraw = False
+29.6494 	EXP 	aperture: autoDraw = False
+29.6494 	EXP 	aperture: enabled = False
+29.6494 	EXP 	placeholder: autoDraw = True
+29.7476 	EXP 	New trial (rep=2, index=0): None
+29.7608 	DATA 	Keypress: left
+29.7654 	EXP 	placeholder: autoDraw = False
+29.7654 	EXP 	aperture: enabled = True
+29.7654 	EXP 	GA: autoDraw = True
+29.7654 	EXP 	aperture: enabled = True
+29.7654 	EXP 	GA: tex = 'sqr'
+30.7603 	EXP 	GA: autoDraw = False
+30.7603 	EXP 	aperture: enabled = False
+30.7603 	EXP 	GA: autoDraw = False
+30.7603 	EXP 	aperture: autoDraw = False
+30.7603 	EXP 	aperture: enabled = False
+30.7603 	EXP 	placeholder: autoDraw = True
+30.9972 	EXP 	New trial (rep=3, index=0): None
+31.0053 	DATA 	Keypress: left
+31.0098 	EXP 	placeholder: autoDraw = False
+31.0098 	EXP 	aperture: enabled = True
+31.0098 	EXP 	GA: autoDraw = True
+31.0098 	EXP 	aperture: enabled = True
+31.0098 	EXP 	GA: tex = 'sqr'
+32.0104 	EXP 	GA: autoDraw = False
+32.0104 	EXP 	aperture: enabled = False
+32.0104 	EXP 	GA: autoDraw = False
+32.0104 	EXP 	aperture: autoDraw = False
+32.0104 	EXP 	aperture: enabled = False
+32.0104 	EXP 	placeholder: autoDraw = True
+32.2339 	DATA 	Keypress: right
+32.2395 	EXP 	placeholder: autoDraw = False
+32.3212 	EXP 	window1: mouseVisible = True
