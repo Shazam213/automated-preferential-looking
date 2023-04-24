@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on April 03, 2023, at 07:07
+    on April 24, 2023, at 06:52
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -74,7 +74,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # --- Setup the Window ---
 win = visual.Window(
-    size=[1920, 1080], fullscr=True, screen=0, 
+    size=[1536, 864], fullscr=True, screen=0, 
     winType='pyglet', allowStencil=True,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -135,13 +135,6 @@ aperture = visual.Aperture(
 aperture.disable()  # disable until its actually used
 
 # --- Initialize components for Routine "central_fixation" ---
-placeholder = visual.TextStim(win=win, name='placeholder',
-    text='contrast sensitivity task\n\nUse to arrow keys to point to the direction of the grating',
-    font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
 key_resp_2 = keyboard.Keyboard()
 
 # Create some handy timers
@@ -341,7 +334,7 @@ for thisGA_loop in GA_loop:
         continueRoutine = True
         routineForceEnded = False
         # update component parameters for each repeat
-        position = (randchoice([-1, 1])*16,0)  # Set routine start values for position
+        position = (randchoice([-1, 1])*16,8)  # Set routine start values for position
         GA.setContrast(contrast)
         GA.setPos(position)
         aperture.setPos(position)
@@ -445,7 +438,7 @@ for thisGA_loop in GA_loop:
         else:
             b='right'
         # keep track of which components have finished
-        central_fixationComponents = [placeholder, key_resp_2]
+        central_fixationComponents = [key_resp_2]
         for thisComponent in central_fixationComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -466,17 +459,6 @@ for thisGA_loop in GA_loop:
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
-            
-            # *placeholder* updates
-            if placeholder.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                placeholder.frameNStart = frameN  # exact frame index
-                placeholder.tStart = t  # local t and not account for scr refresh
-                placeholder.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(placeholder, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'placeholder.started')
-                placeholder.setAutoDraw(True)
             
             # *key_resp_2* updates
             waitOnFlip = False

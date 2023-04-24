@@ -41,9 +41,9 @@ def contrast_sensitivy_keyboard():
         'session': '001',
         'stimulus size': '8.5',
         'spatial freq': '0.8',
-        'start contrast': '1',
-        'step contrast': '-0.2',
-        'end contrast': '0.2',
+        'start contrast': '0.02',
+        'step contrast': '0.2',
+        'end contrast': '0.9',
         'stimulus duration': '1',
     }
     # --- Show participant info dialog --
