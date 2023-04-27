@@ -1,0 +1,40 @@
+16.5960 	WARNING 	User requested fullscreen with size [1536  864], but screen is actually [1920, 1080]. Using actual size
+19.0339 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x00000196E440CBE0>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x00000196E440CC40>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x00000196E440CF40>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x00000196E5404B50>, multiSample=False, name='window1', numSamples=2, pos=(0, 0), screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+19.0341 	EXP 	window1: mouseVisible = True
+19.0341 	EXP 	window1: backgroundImage = None
+19.0341 	EXP 	window1: backgroundFit = 'cover'
+19.0343 	EXP 	window1: mouseVisible = False
+19.0343 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+19.0343 	EXP 	window1: recordFrameIntervals = False
+19.1021 	EXP 	window1: recordFrameIntervals = True
+19.1792 	EXP 	Screen (0) actual frame rate measured at 143.57Hz
+19.1793 	EXP 	window1: recordFrameIntervals = False
+21.4565 	EXP 	Created text_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='text_2', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.4863 	EXP 	Created GA = GratingStim(__class__=<class 'psychopy.visual.grating.GratingStim'>, anchor='center', autoDraw=False, autoLog=True, blendmode='avg', color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, interpolate=True, mask='circle', maskParams=None, name='GA', opacity=1.0, ori=0.0, phase=array([0., 0.]), pos=array([0., 0.]), rgbPedestal=array([0., 0., 0.]), sf=array([1., 1.]), size=array([8.5]), tex='sqr', texRes=512.0, units='deg', win=Window(...))
+21.4907 	EXP 	Created polygon = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-3.0, fillColor=array([ 1., -1., -1.]), fillColorSpace='rgb', fillRGB=array([ 1., -1., -1.]), interpolate=True, lineColor=array([ 1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([ 1., -1., -1.]), lineWidth=1.0, name='polygon', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.05, 0.05]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+21.4937 	EXP 	Created polygon_2 = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-4.0, fillColor=array([ 1., -1., -1.]), fillColorSpace='rgb', fillRGB=array([ 1., -1., -1.]), interpolate=True, lineColor=array([ 1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([ 1., -1., -1.]), lineWidth=1.0, name='polygon_2', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.05, 0.05]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+21.5077 	EXP 	text_2: autoDraw = True
+21.9454 	EXP 	Created sequence: random, trialTypes=1, nReps=19, seed=None
+21.9458 	EXP 	New trial (rep=0, index=0): None
+21.9468 	EXP 	Created sequence: random, trialTypes=1, nReps=4, seed=None
+21.9470 	EXP 	New trial (rep=0, index=0): None
+22.0159 	DATA 	Keypress: space
+22.0195 	EXP 	text_2: autoDraw = False
+22.0195 	EXP 	GA: sf = array([0.24436623, 0.24436623])
+22.0195 	EXP 	GA: autoDraw = True
+22.0195 	EXP 	polygon: autoDraw = True
+22.0195 	EXP 	GA: tex = 'sqr'
+23.0186 	EXP 	GA: autoDraw = False
+23.0186 	EXP 	polygon: autoDraw = False
+23.0186 	EXP 	GA: autoDraw = False
+23.0186 	EXP 	polygon: autoDraw = False
+23.0186 	EXP 	polygon_2: autoDraw = True
+23.1955 	EXP 	New trial (rep=1, index=0): None
+23.2177 	DATA 	Keypress: left
+23.2210 	EXP 	polygon_2: autoDraw = False
+23.2210 	EXP 	GA: sf = array([0.24436623, 0.24436623])
+23.2210 	EXP 	GA: autoDraw = True
+23.2210 	EXP 	polygon: autoDraw = True
+23.2210 	EXP 	GA: tex = 'sqr'
+23.5566 	DATA 	Keypress: escape
+24.4835 	EXP 	window1: mouseVisible = True

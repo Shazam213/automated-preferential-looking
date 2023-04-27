@@ -1,0 +1,4 @@
+﻿ga_loop.thisRepN,ga_loop.thisTrialN,ga_loop.thisN,ga_loop.thisIndex,psychometric_func.thisRepN,psychometric_func.thisTrialN,psychometric_func.thisN,psychometric_func.thisIndex,text_2.started,key_resp.started,key_resp.keys,key_resp.rt,contrast.routineEndVal,spatial.routineEndVal,polygon.started,polygon.stopped,position.routineEndVal,key_resp_2.started,polygon_2.started,key_resp_2.keys,key_resp_2.corr,key_resp_2.rt,participant,session,stimulus duration,date,expName,psychopyVersion,frameRate,
+,,,,,,,,21.507735900000625,21.507735900000625,space,0.4295660999996471,,,,,,,,,,,774841,001,1,2023-04-27_21h11.38.304,stimuli3,2022.2.5,143.56924631730263,
+0,0,0,0,0,0,0,0,,,,,0.5,0.24436622542466768,22.019473899999866,23.018631200000527,"(-16, 0)",23.018631200000527,23.018631200000527,left,1,0.16877820000081556,774841,001,1,2023-04-27_21h11.38.304,stimuli3,2022.2.5,143.56924631730263,
+,,,,,,,,,,,,,,23.221044600000823,,,,,,,,,,,,,,,
