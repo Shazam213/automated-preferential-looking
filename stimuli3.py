@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on May 01, 2023, at 14:02
+    on May 02, 2023, at 09:42
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -62,7 +62,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\soham\\Desktop\\automated-preferential-looking\\stimuli3_lastrun.py',
+    originPath='C:\\Users\\soham\\Desktop\\automated-preferential-looking\\stimuli3.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -778,7 +778,7 @@ for thisGa_loop in ga_loop:
         frameN = -1
         
         # --- Run Routine "delay" ---
-        while continueRoutine and routineTimer.getTime() < 1.0:
+        while continueRoutine and routineTimer.getTime() < 0.5:
             # get current time
             t = routineTimer.getTime()
             tThisFlip = win.getFutureFlipTime(clock=routineTimer)
@@ -798,7 +798,7 @@ for thisGa_loop in ga_loop:
                 polygon_3.setAutoDraw(True)
             if polygon_3.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > polygon_3.tStartRefresh + 1-frameTolerance:
+                if tThisFlipGlobal > polygon_3.tStartRefresh + 0.5-frameTolerance:
                     # keep track of stop time/frame for later
                     polygon_3.tStop = t  # not accounting for scr refresh
                     polygon_3.frameNStop = frameN  # exact frame index
@@ -832,7 +832,7 @@ for thisGa_loop in ga_loop:
         if routineForceEnded:
             routineTimer.reset()
         else:
-            routineTimer.addTime(-1.000000)
+            routineTimer.addTime(-0.500000)
         thisExp.nextEntry()
         
     # completed 4.0 repeats of 'psychometric_func'

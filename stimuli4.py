@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on May 01, 2023, at 14:02
+    on May 02, 2023, at 09:41
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -33,6 +33,11 @@ from psychopy.hardware import keyboard
 #    pos=(randchoice([-1, 1])*16,0)
 #else:
 #    pos= (randchoice([-1, 1])*16,randchoice([-1, 1])*8)
+# Run 'Before Experiment' code from code_5
+#if opt==1 or opt==3:
+#    pos=(randchoice([-1, 1])*16,0)
+#else:
+#    pos= (randchoice([-1, 1])*16,randchoice([-1, 1])*8)
 
 
 # Ensure that relative paths start from the same directory as this script
@@ -40,13 +45,13 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '2022.2.5'
-expName = 'stimuli3'  # from the Builder filename that created this script
+expName = 'stimuli4'  # from the Builder filename that created this script
 expInfo = {
     'participant': f"{randint(0, 999999):06.0f}",
     'session': '001',
-    'start spatial freq': '0.2',
-    'start contrast': '0.02',
     'stimulus duration': '1',
+    'start spatial freq': '0.5',
+    'start contrast': '0.5',
 }
 # --- Show participant info dialog --
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -62,7 +67,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\soham\\Desktop\\automated-preferential-looking\\stimuli3_lastrun.py',
+    originPath='C:\\Users\\soham\\Desktop\\automated-preferential-looking\\stimuli4.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -123,14 +128,6 @@ text_2 = visual.TextStim(win=win, name='text_2',
     depth=0.0);
 key_resp = keyboard.Keyboard()
 
-# --- Initialize components for Routine "set_values" ---
-# Set experiment start values for variable component contrast
-contrast = float(expInfo['start contrast'])
-contrastContainer = []
-# Set experiment start values for variable component spatial
-spatial = float(expInfo['start spatial freq'])
-spatialContainer = []
-
 # --- Initialize components for Routine "grating_acuity" ---
 # Set experiment start values for variable component position
 position = (0, 0)
@@ -138,7 +135,7 @@ positionContainer = []
 GA = visual.GratingStim(
     win=win, name='GA',units='deg', 
     tex='sqr', mask='circle', anchor='center',
-    ori=0.0, pos=[0,0], size=[8.5], sf=1.0, phase=0.0,
+    ori=0.0, pos=[0,0], size=[8.5], sf=float(expInfo["start spatial freq"]), phase=0.0,
     color=[1,1,1], colorSpace='rgb',
     opacity=None, contrast=1.0, blendmode='avg',
     texRes=512.0, interpolate=True, depth=-2.0)
@@ -175,6 +172,55 @@ text_4 = visual.TextStim(win=win, name='text_4',
 # --- Initialize components for Routine "delay" ---
 polygon_3 = visual.ShapeStim(
     win=win, name='polygon_3',
+    size=(0.05, 0.05), vertices='circle',
+    ori=0.0, pos=(0, 0), anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+    opacity=None, depth=0.0, interpolate=True)
+
+# --- Initialize components for Routine "grating_acuity_2" ---
+# Set experiment start values for variable component position_2
+position_2 = (0, 0)
+position_2Container = []
+GA_2 = visual.GratingStim(
+    win=win, name='GA_2',units='deg', 
+    tex='sqr', mask='circle', anchor='center',
+    ori=0.0, pos=[0,0], size=[8.5], sf=1.0, phase=0.0,
+    color=[1,1,1], colorSpace='rgb',
+    opacity=None, contrast=1.0, blendmode='avg',
+    texRes=512.0, interpolate=True, depth=-2.0)
+polygon_4 = visual.ShapeStim(
+    win=win, name='polygon_4',
+    size=(0.05, 0.05), vertices='circle',
+    ori=0.0, pos=(0, 0), anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+    opacity=None, depth=-3.0, interpolate=True)
+text_5 = visual.TextStim(win=win, name='text_5',
+    text='',
+    font='Open Sans',
+    pos=(0,0.125), height=0.05, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=-4.0);
+
+# --- Initialize components for Routine "central_fixation_2" ---
+key_resp_3 = keyboard.Keyboard()
+polygon_5 = visual.ShapeStim(
+    win=win, name='polygon_5',
+    size=(0.05, 0.05), vertices='circle',
+    ori=0.0, pos=(0, 0), anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+    opacity=None, depth=-2.0, interpolate=True)
+text_6 = visual.TextStim(win=win, name='text_6',
+    text='',
+    font='Open Sans',
+    pos=(0,0.125), height=0.05, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=-3.0);
+
+# --- Initialize components for Routine "delay_2" ---
+polygon_6 = visual.ShapeStim(
+    win=win, name='polygon_6',
     size=(0.05, 0.05), vertices='circle',
     ori=0.0, pos=(0, 0), anchor='center',
     lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
@@ -281,18 +327,26 @@ thisExp.nextEntry()
 # Run 'End Routine' code from code_4
 if option_resp.keys== '1':
    opt=1
+   opt1=1
+   opt2=0
 #   start_contrast=float(expInfo['start contrast'])
 #   start_spatial=0.5
 elif option_resp.keys== '2':
    opt=2
+   opt1=1
+   opt2=0
 #   start_contrast=float(expInfo['start contrast'])
 #   start_spatial=0.5
 elif option_resp.keys== '3':
     opt=3
+    opt1=0
+    opt2=1
 #    start_spatial=float(expInfo['start spatial freq'])
 #    start_contrast=1
 elif option_resp.keys== '4':
     opt=4
+    opt1=0
+    opt2=1
 #    start_spatial=float(expInfo['start spatial freq'])
 #    start_contrast=1
 # the Routine "start_exp" was not non-slip safe, so reset the non-slip timer
@@ -396,128 +450,52 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-ga_loop = data.TrialHandler(nReps=19.0, method='random', 
+opt1 = data.TrialHandler(nReps=opt1, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=[None],
-    seed=None, name='ga_loop')
-thisExp.addLoop(ga_loop)  # add the loop to the experiment
-thisGa_loop = ga_loop.trialList[0]  # so we can initialise stimuli with some values
-# abbreviate parameter names if possible (e.g. rgb = thisGa_loop.rgb)
-if thisGa_loop != None:
-    for paramName in thisGa_loop:
-        exec('{} = thisGa_loop[paramName]'.format(paramName))
+    seed=None, name='opt1')
+thisExp.addLoop(opt1)  # add the loop to the experiment
+thisOpt1 = opt1.trialList[0]  # so we can initialise stimuli with some values
+# abbreviate parameter names if possible (e.g. rgb = thisOpt1.rgb)
+if thisOpt1 != None:
+    for paramName in thisOpt1:
+        exec('{} = thisOpt1[paramName]'.format(paramName))
 
-for thisGa_loop in ga_loop:
-    currentLoop = ga_loop
-    # abbreviate parameter names if possible (e.g. rgb = thisGa_loop.rgb)
-    if thisGa_loop != None:
-        for paramName in thisGa_loop:
-            exec('{} = thisGa_loop[paramName]'.format(paramName))
+for thisOpt1 in opt1:
+    currentLoop = opt1
+    # abbreviate parameter names if possible (e.g. rgb = thisOpt1.rgb)
+    if thisOpt1 != None:
+        for paramName in thisOpt1:
+            exec('{} = thisOpt1[paramName]'.format(paramName))
     
-    # --- Prepare to start Routine "set_values" ---
-    continueRoutine = True
-    routineForceEnded = False
-    # update component parameters for each repeat
-    # Run 'Begin Routine' code from code_2
+    # --------Prepare to start Staircase "staircase_loop" --------
+    # set up handler to look after next chosen value etc
+    staircase_loop = data.StairHandler(startVal=0.5, extraInfo=expInfo,
+        stepSizes=[0.05], stepType='lin',
+        nReversals=0.0, nTrials=20.0, 
+        nUp=2.0, nDown=1.0,
+        minVal=0.02, maxVal=1.0,
+        originPath=-1, name='staircase_loop')
+    thisExp.addLoop(staircase_loop)  # add the loop to the experiment
+    level = thisStaircase_loop = 0.5  # initialise some vals
     
-    if opt==1:
-       contrast= (45**(1/19))*contrast
-       spatial=0.5
-    elif opt==2:
-       contrast= (45**(1/19))*contrast
-       spatial=0.5
-    elif opt==3:
-        spatial= (45**(1/19))*spatial
-        contrast= 0.5
-    elif opt==4:
-        spatial= (45**(1/19))*spatial
-        contrast=0.5
-    
-    contrast = contrast  # Set routine start values for contrast
-    spatial = spatial  # Set routine start values for spatial
-    # keep track of which components have finished
-    set_valuesComponents = []
-    for thisComponent in set_valuesComponents:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "set_values" ---
-    while continueRoutine:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in set_valuesComponents:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "set_values" ---
-    for thisComponent in set_valuesComponents:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    thisExp.addData('contrast.routineEndVal', contrast)  # Save end routine value
-    thisExp.addData('spatial.routineEndVal', spatial)  # Save end routine value
-    # the Routine "set_values" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
-    # set up handler to look after randomisation of conditions etc
-    psychometric_func = data.TrialHandler(nReps=4.0, method='random', 
-        extraInfo=expInfo, originPath=-1,
-        trialList=[None],
-        seed=None, name='psychometric_func')
-    thisExp.addLoop(psychometric_func)  # add the loop to the experiment
-    thisPsychometric_func = psychometric_func.trialList[0]  # so we can initialise stimuli with some values
-    # abbreviate parameter names if possible (e.g. rgb = thisPsychometric_func.rgb)
-    if thisPsychometric_func != None:
-        for paramName in thisPsychometric_func:
-            exec('{} = thisPsychometric_func[paramName]'.format(paramName))
-    
-    for thisPsychometric_func in psychometric_func:
-        currentLoop = psychometric_func
-        # abbreviate parameter names if possible (e.g. rgb = thisPsychometric_func.rgb)
-        if thisPsychometric_func != None:
-            for paramName in thisPsychometric_func:
-                exec('{} = thisPsychometric_func[paramName]'.format(paramName))
+    for thisStaircase_loop in staircase_loop:
+        currentLoop = staircase_loop
+        level = thisStaircase_loop
         
         # --- Prepare to start Routine "grating_acuity" ---
         continueRoutine = True
         routineForceEnded = False
         # update component parameters for each repeat
         # Run 'Begin Routine' code from code_3
-        if opt==1 or opt==3:
+        if opt==1 :
             pos=(randchoice([-1, 1])*16,0)
         else:
             pos= (randchoice([-1, 1])*16,randchoice([-1, 1])*8)
         position = pos  # Set routine start values for position
-        GA.setContrast(contrast)
+        GA.setContrast(level)
         GA.setPos(position)
-        GA.setSF(spatial)
-        text_3.setText("Spatial frequency: " +  f'{spatial:.3f}'+"\n"+"Contrast: "+ f'{contrast:.3f}'
+        text_3.setText("Spatial frequency: " +  str(float(expInfo["start spatial freq"]))+"\n"+"Contrast: "+ f'{level:.3f}'
 )
         # keep track of which components have finished
         grating_acuityComponents = [GA, polygon, text_3]
@@ -628,9 +606,6 @@ for thisGa_loop in ga_loop:
         continueRoutine = True
         routineForceEnded = False
         # update component parameters for each repeat
-        key_resp_2.keys = []
-        key_resp_2.rt = []
-        _key_resp_2_allKeys = []
         # Run 'Begin Routine' code from code
         
         if (opt==1 or opt==3) and (position==(-16,0)):
@@ -645,7 +620,10 @@ for thisGa_loop in ga_loop:
             b='k'
         elif (opt==2 or opt==4) and (position==(16,8) ):
             b='i'    
-        text_4.setText("Spatial frequency: " +  f'{spatial:.3f}'+"\n"+"Contrast: "+ f'{contrast:.3f}'
+        key_resp_2.keys = []
+        key_resp_2.rt = []
+        _key_resp_2_allKeys = []
+        text_4.setText("Spatial frequency: " +  str(float(expInfo["start spatial freq"]))+"\n"+"Contrast: "+ f'{level:.3f}'
 )
         # keep track of which components have finished
         central_fixationComponents = [key_resp_2, polygon_2, text_4]
@@ -751,11 +729,9 @@ for thisGa_loop in ga_loop:
                key_resp_2.corr = 1;  # correct non-response
             else:
                key_resp_2.corr = 0;  # failed to respond (incorrectly)
-        # store data for psychometric_func (TrialHandler)
-        psychometric_func.addData('key_resp_2.keys',key_resp_2.keys)
-        psychometric_func.addData('key_resp_2.corr', key_resp_2.corr)
-        if key_resp_2.keys != None:  # we had a response
-            psychometric_func.addData('key_resp_2.rt', key_resp_2.rt)
+        # store data for staircase_loop (StairHandler)
+        staircase_loop.addResponse(key_resp_2.corr, level)
+        staircase_loop.addOtherData('key_resp_2.rt', key_resp_2.rt)
         # the Routine "central_fixation" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -778,7 +754,7 @@ for thisGa_loop in ga_loop:
         frameN = -1
         
         # --- Run Routine "delay" ---
-        while continueRoutine and routineTimer.getTime() < 1.0:
+        while continueRoutine and routineTimer.getTime() < 0.5:
             # get current time
             t = routineTimer.getTime()
             tThisFlip = win.getFutureFlipTime(clock=routineTimer)
@@ -798,7 +774,7 @@ for thisGa_loop in ga_loop:
                 polygon_3.setAutoDraw(True)
             if polygon_3.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > polygon_3.tStartRefresh + 1-frameTolerance:
+                if tThisFlipGlobal > polygon_3.tStartRefresh + 0.5-frameTolerance:
                     # keep track of stop time/frame for later
                     polygon_3.tStop = t  # not accounting for scr refresh
                     polygon_3.frameNStop = frameN  # exact frame index
@@ -832,14 +808,384 @@ for thisGa_loop in ga_loop:
         if routineForceEnded:
             routineTimer.reset()
         else:
-            routineTimer.addTime(-1.000000)
+            routineTimer.addTime(-0.500000)
         thisExp.nextEntry()
         
-    # completed 4.0 repeats of 'psychometric_func'
+    # staircase completed
     
     thisExp.nextEntry()
     
-# completed 19.0 repeats of 'ga_loop'
+# completed opt1 repeats of 'opt1'
+
+
+# set up handler to look after randomisation of conditions etc
+opt2 = data.TrialHandler(nReps=opt2, method='random', 
+    extraInfo=expInfo, originPath=-1,
+    trialList=[None],
+    seed=None, name='opt2')
+thisExp.addLoop(opt2)  # add the loop to the experiment
+thisOpt2 = opt2.trialList[0]  # so we can initialise stimuli with some values
+# abbreviate parameter names if possible (e.g. rgb = thisOpt2.rgb)
+if thisOpt2 != None:
+    for paramName in thisOpt2:
+        exec('{} = thisOpt2[paramName]'.format(paramName))
+
+for thisOpt2 in opt2:
+    currentLoop = opt2
+    # abbreviate parameter names if possible (e.g. rgb = thisOpt2.rgb)
+    if thisOpt2 != None:
+        for paramName in thisOpt2:
+            exec('{} = thisOpt2[paramName]'.format(paramName))
+    
+    # --------Prepare to start Staircase "staircase_loop2" --------
+    # set up handler to look after next chosen value etc
+    staircase_loop2 = data.StairHandler(startVal=5.0, extraInfo=expInfo,
+        stepSizes=[.5], stepType='lin',
+        nReversals=0.0, nTrials=20.0, 
+        nUp=1.0, nDown=2.0,
+        minVal=0.2, maxVal=10.0,
+        originPath=-1, name='staircase_loop2')
+    thisExp.addLoop(staircase_loop2)  # add the loop to the experiment
+    level = thisStaircase_loop2 = 5.0  # initialise some vals
+    
+    for thisStaircase_loop2 in staircase_loop2:
+        currentLoop = staircase_loop2
+        level = thisStaircase_loop2
+        
+        # --- Prepare to start Routine "grating_acuity_2" ---
+        continueRoutine = True
+        routineForceEnded = False
+        # update component parameters for each repeat
+        # Run 'Begin Routine' code from code_5
+        if  opt==3:
+            pos=(randchoice([-1, 1])*16,0)
+        elif opt==4:
+            pos= (randchoice([-1, 1])*16,randchoice([-1, 1])*8)
+        position_2 = pos  # Set routine start values for position_2
+        GA_2.setContrast(float(expInfo["start contrast"]))
+        GA_2.setPos(position_2)
+        GA_2.setSF(level)
+        text_5.setText("Spatial frequency: " + f'{level:.3f}' +"\n"+"Contrast: "+str(float(expInfo["start contrast"])) 
+)
+        # keep track of which components have finished
+        grating_acuity_2Components = [GA_2, polygon_4, text_5]
+        for thisComponent in grating_acuity_2Components:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
+        
+        # --- Run Routine "grating_acuity_2" ---
+        while continueRoutine:
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *GA_2* updates
+            if GA_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                GA_2.frameNStart = frameN  # exact frame index
+                GA_2.tStart = t  # local t and not account for scr refresh
+                GA_2.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(GA_2, 'tStartRefresh')  # time at next scr refresh
+                GA_2.setAutoDraw(True)
+            if GA_2.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > GA_2.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+                    # keep track of stop time/frame for later
+                    GA_2.tStop = t  # not accounting for scr refresh
+                    GA_2.frameNStop = frameN  # exact frame index
+                    GA_2.setAutoDraw(False)
+            
+            # *polygon_4* updates
+            if polygon_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                polygon_4.frameNStart = frameN  # exact frame index
+                polygon_4.tStart = t  # local t and not account for scr refresh
+                polygon_4.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(polygon_4, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'polygon_4.started')
+                polygon_4.setAutoDraw(True)
+            if polygon_4.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > polygon_4.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+                    # keep track of stop time/frame for later
+                    polygon_4.tStop = t  # not accounting for scr refresh
+                    polygon_4.frameNStop = frameN  # exact frame index
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'polygon_4.stopped')
+                    polygon_4.setAutoDraw(False)
+            
+            # *text_5* updates
+            if text_5.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                text_5.frameNStart = frameN  # exact frame index
+                text_5.tStart = t  # local t and not account for scr refresh
+                text_5.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(text_5, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'text_5.started')
+                text_5.setAutoDraw(True)
+            if text_5.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > text_5.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+                    # keep track of stop time/frame for later
+                    text_5.tStop = t  # not accounting for scr refresh
+                    text_5.frameNStop = frameN  # exact frame index
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'text_5.stopped')
+                    text_5.setAutoDraw(False)
+            
+            # check for quit (typically the Esc key)
+            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+                core.quit()
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                routineForceEnded = True
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in grating_acuity_2Components:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # --- Ending Routine "grating_acuity_2" ---
+        for thisComponent in grating_acuity_2Components:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        thisExp.addData('position_2.routineEndVal', position_2)  # Save end routine value
+        # the Routine "grating_acuity_2" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        
+        # --- Prepare to start Routine "central_fixation_2" ---
+        continueRoutine = True
+        routineForceEnded = False
+        # update component parameters for each repeat
+        # Run 'Begin Routine' code from code_6
+        
+        if (opt==3) and (position_2==(-16,0)):
+            b='j'
+        elif (opt==3) and (position_2==(16,0)):
+            b='k'
+        elif (opt==4) and (position_2==(-16,-8) ):
+            b='j'
+        elif ( opt==4) and (position_2==(-16,8) ):
+            b='u'
+        elif ( opt==4) and (position_2==(16,-8) ):
+            b='k'
+        elif (opt==4) and (position_2==(16,8) ):
+            b='i'    
+        key_resp_3.keys = []
+        key_resp_3.rt = []
+        _key_resp_3_allKeys = []
+        text_6.setText("Spatial frequency: " + f'{level:.3f}' +"\n"+"Contrast: "+str(float(expInfo["start contrast"])) 
+)
+        # keep track of which components have finished
+        central_fixation_2Components = [key_resp_3, polygon_5, text_6]
+        for thisComponent in central_fixation_2Components:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
+        
+        # --- Run Routine "central_fixation_2" ---
+        while continueRoutine:
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *key_resp_3* updates
+            waitOnFlip = False
+            if key_resp_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                key_resp_3.frameNStart = frameN  # exact frame index
+                key_resp_3.tStart = t  # local t and not account for scr refresh
+                key_resp_3.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(key_resp_3, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'key_resp_3.started')
+                key_resp_3.status = STARTED
+                # keyboard checking is just starting
+                waitOnFlip = True
+                win.callOnFlip(key_resp_3.clock.reset)  # t=0 on next screen flip
+                win.callOnFlip(key_resp_3.clearEvents, eventType='keyboard')  # clear events on next screen flip
+            if key_resp_3.status == STARTED and not waitOnFlip:
+                theseKeys = key_resp_3.getKeys(keyList=['u','i','j','k'], waitRelease=False)
+                _key_resp_3_allKeys.extend(theseKeys)
+                if len(_key_resp_3_allKeys):
+                    key_resp_3.keys = _key_resp_3_allKeys[-1].name  # just the last key pressed
+                    key_resp_3.rt = _key_resp_3_allKeys[-1].rt
+                    # was this correct?
+                    if (key_resp_3.keys == str(b)) or (key_resp_3.keys == b):
+                        key_resp_3.corr = 1
+                    else:
+                        key_resp_3.corr = 0
+                    # a response ends the routine
+                    continueRoutine = False
+            
+            # *polygon_5* updates
+            if polygon_5.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                polygon_5.frameNStart = frameN  # exact frame index
+                polygon_5.tStart = t  # local t and not account for scr refresh
+                polygon_5.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(polygon_5, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'polygon_5.started')
+                polygon_5.setAutoDraw(True)
+            
+            # *text_6* updates
+            if text_6.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                text_6.frameNStart = frameN  # exact frame index
+                text_6.tStart = t  # local t and not account for scr refresh
+                text_6.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(text_6, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'text_6.started')
+                text_6.setAutoDraw(True)
+            
+            # check for quit (typically the Esc key)
+            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+                core.quit()
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                routineForceEnded = True
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in central_fixation_2Components:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # --- Ending Routine "central_fixation_2" ---
+        for thisComponent in central_fixation_2Components:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # check responses
+        if key_resp_3.keys in ['', [], None]:  # No response was made
+            key_resp_3.keys = None
+            # was no response the correct answer?!
+            if str(b).lower() == 'none':
+               key_resp_3.corr = 1;  # correct non-response
+            else:
+               key_resp_3.corr = 0;  # failed to respond (incorrectly)
+        # store data for staircase_loop2 (StairHandler)
+        staircase_loop2.addResponse(key_resp_3.corr, level)
+        staircase_loop2.addOtherData('key_resp_3.rt', key_resp_3.rt)
+        # the Routine "central_fixation_2" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        
+        # --- Prepare to start Routine "delay_2" ---
+        continueRoutine = True
+        routineForceEnded = False
+        # update component parameters for each repeat
+        # keep track of which components have finished
+        delay_2Components = [polygon_6]
+        for thisComponent in delay_2Components:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
+        
+        # --- Run Routine "delay_2" ---
+        while continueRoutine and routineTimer.getTime() < 0.5:
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *polygon_6* updates
+            if polygon_6.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                polygon_6.frameNStart = frameN  # exact frame index
+                polygon_6.tStart = t  # local t and not account for scr refresh
+                polygon_6.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(polygon_6, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'polygon_6.started')
+                polygon_6.setAutoDraw(True)
+            if polygon_6.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > polygon_6.tStartRefresh + 0.5-frameTolerance:
+                    # keep track of stop time/frame for later
+                    polygon_6.tStop = t  # not accounting for scr refresh
+                    polygon_6.frameNStop = frameN  # exact frame index
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'polygon_6.stopped')
+                    polygon_6.setAutoDraw(False)
+            
+            # check for quit (typically the Esc key)
+            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+                core.quit()
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                routineForceEnded = True
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in delay_2Components:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # --- Ending Routine "delay_2" ---
+        for thisComponent in delay_2Components:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
+        if routineForceEnded:
+            routineTimer.reset()
+        else:
+            routineTimer.addTime(-0.500000)
+        thisExp.nextEntry()
+        
+    # staircase completed
+    
+    thisExp.nextEntry()
+    
+# completed opt2 repeats of 'opt2'
 
 
 # --- End experiment ---
