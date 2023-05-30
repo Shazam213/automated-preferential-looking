@@ -45,7 +45,7 @@ def fixedincrement(response, str_contrast, str_spatial):
     expInfo = {
         'participant': f"{randint(0, 999999):06.0f}",
         'session': '001',
-        'stimulus duration': '1',
+        'stimulus duration': '0.1',
     }
     # --- Show participant info dialog --
     dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -565,6 +565,7 @@ def fixedincrement(response, str_contrast, str_spatial):
                     GA.tStartRefresh = tThisFlipGlobal  # on global time
                     win.timeOnFlip(GA, 'tStartRefresh')  # time at next scr refresh
                     GA.setAutoDraw(True)
+         
                 if GA.status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
                     if tThisFlipGlobal > GA.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
@@ -665,7 +666,7 @@ def fixedincrement(response, str_contrast, str_spatial):
             text_4.setText("Spatial frequency: " +  f'{spatial:.3f}'+"\n"+"Contrast: "+ f'{contrast:.3f}'
     )
             # keep track of which components have finished
-            central_fixationComponents = [key_resp_2, polygon_2, text_4]
+            central_fixationComponents = [GA,key_resp_2, polygon_2, text_4]
             for thisComponent in central_fixationComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -689,6 +690,13 @@ def fixedincrement(response, str_contrast, str_spatial):
                 
                 # *key_resp_2* updates
                 waitOnFlip = False
+                if GA.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    GA.frameNStart = frameN  # exact frame index
+                    GA.tStart = t  # local t and not account for scr refresh
+                    GA.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(GA, 'tStartRefresh')  # time at next scr refresh
+                    GA.setAutoDraw(True)
                 if key_resp_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
                     key_resp_2.frameNStart = frameN  # exact frame index
@@ -716,6 +724,7 @@ def fixedincrement(response, str_contrast, str_spatial):
                         # a response ends the routine
                         continueRoutine = False
                 
+
                 # *polygon_2* updates
                 if polygon_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later

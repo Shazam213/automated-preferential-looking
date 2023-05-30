@@ -1,6 +1,6 @@
 # from fixed_increment_stimuli import *
-from stimuli3 import *
-from stimuli4 import *
+from fixed_increment import *
+from staircase import *
 import matplotlib as plt
 from psychometric_func import *
 # contrast_sensitivy_keyboard()

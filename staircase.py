@@ -49,7 +49,7 @@ def staircase(response, str_contrast, str_spatial):
     expInfo = {
         'participant': f"{randint(0, 999999):06.0f}",
         'session': '001',
-        'stimulus duration': '1',
+        'stimulus duration': '0.1',
     }
     # --- Show participant info dialog --
     dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -633,7 +633,7 @@ def staircase(response, str_contrast, str_spatial):
             text_4.setText("Spatial frequency: " +  str(float(str_spatial))+"\n"+"Contrast: "+ f'{level:.3f}'
     )
             # keep track of which components have finished
-            central_fixationComponents = [key_resp_2, polygon_2, text_4]
+            central_fixationComponents = [GA,key_resp_2, polygon_2, text_4]
             for thisComponent in central_fixationComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -657,6 +657,13 @@ def staircase(response, str_contrast, str_spatial):
                 
                 # *key_resp_2* updates
                 waitOnFlip = False
+                if GA.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    GA.frameNStart = frameN  # exact frame index
+                    GA.tStart = t  # local t and not account for scr refresh
+                    GA.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(GA, 'tStartRefresh')  # time at next scr refresh
+                    GA.setAutoDraw(True)
                 if key_resp_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
                     key_resp_2.frameNStart = frameN  # exact frame index
@@ -1003,7 +1010,7 @@ def staircase(response, str_contrast, str_spatial):
             text_6.setText("Spatial frequency: " + f'{level:.3f}' +"\n"+"Contrast: "+str(float(str_contrast)) 
     )
             # keep track of which components have finished
-            central_fixation_2Components = [key_resp_3, polygon_5, text_6]
+            central_fixation_2Components = [GA_2,key_resp_3, polygon_5, text_6]
             for thisComponent in central_fixation_2Components:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -1027,6 +1034,14 @@ def staircase(response, str_contrast, str_spatial):
                 
                 # *key_resp_3* updates
                 waitOnFlip = False
+                if GA_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    GA_2.frameNStart = frameN  # exact frame index
+                    GA_2.tStart = t  # local t and not account for scr refresh
+                    GA_2.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(GA_2, 'tStartRefresh')  # time at next scr refresh
+                    GA_2.setAutoDraw(True)
+                    
                 if key_resp_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
                     key_resp_3.frameNStart = frameN  # exact frame index
