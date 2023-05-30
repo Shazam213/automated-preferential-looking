@@ -28,6 +28,8 @@ import sys  # to get file system encoding
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
 import matplotlib.pyplot as plt
+from psychometric_function import *
+
 
 # Run 'Before Experiment' code from code_3
 #if opt==1 or opt==3:
@@ -874,20 +876,10 @@ def fixedincrement(response, str_contrast, str_spatial):
     # and win.timeOnFlip() tasks get executed before quitting
     win.flip()
     percent_corr=[]
-    
     for i in range(0,len(feedback),4):
         percent_corr.append((feedback[i]+feedback[i+1]+feedback[i+2]+feedback[i+3])/4)
-    plt.plot(value,percent_corr)
-    # naming the x axis
-    if response=='1' or response=='2':
-        plt.xlabel('contrast')
-    else:
-        plt.xlabel('spatial frequency')
-# naming the y axis
-    plt.ylabel('percent correct')
-    plt.title('Psychometric function')
-    plt.show()
-
+    
+    # psychometric_function(percent_corr,value,response)
     # these shouldn't be strictly necessary (should auto-save)
     thisExp.saveAsWideText(filename+'.csv', delim='auto')
     thisExp.saveAsPickle(filename)
@@ -897,5 +889,8 @@ def fixedincrement(response, str_contrast, str_spatial):
         eyetracker.setConnectionState(False)
     thisExp.abort()  # or data files will save again on exit
     win.close()
-    core.quit()
- 
+    return percent_corr,value,response
+    
+    # core.quit()
+    
+    # return value,feedback,response

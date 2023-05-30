@@ -2,7 +2,7 @@
 from fixed_increment import *
 from staircase import *
 import matplotlib as plt
-from psychometric_func import *
+from psychometric_function import *
 # contrast_sensitivy_keyboard()
 # print("Select the experiment you want to run:\n")
 print("Welcome to visual stimuli.\n")
@@ -28,7 +28,8 @@ if choice=='1':
         start_contrast= input()
         print("Enter fixed spatial frequency(in cycles/deg)\n")
         start_spatial=input()
-    response,value = fixedincrement(case,start_contrast,start_spatial)
+    feedback,value,response=fixedincrement(case,start_contrast,start_spatial)
+    psychometric_function(feedback,value,response)
 
 elif choice=='2':
     print("Contrast Sensitivity Experiments:\n")
@@ -49,4 +50,5 @@ elif choice=='2':
         start_contrast= input()
         print("Enter fixed spatial frequency(in cycles/deg)\n")
         start_spatial=input()
-    staircase(case,start_contrast,start_spatial)
+    feedback,value=staircase(case,start_contrast,start_spatial)
+    psychometric_function(feedback,value,case)

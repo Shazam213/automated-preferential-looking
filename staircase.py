@@ -102,7 +102,8 @@ def staircase(response, str_contrast, str_spatial):
         ioSession = str(expInfo['session'])
     ioServer = io.launchHubServer(window=win, **ioConfig)
     eyetracker = None
-
+    feedback=[]
+    value=[]
     # create a default keyboard (e.g. to check for escape)
     defaultKeyboard = keyboard.Keyboard(backend='iohub')
 
@@ -745,6 +746,8 @@ def staircase(response, str_contrast, str_spatial):
                     key_resp_2.corr = 0;  # failed to respond (incorrectly)
             # store data for staircase_loop (StairHandler)
             staircase_loop.addResponse(key_resp_2.corr, level)
+            feedback.append(key_resp_2.corr)
+            value.append(level)
             staircase_loop.addOtherData('key_resp_2.rt', key_resp_2.rt)
             # the Routine "central_fixation" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
@@ -826,9 +829,9 @@ def staircase(response, str_contrast, str_spatial):
             thisExp.nextEntry()
             
         # staircase completed
-        
+       
         thisExp.nextEntry()
-        
+     
     # completed opt1 repeats of 'opt1'
 
 
@@ -1123,6 +1126,8 @@ def staircase(response, str_contrast, str_spatial):
                     key_resp_3.corr = 0;  # failed to respond (incorrectly)
             # store data for staircase_loop2 (StairHandler)
             staircase_loop2.addResponse(key_resp_3.corr, level)
+            feedback.append(key_resp_3.corr)
+            value.append(level)
             staircase_loop2.addOtherData('key_resp_3.rt', key_resp_3.rt)
             # the Routine "central_fixation_2" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
@@ -1224,4 +1229,5 @@ def staircase(response, str_contrast, str_spatial):
         eyetracker.setConnectionState(False)
     thisExp.abort()  # or data files will save again on exit
     win.close()
-    core.quit()
+    return feedback,value
+    # core.quit()
