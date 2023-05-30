@@ -50,8 +50,6 @@ def staircase(response, str_contrast, str_spatial):
         'participant': f"{randint(0, 999999):06.0f}",
         'session': '001',
         'stimulus duration': '1',
-        'start spatial freq': '0.5',
-        'start contrast': '0.5',
     }
     # --- Show participant info dialog --
     dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -119,15 +117,24 @@ def staircase(response, str_contrast, str_spatial):
     option_resp = keyboard.Keyboard()
 
     # --- Initialize components for Routine "start_opt" ---
-    text_2 = visual.TextStim(win=win, name='text_2',
-        text="Press spacebar to start the experiment\n\nUse the 'u','i','j','k' keys to point to respective directions of the stimuli",
-        font='Open Sans',
-        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=0.0);
-    key_resp = keyboard.Keyboard()
-
+    if response=='1' or response=='3':
+        text_2 = visual.TextStim(win=win, name='text_2',
+            text="Press spacebar to start the experiment\n\nUse the 'j','k' keys to point to respective directions of the stimuli",
+            font='Open Sans',
+            pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+            color='white', colorSpace='rgb', opacity=None, 
+            languageStyle='LTR',
+            depth=0.0);
+        key_resp = keyboard.Keyboard()
+    else:
+        text_2 = visual.TextStim(win=win, name='text_2',
+            text="Press spacebar to start the experiment\n\nUse the 'u','i','j','k' keys to point to respective directions of the stimuli",
+            font='Open Sans',
+            pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+            color='white', colorSpace='rgb', opacity=None, 
+            languageStyle='LTR',
+            depth=0.0);
+        key_resp = keyboard.Keyboard()
     # --- Initialize components for Routine "grating_acuity" ---
     # Set experiment start values for variable component position
     position = (0, 0)

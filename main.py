@@ -19,14 +19,14 @@ if choice=='1':
 
     case= input()
     if case=='3' or case=='4':
-        print("Enter start spatial frequency\n")
+        print("Enter start spatial frequency(in cycles/deg)\n")
         start_spatial= input()
-        print("Enter fixed contrast\n")
+        print("Enter fixed contrast(maximum 1)\n")
         start_contrast=input()
     else:
-        print("Enter start contrast\n")
+        print("Enter start contrast(maximum 1)\n")
         start_contrast= input()
-        print("Enter fixed spatial frequency\n")
+        print("Enter fixed spatial frequency(in cycles/deg)\n")
         start_spatial=input()
     response,value = fixedincrement(case,start_contrast,start_spatial)
 
@@ -40,13 +40,13 @@ elif choice=='2':
 
     case= input()
     if case=='3' or case=='4':
-        print("Enter start spatial frequency\n")
+        print("Enter start spatial frequency(in cycles/deg)\n")
         start_spatial= input()
-        print("Enter fixed contrast\n")
+        print("Enter fixed contrast(maximum 1)\n")
         start_contrast=input()
     else:
-        print("Enter start contrast\n")
+        print("Enter start contrast(maximum 1)\n")
         start_contrast= input()
-        print("Enter fixed spatial frequency\n")
+        print("Enter fixed spatial frequency(in cycles/deg)\n")
         start_spatial=input()
     staircase(case,start_contrast,start_spatial)
