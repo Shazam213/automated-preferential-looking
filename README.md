@@ -36,6 +36,12 @@ pip install psychopy
 ```sh
 python main.py
 ```
+## File structure
 
-
-
+* **main.py** file contains the code that runs all the experiments by making function calls to the respective python files
+* stimuli_1.py and stimuli_2.py were the initial experiment python files which were initially created for testing but now not in use.
+* **stimuli3.py** is the python file for the fixed increment experiment.
+* **stimuli4.py** is the python file for staircase expreriment. 
+* stimuli3.py and stimuli4.py are imported in main.py file
+* **.psyexp** files are the psychopy experiment files and **.lastrun** are the auto-generated .py files for the corresponding experiments.
+* **The stimuli3.py and stimuli4.py files are now in use, along with the main.py file; the rest of the files are not.**
