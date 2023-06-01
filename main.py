@@ -46,9 +46,10 @@ elif choice=='2':
         print("Enter fixed contrast(maximum 1)\n")
         start_contrast=input()
     else:
-        print("Enter start contrast(maximum 1)\n")
+        print("Enter start contrast(maximum=1 and minimum=0.02)\n")
         start_contrast= input()
         print("Enter fixed spatial frequency(in cycles/deg)\n")
         start_spatial=input()
     feedback,value=staircase(case,start_contrast,start_spatial)
     psychometric_function(feedback,value,case)
+core.quit()

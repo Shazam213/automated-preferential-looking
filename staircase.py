@@ -102,7 +102,7 @@ def staircase(response, str_contrast, str_spatial):
         ioSession = str(expInfo['session'])
     ioServer = io.launchHubServer(window=win, **ioConfig)
     eyetracker = None
-    feedback=[]
+    feedback={}
     value=[]
     # create a default keyboard (e.g. to check for escape)
     defaultKeyboard = keyboard.Keyboard(backend='iohub')
@@ -478,14 +478,14 @@ def staircase(response, str_contrast, str_spatial):
         
         # --------Prepare to start Staircase "staircase_loop" --------
         # set up handler to look after next chosen value etc
-        staircase_loop = data.StairHandler(startVal=0.5, extraInfo=expInfo,
-            stepSizes=[0.05], stepType='lin',
+        staircase_loop = data.StairHandler(startVal=float(str_contrast), extraInfo=expInfo,
+            stepSizes=[0.005], stepType='lin',
             nReversals=0.0, nTrials=20.0, 
             nUp=2.0, nDown=1.0,
             minVal=0.02, maxVal=1.0,
             originPath=-1, name='staircase_loop')
         thisExp.addLoop(staircase_loop)  # add the loop to the experiment
-        level = thisStaircase_loop = 0.5  # initialise some vals
+        level = thisStaircase_loop = float(str_contrast)  # initialise some vals
         
         for thisStaircase_loop in staircase_loop:
             currentLoop = staircase_loop
@@ -746,8 +746,12 @@ def staircase(response, str_contrast, str_spatial):
                     key_resp_2.corr = 0;  # failed to respond (incorrectly)
             # store data for staircase_loop (StairHandler)
             staircase_loop.addResponse(key_resp_2.corr, level)
-            feedback.append(key_resp_2.corr)
-            value.append(level)
+            # feedback.append(key_resp_2.corr)
+            # value.append(level)
+            if level in feedback:
+                feedback[level].append(key_resp_2.corr)  # Append the new value to the existing list
+            else:
+                feedback[level] = [key_resp_2.corr]
             staircase_loop.addOtherData('key_resp_2.rt', key_resp_2.rt)
             # the Routine "central_fixation" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
@@ -856,14 +860,14 @@ def staircase(response, str_contrast, str_spatial):
         
         # --------Prepare to start Staircase "staircase_loop2" --------
         # set up handler to look after next chosen value etc
-        staircase_loop2 = data.StairHandler(startVal=5.0, extraInfo=expInfo,
-            stepSizes=[.5], stepType='lin',
+        staircase_loop2 = data.StairHandler(startVal=float(str_spatial), extraInfo=expInfo,
+            stepSizes=[0.05], stepType='lin',
             nReversals=0.0, nTrials=20.0, 
             nUp=1.0, nDown=2.0,
             minVal=0.2, maxVal=10.0,
             originPath=-1, name='staircase_loop2')
         thisExp.addLoop(staircase_loop2)  # add the loop to the experiment
-        level = thisStaircase_loop2 = 5.0  # initialise some vals
+        level = thisStaircase_loop2 = float(str_spatial)  # initialise some vals
         
         for thisStaircase_loop2 in staircase_loop2:
             currentLoop = staircase_loop2
@@ -1126,8 +1130,10 @@ def staircase(response, str_contrast, str_spatial):
                     key_resp_3.corr = 0;  # failed to respond (incorrectly)
             # store data for staircase_loop2 (StairHandler)
             staircase_loop2.addResponse(key_resp_3.corr, level)
-            feedback.append(key_resp_3.corr)
-            value.append(level)
+            if level in feedback:
+                feedback[level].append(key_resp_3.corr)  # Append the new value to the existing list
+            else:
+                feedback[level] = [key_resp_3.corr]
             staircase_loop2.addOtherData('key_resp_3.rt', key_resp_3.rt)
             # the Routine "central_fixation_2" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
@@ -1213,8 +1219,11 @@ def staircase(response, str_contrast, str_spatial):
         thisExp.nextEntry()
         
     # completed opt2 repeats of 'opt2'
+    for level in feedback:
+        feedback[level]= sum(feedback[level])/len(feedback[level])
 
-
+    feedback_key = list(feedback.keys())
+    feedback_value = list(feedback.values())
     # --- End experiment ---
     # Flip one final time so any remaining win.callOnFlip() 
     # and win.timeOnFlip() tasks get executed before quitting
@@ -1229,5 +1238,5 @@ def staircase(response, str_contrast, str_spatial):
         eyetracker.setConnectionState(False)
     thisExp.abort()  # or data files will save again on exit
     win.close()
-    return feedback,value
+    return feedback_value,feedback_key
     # core.quit()
