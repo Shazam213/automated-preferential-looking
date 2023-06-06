@@ -245,6 +245,8 @@ def staircase(response, str_contrast, str_spatial):
     option_resp.keys = []
     option_resp.rt = []
     _option_resp_allKeys = []
+    min_count=0
+    condition=True
     # keep track of which components have finished
     start_expComponents = [text, option_resp]
     for thisComponent in start_expComponents:
@@ -480,7 +482,7 @@ def staircase(response, str_contrast, str_spatial):
         # set up handler to look after next chosen value etc
         staircase_loop = data.StairHandler(startVal=float(str_contrast), extraInfo=expInfo,
             stepSizes=[0.005], stepType='lin',
-            nReversals=0.0, nTrials=20.0, 
+            nReversals=1.0, nTrials=20.0, 
             nUp=2.0, nDown=1.0,
             minVal=0.02, maxVal=1.0,
             originPath=-1, name='staircase_loop')
@@ -490,7 +492,10 @@ def staircase(response, str_contrast, str_spatial):
         for thisStaircase_loop in staircase_loop:
             currentLoop = staircase_loop
             level = thisStaircase_loop
-            
+            if level==0.02 and min_count==5:
+                break
+            elif level==0.02 and min_count<5:
+                min_count+=1
             # --- Prepare to start Routine "grating_acuity" ---
             continueRoutine = True
             routineForceEnded = False
@@ -501,10 +506,10 @@ def staircase(response, str_contrast, str_spatial):
             else:
                 pos= (randchoice([-1, 1])*16,randchoice([-1, 1])*8)
             position = pos  # Set routine start values for position
+
             GA.setContrast(level)
             GA.setPos(position)
-            text_3.setText("Spatial frequency: " +  str(float(str_spatial))+"\n"+"Contrast: "+ f'{level:.3f}'
-    )
+            text_3.setText("Spatial frequency: " +  str(float(str_spatial))+"\n"+"Contrast: "+ f'{level:.3f}')
             # keep track of which components have finished
             grating_acuityComponents = [GA, polygon, text_3]
             for thisComponent in grating_acuityComponents:
@@ -833,7 +838,7 @@ def staircase(response, str_contrast, str_spatial):
             thisExp.nextEntry()
             
         # staircase completed
-       
+    
         thisExp.nextEntry()
      
     # completed opt1 repeats of 'opt1'
@@ -862,8 +867,8 @@ def staircase(response, str_contrast, str_spatial):
         # set up handler to look after next chosen value etc
         staircase_loop2 = data.StairHandler(startVal=float(str_spatial), extraInfo=expInfo,
             stepSizes=[0.05], stepType='lin',
-            nReversals=0.0, nTrials=20.0, 
-            nUp=1.0, nDown=2.0,
+            nReversals=1.0, nTrials=20.0, 
+            nUp=2.0, nDown=1.0,
             minVal=0.2, maxVal=10.0,
             originPath=-1, name='staircase_loop2')
         thisExp.addLoop(staircase_loop2)  # add the loop to the experiment
@@ -872,7 +877,10 @@ def staircase(response, str_contrast, str_spatial):
         for thisStaircase_loop2 in staircase_loop2:
             currentLoop = staircase_loop2
             level = thisStaircase_loop2
-            
+            if level==0.2 and min_count==5:
+                break
+            elif level==0.2 and min_count<5:
+                min_count+=1
             # --- Prepare to start Routine "grating_acuity_2" ---
             continueRoutine = True
             routineForceEnded = False
@@ -1217,7 +1225,7 @@ def staircase(response, str_contrast, str_spatial):
         # staircase completed
         
         thisExp.nextEntry()
-        
+    
     # completed opt2 repeats of 'opt2'
     for level in feedback:
         feedback[level]= sum(feedback[level])/len(feedback[level])

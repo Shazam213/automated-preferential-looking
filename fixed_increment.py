@@ -14,7 +14,7 @@ If you publish work using this script the most relevant publication is:
 # --- Import packages ---
 from psychopy import locale_setup
 from psychopy import prefs
-from psychopy import sound, gui, visual, core, data, event, logging, clock, colors, layout
+from psychopy import  gui, visual, core, data, event, logging, clock, colors, layout
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 
@@ -29,6 +29,7 @@ import psychopy.iohub as io
 from psychopy.hardware import keyboard
 import matplotlib.pyplot as plt
 from psychometric_function import *
+import random
 
 
 # Run 'Before Experiment' code from code_3
@@ -37,7 +38,7 @@ from psychometric_function import *
 #else:
 #    pos= (randchoice([-1, 1])*16,randchoice([-1, 1])*8)
 
-def fixedincrement(response, str_contrast, str_spatial):
+def fixedincrement(response, min, max, fixed):
     # Ensure that relative paths start from the same directory as this script
     _thisDir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(_thisDir)
@@ -105,14 +106,14 @@ def fixedincrement(response, str_contrast, str_spatial):
     defaultKeyboard = keyboard.Keyboard(backend='iohub')
 
     # --- Initialize components for Routine "start_exp" ---
-    text = visual.TextStim(win=win, name='text',
-        text='Welcome to visual stimuli.\nContrast Sensitivity Experiments:\nPress 1 for stimulus in two hemiscreens.\nPress 2 for stimulus in four quadrants.\nSpatial Frequency Sensitivity Experiments:\nPress 3 for stimulus in two hemiscreens.\nPress 4 for stimulus in four quadrants.\n\n',
-        font='Open Sans',
-        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=0.0);
-    option_resp = keyboard.Keyboard()
+    # text = visual.TextStim(win=win, name='text',
+    #     text='Welcome to visual stimuli.\nContrast Sensitivity Experiments:\nPress 1 for stimulus in two hemiscreens.\nPress 2 for stimulus in four quadrants.\nSpatial Frequency Sensitivity Experiments:\nPress 3 for stimulus in two hemiscreens.\nPress 4 for stimulus in four quadrants.\n\n',
+    #     font='Open Sans',
+    #     pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    #     color='white', colorSpace='rgb', opacity=None, 
+    #     languageStyle='LTR',
+    #     depth=0.0);
+    # option_resp = keyboard.Keyboard()
 
     # --- Initialize components for Routine "start_opt" ---
     if response=='1' or response=='3':
@@ -136,11 +137,79 @@ def fixedincrement(response, str_contrast, str_spatial):
 
     # --- Initialize components for Routine "set_values" ---
     # Set experiment start values for variable component contrast
-    contrast = float(str_contrast)
-    contrastContainer = []
+    if response=='1':
+        opt=1
+        contrast_values = np.logspace(np.log10(float(min)), np.log10(float(max)), num=19)
+        contrast_values=contrast_values.tolist()
+        contrast_dict={}
+        pos_choices = [(-16, 0), (16, 0),(-16, 0), (16, 0)]
+        for element in contrast_values:
+            random.shuffle(pos_choices)
+            contrast_dict[element] = pos_choices[:]
+        contrast_values=contrast_values*4
+        random.shuffle(contrast_values)
+        contrastContainer = []
     # Set experiment start values for variable component spatial
-    spatial = float(str_spatial)
-    spatialContainer = []
+        spatial = float(fixed)
+        spatialContainer = []
+        # left_max= len(contrast_values)/2
+        # right_max=left_max
+        # contrast_values2=contrast_values[:]
+    elif  response=='2':
+        opt=2
+        contrast_values = np.logspace(np.log10(float(min)), np.log10(float(max)), num=19)
+        contrast_values=contrast_values.tolist()
+        contrast_dict={}
+        pos_choices = [(-16, 8), (16, -8),(-16, -8), (16, 8)]
+        for element in contrast_values:
+            random.shuffle(pos_choices)
+            contrast_dict[element] = pos_choices[:]
+        contrast_values=contrast_values*4
+        random.shuffle(contrast_values)
+        contrastContainer = []
+    # Set experiment start values for variable component spatial
+        spatial = float(fixed)
+        spatialContainer = []
+        # left_max= len(contrast_values)/2
+        # right_max=left_max
+        # contrast_values2=contrast_values[:]
+    elif  response=='3':
+        opt=3
+        spatial_values = np.logspace(np.log10(float(min)), np.log10(float(max)), num=19)
+        spatial_values=spatial_values.tolist()
+        spatial_dict={}
+        pos_choices = [(-16, 0), (16, 0),(-16, 0), (16, 0)]
+        for element in spatial_values:
+            random.shuffle(pos_choices)
+            contrast_dict[element] = pos_choices[:]
+        spatial_values=spatial_values*4
+        random.shuffle(spatial_values)
+        contrastContainer = []
+    # Set experiment start values for variable component spatial
+        contrast = float(fixed)
+        spatialContainer = []
+        # left_max= len(spatial_values)/2
+        # right_max=left_max
+        # spatial_values2=spatial_values[:]
+    else:
+        opt=4
+        spatial_values = np.logspace(np.log10(float(min)), np.log10(float(max)), num=19)
+        spatial_values=spatial_values.tolist()
+        spatial_dict={}
+        pos_choices = [(-16, 8), (16, -8),(-16, -8), (16, 8)]
+        for element in spatial_values:
+            random.shuffle(pos_choices)
+            contrast_dict[element] = pos_choices[:]
+        spatial_values=spatial_values*4
+        random.shuffle(spatial_values)
+        contrastContainer = []
+    # Set experiment start values for variable component spatial
+        contrast = float(fixed)
+        spatialContainer = []
+        # left_max= len(spatial_values)/2
+        # right_max=left_max
+        # spatial_values2=spatial_values[:]
+
 
     # --- Initialize components for Routine "grating_acuity" ---
     # Set experiment start values for variable component position
@@ -199,18 +268,18 @@ def fixedincrement(response, str_contrast, str_spatial):
     continueRoutine = True
     routineForceEnded = False
     # update component parameters for each repeat
-    option_resp.keys = []
-    option_resp.rt = []
-    _option_resp_allKeys = []
-    # keep track of which components have finished
-    start_expComponents = [text, option_resp]
-    for thisComponent in start_expComponents:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
+    # option_resp.keys = []
+    # option_resp.rt = []
+    # _option_resp_allKeys = []
+    # # keep track of which components have finished
+    # start_expComponents = [text, option_resp]
+    # for thisComponent in start_expComponents:
+    #     thisComponent.tStart = None
+    #     thisComponent.tStop = None
+    #     thisComponent.tStartRefresh = None
+    #     thisComponent.tStopRefresh = None
+    #     if hasattr(thisComponent, 'status'):
+    #         thisComponent.status = NOT_STARTED
     # reset timers
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
@@ -290,26 +359,40 @@ def fixedincrement(response, str_contrast, str_spatial):
     #     thisExp.addData('option_resp.rt', option_resp.rt)
     # thisExp.nextEntry()
     # Run 'End Routine' code from code_4
-    if response== '1':
-        opt=1
-    #   start_contrast=float(expInfo['start contrast'])
-    #   start_spatial=0.5
-    elif response== '2':
-        opt=2
-    #   start_contrast=float(expInfo['start contrast'])
-    #   start_spatial=0.5
-    elif response== '3':
-        opt=3
-    #    start_spatial=float(expInfo['start spatial freq'])
-    #    start_contrast=1
-    elif response== '4':
-        opt=4
+    # if response== '1':
+    #     opt=1
+    #     pos_choices = [(-16, 0), (16, 0),(-16, 0), (16, 0)]
+    #     for key in contrast_dict:
+    #         contrast_dict[key]=random.shuffle(pos_choices) 
+         
+    # # start_contrast=float(expInfo['start contrast'])
+    # #   start_spatial=0.5
+    # elif response== '2':
+    #     opt=2
+    #     pos_choices = [(-16, 8), (16, -8),(-16, -8), (16, 8)]
+    #     for key in contrast_dict:
+    #         contrast_dict[key]=random.shuffle(pos_choices)  
+    # #   start_contrast=float(expInfo['start contrast'])
+    # #   start_spatial=0.5
+    # elif response== '3':
+    #     opt=3
+    #     pos_choices = [(-16, 0), (16, 0),(-16, 0), (16, 0)]
+    #     for key in spatial_dict:
+    #         spatial_dict[key]=random.shuffle(pos_choices) 
+    # #    start_spatial=float(expInfo['start spatial freq'])
+    # #    start_contrast=1
+    # elif response== '4':
+    #     opt=4
+    #     pos_choices = [(-16, 8), (16, -8),(-16, -8), (16, 8)]
+    #     for key in spatial_dict:
+    #         spatial_dict[key]=random.shuffle(pos_choices)  
+
     #    start_spatial=float(expInfo['start spatial freq'])
     #    start_contrast=1
     # the Routine "start_exp" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
-    feedback=[]
-    value=[]
+    feedback={}
+    # value=[]
     # --- Prepare to start Routine "start_opt" ---
     continueRoutine = True
     routineForceEnded = False
@@ -408,7 +491,7 @@ def fixedincrement(response, str_contrast, str_spatial):
     routineTimer.reset()
 
     # set up handler to look after randomisation of conditions etc
-    ga_loop = data.TrialHandler(nReps=19.0, method='random', 
+    ga_loop = data.TrialHandler(nReps=19.0*4, method='random', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='ga_loop')
@@ -433,24 +516,24 @@ def fixedincrement(response, str_contrast, str_spatial):
         # Run 'Begin Routine' code from code_2
         
         if opt==1:
-            contrast= (45**(1/19))*contrast
-            value.append(contrast)
-            spatial=0.5
+            contrast= float(contrast_values.pop())    
+            # value.append(contrast)
+            spatial=float(fixed)
         elif opt==2:
-            contrast= (45**(1/19))*contrast
-            value.append(contrast)
-            spatial=0.5
+            contrast= float(contrast_values.pop())
+            # value.append(contrast)
+            spatial=float(fixed)
         elif opt==3:
-            spatial= (45**(1/19))*spatial
-            value.append(spatial)
-            contrast= 0.5
+            spatial= float(spatial_values.pop())
+            # value.append(spatial)
+            contrast= float(fixed)
         elif opt==4:
-            spatial= (45**(1/19))*spatial
-            value.append(spatial)
-            contrast=0.5
+            spatial= float(spatial_values.pop())
+            # value.append(spatial)
+            contrast= float(fixed)
         
-        contrast = contrast  # Set routine start values for contrast
-        spatial = spatial  # Set routine start values for spatial
+        # contrast = contrast  # Set routine start values for contrast
+        # spatial = spatial  # Set routine start values for spatial
         # keep track of which components have finished
         set_valuesComponents = []
         for thisComponent in set_valuesComponents:
@@ -502,7 +585,7 @@ def fixedincrement(response, str_contrast, str_spatial):
         routineTimer.reset()
         
         # set up handler to look after randomisation of conditions etc
-        psychometric_func = data.TrialHandler(nReps=4.0, method='random', 
+        psychometric_func = data.TrialHandler(nReps=1.0, method='random', 
             extraInfo=expInfo, originPath=-1,
             trialList=[None],
             seed=None, name='psychometric_func')
@@ -526,10 +609,19 @@ def fixedincrement(response, str_contrast, str_spatial):
             routineForceEnded = False
             # update component parameters for each repeat
             # Run 'Begin Routine' code from code_3
-            if opt==1 or opt==3:
-                pos=(randchoice([-1, 1])*16,0)
+            if opt==1 or opt==2:
+                pos_list=[]
+                pos_list = contrast_dict[contrast]
+                pos = pos_list.pop()
+                contrast_dict[contrast]=pos_list
+                # pos=pos_choices.pop()
             else:
-                pos= (randchoice([-1, 1])*16,randchoice([-1, 1])*8)
+                pos_list=[]
+                pos_list = spatial_dict[spatial]
+                pos = pos_list.pop()
+                spatial_dict[spatial]=pos_list
+                # pos=pos_choices.pop()
+            
             position = pos  # Set routine start values for position
             GA.setContrast(contrast)
             GA.setPos(position)
@@ -782,7 +874,16 @@ def fixedincrement(response, str_contrast, str_spatial):
             # store data for psychometric_func (TrialHandler)
             psychometric_func.addData('key_resp_2.keys',key_resp_2.keys)
             psychometric_func.addData('key_resp_2.corr', key_resp_2.corr)
-            feedback.append(key_resp_2.corr)
+            if opt=='1' or opt=='2':
+                if contrast in feedback:
+                    feedback[contrast].append(key_resp_2.corr)  # Append the new value to the existing list
+                else:
+                    feedback[contrast] = [key_resp_2.corr]
+            else:
+                if spatial in feedback:
+                    feedback[spatial].append(key_resp_2.corr)  # Append the new value to the existing list
+                else:
+                    feedback[spatial] = [key_resp_2.corr]
             if key_resp_2.keys != None:  # we had a response
                 psychometric_func.addData('key_resp_2.rt', key_resp_2.rt)
             # the Routine "central_fixation" was not non-slip safe, so reset the non-slip timer
@@ -876,9 +977,19 @@ def fixedincrement(response, str_contrast, str_spatial):
     # and win.timeOnFlip() tasks get executed before quitting
     win.flip()
     percent_corr=[]
-    for i in range(0,len(feedback),4):
-        percent_corr.append((feedback[i]+feedback[i+1]+feedback[i+2]+feedback[i+3])/4)
+    #reversing the feedback list as we get the values in reverse order due to pop()
     
+    if response=='1' or response=='2':
+        for contrast in feedback:
+            feedback[contrast]= sum(feedback[contrast])/len(feedback[contrast])
+    else:
+        for spatial in feedback:
+            feedback[spatial]= sum(feedback[spatial])/len(feedback[spatial])
+
+    # for i in range(0,len(feedback),4):
+    #     percent_corr.append((feedback[i]+feedback[i+1]+feedback[i+2]+feedback[i+3])/4)
+    feedback_key = list(feedback.keys())
+    feedback_value = list(feedback.values())
     # psychometric_function(percent_corr,value,response)
     # these shouldn't be strictly necessary (should auto-save)
     thisExp.saveAsWideText(filename+'.csv', delim='auto')
@@ -889,7 +1000,7 @@ def fixedincrement(response, str_contrast, str_spatial):
         eyetracker.setConnectionState(False)
     thisExp.abort()  # or data files will save again on exit
     win.close()
-    return percent_corr,value,response
+    return feedback_value,feedback_key,response
     
     # core.quit()
     
