@@ -16,6 +16,9 @@ if choice=='1':
     print("Spatial Frequency Sensitivity Experiments:\n")
     print("Press 3 for stimulus in two hemiscreens.\n")
     print("Press 4 for stimulus in four quadrants.\n")
+    print("Vernier Acuity Experiments:\n")
+    print("Press 5 for stimulus in two hemiscreens.\n")
+    print("Press 6 for stimulus in four quadrants.\n")
 
     case= input()
     if case=='3' or case=='4':
@@ -31,7 +34,7 @@ if choice=='1':
         if fixed_contrast == "":
             fixed_contrast = "1"
         feedback,value,response=fixedincrement(case,min_spatial,max_spatial,fixed_contrast)
-    else:
+    elif case=='1' or case=='2':
         print("Enter minimum and maximum contrast\n")
         print("Default values: minimum: 0.02 and maximum: 1. For default values press enter \n")
         min_contrast=input("Enter Minimum contrast\n")
@@ -44,6 +47,22 @@ if choice=='1':
         if fixed_spatial == "":
             fixed_spatial = "0.5"
         feedback,value,response=fixedincrement(case,min_contrast,max_contrast,fixed_spatial)
+    else:
+        print("Enter minimum and maximum phase\n")
+        print("Default values: minimum: 0.25 and maximum: 8. For default values press enter \n")
+        min_phase=input("Enter Minimum phase\n")
+        max_phase= input("Enter Maximum phase\n")
+        fixed_contrast=input("Enter fixed contrast. Default value= 0.5\n")
+        fixed_spatial=input("Enter fixed spatial frequency. Default value= 0.5\n")
+        if min_phase == "":
+            min_phase = "0.25"
+        if max_phase == "":
+            max_phase = "8"
+        if fixed_spatial == "":
+            fixed_spatial = "0.5"
+        if fixed_contrast == "":
+            fixed_contrast = "0.5"
+        feedback,value,response=fixedincrement_vernier(case,min_phase,max_phase,fixed_contrast,fixed_spatial)
     # psychometric_function(feedback,value,response)
 
 elif choice=='2':
