@@ -181,7 +181,7 @@ def fixedincrement(response, min, max, fixed):
         pos_choices = [(-16, 0), (16, 0),(-16, 0), (16, 0)]
         for element in spatial_values:
             random.shuffle(pos_choices)
-            contrast_dict[element] = pos_choices[:]
+            spatial_dict[element] = pos_choices[:]
         spatial_values=spatial_values*4
         random.shuffle(spatial_values)
         contrastContainer = []
@@ -199,7 +199,7 @@ def fixedincrement(response, min, max, fixed):
         pos_choices = [(-16, 8), (16, -8),(-16, -8), (16, 8)]
         for element in spatial_values:
             random.shuffle(pos_choices)
-            contrast_dict[element] = pos_choices[:]
+            spatial_dict[element] = pos_choices[:]
         spatial_values=spatial_values*4
         random.shuffle(spatial_values)
         contrastContainer = []
