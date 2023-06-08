@@ -72,6 +72,9 @@ elif choice=='2':
     print("Spatial Frequency Sensitivity Experiments:\n")
     print("Press 3 for stimulus in two hemiscreens.\n")
     print("Press 4 for stimulus in four quadrants.\n")
+    print("Vernier Acuity Experiments:\n")
+    print("Press 5 for stimulus in two hemiscreens.\n")
+    print("Press 6 for stimulus in four quadrants.\n")
 
     case= input()
     if case=='3' or case=='4':
@@ -84,7 +87,9 @@ elif choice=='2':
             start_spatial= "0.9"
         if start_contrast=="":
             start_contrast="1"
-    else:
+        feedback,value=staircase(case,start_contrast,start_spatial)
+        
+    elif case=='1' or case=='2':
         print("Enter start contrast(maximum=1 and minimum=0.02)\n")
         print("Default value: 0.09  . For default values press enter \n")
         start_contrast= input()
@@ -94,6 +99,19 @@ elif choice=='2':
             start_spatial= "0.5"
         if start_contrast=="":
             start_contrast="0.09"
-    feedback,value=staircase(case,start_contrast,start_spatial)
+        feedback,value=staircase(case,start_contrast,start_spatial)
+    else:
+        print("Enter starting phase: minimum=0 and maximum=1\n")
+        print("Default value: 0.5. For default value press enter \n")
+        start_phase=input()
+        fixed_contrast=input("Enter fixed contrast. Default value= 0.5\n")
+        fixed_spatial=input("Enter fixed spatial frequency. Default value= 0.5\n")
+        if start_phase == "":
+            start_phase = "0.5"
+        if fixed_spatial == "":
+            fixed_spatial = "0.5"
+        if fixed_contrast == "":
+            fixed_contrast = "0.5"
+        feedback,value=staircase_vernier(case,start_phase,fixed_contrast,fixed_spatial)
     # psychometric_function(feedback,value,case)
 core.quit()
