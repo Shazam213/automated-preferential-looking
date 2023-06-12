@@ -880,7 +880,7 @@ def fixedincrement(response, min, max, fixed):
             # store data for psychometric_func (TrialHandler)
             psychometric_func.addData('key_resp_2.keys',key_resp_2.keys)
             psychometric_func.addData('key_resp_2.corr', key_resp_2.corr)
-            if opt=='1' or opt=='2':
+            if opt==1 or opt==2:
                 if contrast in feedback:
                     feedback[contrast].append(key_resp_2.corr)  # Append the new value to the existing list
                 else:
@@ -994,8 +994,10 @@ def fixedincrement(response, min, max, fixed):
 
     # for i in range(0,len(feedback),4):
     #     percent_corr.append((feedback[i]+feedback[i+1]+feedback[i+2]+feedback[i+3])/4)
+    feedback=dict(sorted(feedback.items()))
     feedback_key = list(feedback.keys())
     feedback_value = list(feedback.values())
+
     # psychometric_function(percent_corr,value,response)
     # these shouldn't be strictly necessary (should auto-save)
     thisExp.saveAsWideText(filename+'.csv', delim='auto')
@@ -1135,6 +1137,7 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
             phase_dict[element] = pos_choices[:]
         phase_value=phase_value*4
         random.shuffle(phase_value)
+        num_phase=len(phase_value)
         contrastContainer = []
     # Set experiment start values for variable component spatial
         spatial = float(spatial)
@@ -1323,7 +1326,7 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
     routineTimer.reset()
 
     # set up handler to look after randomisation of conditions etc
-    ga_loop = data.TrialHandler(nReps=19.0*4, method='random', 
+    ga_loop = data.TrialHandler(nReps=num_phase, method='random', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='ga_loop')
@@ -1711,9 +1714,9 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
             psychometric_func.addData('key_resp_2.corr', key_resp_2.corr)
             
             if phase in feedback:
-                feedback[contrast].append(key_resp_2.corr)  # Append the new value to the existing list
+                feedback[phase].append(key_resp_2.corr)  # Append the new value to the existing list
             else:
-                feedback[contrast] = [key_resp_2.corr]
+                feedback[phase] = [key_resp_2.corr]
             
             if key_resp_2.keys != None:  # we had a response
                 psychometric_func.addData('key_resp_2.rt', key_resp_2.rt)
@@ -1810,15 +1813,14 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
     percent_corr=[]
     #reversing the feedback list as we get the values in reverse order due to pop()
     
-    if response=='1' or response=='2':
-        for contrast in feedback:
-            feedback[contrast]= sum(feedback[contrast])/len(feedback[contrast])
-    else:
-        for spatial in feedback:
-            feedback[spatial]= sum(feedback[spatial])/len(feedback[spatial])
+
+    for phase in feedback:
+        feedback[phase]= sum(feedback[phase])/len(feedback[phase])
+
 
     # for i in range(0,len(feedback),4):
     #     percent_corr.append((feedback[i]+feedback[i+1]+feedback[i+2]+feedback[i+3])/4)
+    feedback=dict(sorted(feedback.items()))
     feedback_key = list(feedback.keys())
     feedback_value = list(feedback.values())
     # these shouldn't be strictly necessary (should auto-save)

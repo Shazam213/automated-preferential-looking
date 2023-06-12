@@ -63,7 +63,7 @@ if choice=='1':
         if fixed_contrast == "":
             fixed_contrast = "0.5"
         feedback,value,response=fixedincrement_vernier(case,min_phase,max_phase,fixed_contrast,fixed_spatial)
-    # psychometric_function(feedback,value,response)
+    psychometric_function(feedback,value,response)
 
 elif choice=='2':
     print("Contrast Sensitivity Experiments:\n")
@@ -113,5 +113,5 @@ elif choice=='2':
         if fixed_contrast == "":
             fixed_contrast = "0.5"
         feedback,value=staircase_vernier(case,start_phase,fixed_contrast,fixed_spatial)
-    # psychometric_function(feedback,value,case)
+    psychometric_function(feedback,value,case)
 core.quit()
