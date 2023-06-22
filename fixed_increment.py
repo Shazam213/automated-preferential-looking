@@ -31,15 +31,13 @@ import matplotlib.pyplot as plt
 from psychometric_function import *
 import random
 import math
+import platform
 
 
-# Run 'Before Experiment' code from code_3
-#if opt==1 or opt==3:
-#    pos=(randchoice([-1, 1])*16,0)
-#else:
-#    pos= (randchoice([-1, 1])*16,randchoice([-1, 1])*8)
 
 def fixedincrement(response, min, max, fixed):
+    os_name = platform.system()
+
     # Ensure that relative paths start from the same directory as this script
     _thisDir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(_thisDir)
@@ -102,9 +100,13 @@ def fixedincrement(response, min, max, fixed):
         ioSession = str(expInfo['session'])
     ioServer = io.launchHubServer(window=win, **ioConfig)
     eyetracker = None
-
+   
     # create a default keyboard (e.g. to check for escape)
-    defaultKeyboard = keyboard.Keyboard(backend='iohub')
+    if os_name == "Windows" or os_name == "Linux" :
+        defaultKeyboard = keyboard.Keyboard(backend='iohub')
+    elif os_name == "Darwin":
+        defaultKeyboard = keyboard.Keyboard(backend='PsychToolbox')
+
 
     # --- Initialize components for Routine "start_exp" ---
     # text = visual.TextStim(win=win, name='text',
@@ -1016,6 +1018,7 @@ def fixedincrement(response, min, max, fixed):
 
 def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
     # Ensure that relative paths start from the same directory as this script
+    os_name = platform.system()
     _thisDir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(_thisDir)
     # Store info about the experiment session
@@ -1079,7 +1082,10 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
     eyetracker = None
 
     # create a default keyboard (e.g. to check for escape)
-    defaultKeyboard = keyboard.Keyboard(backend='iohub')
+    if os_name == "Windows" or os_name == "Linux" :
+        defaultKeyboard = keyboard.Keyboard(backend='iohub')
+    elif os_name == "Darwin":
+        defaultKeyboard = keyboard.Keyboard(backend='PsychToolbox')
 
     # --- Initialize components for Routine "start_opt" ---
     if response=='5':

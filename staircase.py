@@ -27,6 +27,7 @@ import sys  # to get file system encoding
 
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
+import platform
 
 # Run 'Before Experiment' code from code_3
 #if opt==1 or opt==3:
@@ -41,6 +42,7 @@ from psychopy.hardware import keyboard
 
 def staircase(response, str_contrast, str_spatial):
     # Ensure that relative paths start from the same directory as this script
+    os_name = platform.system()
     _thisDir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(_thisDir)
     # Store info about the experiment session
@@ -105,8 +107,10 @@ def staircase(response, str_contrast, str_spatial):
     feedback={}
     value=[]
     # create a default keyboard (e.g. to check for escape)
-    defaultKeyboard = keyboard.Keyboard(backend='iohub')
-
+    if os_name == "Windows" or os_name == "Linux" :
+        defaultKeyboard = keyboard.Keyboard(backend='iohub')
+    elif os_name == "Darwin":
+        defaultKeyboard = keyboard.Keyboard(backend='PsychToolbox')
     # --- Initialize components for Routine "start_exp" ---
     text = visual.TextStim(win=win, name='text',
         text='Welcome to visual stimuli.\nContrast Sensitivity Experiments:\nPress 1 for stimulus in two hemiscreens.\nPress 2 for stimulus in four quadrants.\nSpatial Frequency Sensitivity Experiments:\nPress 3 for stimulus in two hemiscreens.\nPress 4 for stimulus in four quadrants.\n\n',
@@ -1251,6 +1255,8 @@ def staircase(response, str_contrast, str_spatial):
 
 def staircase_vernier(response,start_phase,contrast,spatial):
     # Ensure that relative paths start from the same directory as this script
+    os_name = platform.system()
+    
     _thisDir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(_thisDir)
     # Store info about the experiment session
@@ -1315,7 +1321,10 @@ def staircase_vernier(response,start_phase,contrast,spatial):
     feedback={}
     value=[]
     # create a default keyboard (e.g. to check for escape)
-    defaultKeyboard = keyboard.Keyboard(backend='iohub')
+    if os_name == "Windows" or os_name == "Linux" :
+        defaultKeyboard = keyboard.Keyboard(backend='iohub')
+    elif os_name == "Darwin":
+        defaultKeyboard = keyboard.Keyboard(backend='PsychToolbox')
 
     # --- Initialize components for Routine "start_exp" ---
 
