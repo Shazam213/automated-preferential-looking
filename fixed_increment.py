@@ -105,7 +105,7 @@ def fixedincrement(response, min, max, fixed):
     if os_name == "Windows" or os_name == "Linux" :
         defaultKeyboard = keyboard.Keyboard(backend='iohub')
     elif os_name == "Darwin":
-        defaultKeyboard = keyboard.Keyboard(backend='PsychToolbox')
+        defaultKeyboard = keyboard.Keyboard(backend='ptb')
 
 
     # --- Initialize components for Routine "start_exp" ---
@@ -1085,7 +1085,7 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
     if os_name == "Windows" or os_name == "Linux" :
         defaultKeyboard = keyboard.Keyboard(backend='iohub')
     elif os_name == "Darwin":
-        defaultKeyboard = keyboard.Keyboard(backend='PsychToolbox')
+        defaultKeyboard = keyboard.Keyboard(backend='ptb')
 
     # --- Initialize components for Routine "start_opt" ---
     if response=='5':

@@ -110,7 +110,7 @@ def staircase(response, str_contrast, str_spatial):
     if os_name == "Windows" or os_name == "Linux" :
         defaultKeyboard = keyboard.Keyboard(backend='iohub')
     elif os_name == "Darwin":
-        defaultKeyboard = keyboard.Keyboard(backend='PsychToolbox')
+        defaultKeyboard = keyboard.Keyboard(backend='ptb')
     # --- Initialize components for Routine "start_exp" ---
     text = visual.TextStim(win=win, name='text',
         text='Welcome to visual stimuli.\nContrast Sensitivity Experiments:\nPress 1 for stimulus in two hemiscreens.\nPress 2 for stimulus in four quadrants.\nSpatial Frequency Sensitivity Experiments:\nPress 3 for stimulus in two hemiscreens.\nPress 4 for stimulus in four quadrants.\n\n',
@@ -1324,7 +1324,7 @@ def staircase_vernier(response,start_phase,contrast,spatial):
     if os_name == "Windows" or os_name == "Linux" :
         defaultKeyboard = keyboard.Keyboard(backend='iohub')
     elif os_name == "Darwin":
-        defaultKeyboard = keyboard.Keyboard(backend='PsychToolbox')
+        defaultKeyboard = keyboard.Keyboard(backend='ptb')
 
     # --- Initialize components for Routine "start_exp" ---
 
