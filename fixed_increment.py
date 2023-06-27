@@ -1084,7 +1084,7 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
     # create a default keyboard (e.g. to check for escape)
     if os_name == "Windows" or os_name == "Linux" :
         defaultKeyboard = keyboard.Keyboard(backend='iohub')
-    elif os_name == "Darwin":
+    else:
         defaultKeyboard = keyboard.Keyboard(backend='ptb')
 
     # --- Initialize components for Routine "start_opt" ---

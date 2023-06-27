@@ -109,7 +109,7 @@ def staircase(response, str_contrast, str_spatial):
     # create a default keyboard (e.g. to check for escape)
     if os_name == "Windows" or os_name == "Linux" :
         defaultKeyboard = keyboard.Keyboard(backend='iohub')
-    elif os_name == "Darwin":
+    else:
         defaultKeyboard = keyboard.Keyboard(backend='ptb')
     # --- Initialize components for Routine "start_exp" ---
     text = visual.TextStim(win=win, name='text',
