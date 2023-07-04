@@ -93,23 +93,36 @@ def staircase(response, str_contrast, str_spatial):
         frameDur = 1.0 / round(expInfo['frameRate'])
     else:
         frameDur = 1.0 / 60.0  # could not measure, so guess
-    # --- Setup input devices ---
-    ioConfig = {}
+    # # --- Setup input devices ---
+    # ioConfig = {}
 
-    # Setup iohub keyboard
-    ioConfig['Keyboard'] = dict(use_keymap='psychopy')
+    # # Setup iohub keyboard
+    # ioConfig['Keyboard'] = dict(use_keymap='psychopy')
 
-    ioSession = '1'
-    if 'session' in expInfo:
-        ioSession = str(expInfo['session'])
-    ioServer = io.launchHubServer(window=win, **ioConfig)
-    eyetracker = None
+    # ioSession = '1'
+    # if 'session' in expInfo:
+    #     ioSession = str(expInfo['session'])
+    # ioServer = io.launchHubServer(window=win, **ioConfig)
+    # eyetracker = None
     feedback={}
     value=[]
     # create a default keyboard (e.g. to check for escape)
     if os_name == "Windows" or os_name == "Linux" :
+         # --- Setup input devices ---
+        ioConfig = {}
+        # Setup iohub keyboard
+        ioConfig['Keyboard'] = dict(use_keymap='psychopy')
+
+        ioSession = '1'
+        if 'session' in expInfo:
+            ioSession = str(expInfo['session'])
+        ioServer = io.launchHubServer(window=win, **ioConfig)
+        eyetracker = None
         defaultKeyboard = keyboard.Keyboard(backend='iohub')
     else:
+        ioConfig = {}
+        ioSession = ioServer = eyetracker = None
+        # create a default keyboard (e.g. to check for escape)
         defaultKeyboard = keyboard.Keyboard(backend='ptb')
     # --- Initialize components for Routine "start_exp" ---
     text = visual.TextStim(win=win, name='text',
@@ -688,7 +701,10 @@ def staircase(response, str_contrast, str_spatial):
                     win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
                     win.callOnFlip(key_resp_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
                 if key_resp_2.status == STARTED and not waitOnFlip:
-                    theseKeys = key_resp_2.getKeys(keyList=['u','i','j','k'], waitRelease=False)
+                    if opt==1 or opt==3:
+                        theseKeys = key_resp_2.getKeys(keyList=['j','k'], waitRelease=False)
+                    else:
+                        theseKeys = key_resp_2.getKeys(keyList=['u','i','j','k'], waitRelease=False)
                     _key_resp_2_allKeys.extend(theseKeys)
                     if len(_key_resp_2_allKeys):
                         key_resp_2.keys = _key_resp_2_allKeys[-1].name  # just the last key pressed
@@ -1075,7 +1091,10 @@ def staircase(response, str_contrast, str_spatial):
                     win.callOnFlip(key_resp_3.clock.reset)  # t=0 on next screen flip
                     win.callOnFlip(key_resp_3.clearEvents, eventType='keyboard')  # clear events on next screen flip
                 if key_resp_3.status == STARTED and not waitOnFlip:
-                    theseKeys = key_resp_3.getKeys(keyList=['u','i','j','k'], waitRelease=False)
+                    if opt==1 or opt==3:
+                        theseKeys = key_resp_2.getKeys(keyList=['j','k'], waitRelease=False)
+                    else:
+                        theseKeys = key_resp_2.getKeys(keyList=['u','i','j','k'], waitRelease=False)
                     _key_resp_3_allKeys.extend(theseKeys)
                     if len(_key_resp_3_allKeys):
                         key_resp_3.keys = _key_resp_3_allKeys[-1].name  # just the last key pressed
@@ -1307,26 +1326,38 @@ def staircase_vernier(response,start_phase,contrast,spatial):
         frameDur = 1.0 / round(expInfo['frameRate'])
     else:
         frameDur = 1.0 / 60.0  # could not measure, so guess
-    # --- Setup input devices ---
-    ioConfig = {}
+    # # --- Setup input devices ---
+    # ioConfig = {}
 
-    # Setup iohub keyboard
-    ioConfig['Keyboard'] = dict(use_keymap='psychopy')
+    # # Setup iohub keyboard
+    # ioConfig['Keyboard'] = dict(use_keymap='psychopy')
 
-    ioSession = '1'
-    if 'session' in expInfo:
-        ioSession = str(expInfo['session'])
-    ioServer = io.launchHubServer(window=win, **ioConfig)
-    eyetracker = None
+    # ioSession = '1'
+    # if 'session' in expInfo:
+    #     ioSession = str(expInfo['session'])
+    # ioServer = io.launchHubServer(window=win, **ioConfig)
+    # eyetracker = None
     feedback={}
     value=[]
     # create a default keyboard (e.g. to check for escape)
     if os_name == "Windows" or os_name == "Linux" :
-        defaultKeyboard = keyboard.Keyboard(backend='iohub')
-    elif os_name == "Darwin":
-        defaultKeyboard = keyboard.Keyboard(backend='ptb')
+         # --- Setup input devices ---
+        ioConfig = {}
+        # Setup iohub keyboard
+        ioConfig['Keyboard'] = dict(use_keymap='psychopy')
 
-    # --- Initialize components for Routine "start_exp" ---
+        ioSession = '1'
+        if 'session' in expInfo:
+            ioSession = str(expInfo['session'])
+        ioServer = io.launchHubServer(window=win, **ioConfig)
+        eyetracker = None
+        defaultKeyboard = keyboard.Keyboard(backend='iohub')
+    else:
+        ioConfig = {}
+        ioSession = ioServer = eyetracker = None
+
+        # create a default keyboard (e.g. to check for escape)
+        defaultKeyboard = keyboard.Keyboard(backend='ptb')
 
     # --- Initialize components for Routine "start_opt" ---
     if response=='5':
@@ -1789,7 +1820,10 @@ def staircase_vernier(response,start_phase,contrast,spatial):
                 win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
                 win.callOnFlip(key_resp_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
             if key_resp_2.status == STARTED and not waitOnFlip:
-                theseKeys = key_resp_2.getKeys(keyList=['u','i','j','k'], waitRelease=False)
+                if opt==5:
+                    theseKeys = key_resp_2.getKeys(keyList=['j','k'], waitRelease=False)
+                else:
+                    theseKeys = key_resp_2.getKeys(keyList=['u','i','j','k'], waitRelease=False)
                 _key_resp_2_allKeys.extend(theseKeys)
                 if len(_key_resp_2_allKeys):
                     key_resp_2.keys = _key_resp_2_allKeys[-1].name  # just the last key pressed

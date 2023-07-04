@@ -23,44 +23,71 @@ if choice=='1':
     case= input()
     if case=='3' or case=='4':
         print("Enter minimum and maximum spatial frequency(in cycles/deg)\n")
-        print("Default values: minimum: 0.2 and maximum: 10. For default values press enter \n")
+        print("Default values: minimum: 0.2 and maximum: 10. For default values press enter \n")        
         min_spatial=input("Enter Minimum Spatial frequency\n")
-        max_spatial= input("Enter Maximum Spatial frequency\n")
-        fixed_contrast=input("Enter fixed contrast. Default value= 1\n")
         if min_spatial == "":
             min_spatial = "0.2"
+        if float(min_spatial) < 0.0:
+            print("Invalid input. Setting to default\n")
+            min_spatial = "0.2"
+        max_spatial= input("Enter Maximum Spatial frequency\n")
         if max_spatial == "":
             max_spatial = "10"
+        # if float(max_spatial)>10.0:
+        #     print("Invalid input. Setting to default\n")
+        #     max_spatial = "10"
+        fixed_contrast=input("Enter fixed contrast. Default value= 1\n")
         if fixed_contrast == "":
             fixed_contrast = "1"
+        if float(fixed_contrast) <0.0:
+            print("Invalid input. Setting to default\n")
+            fixed_contrast = "1"    
         feedback,value,response=fixedincrement(case,min_spatial,max_spatial,fixed_contrast)
     elif case=='1' or case=='2':
         print("Enter minimum and maximum contrast\n")
         print("Default values: minimum: 0.02 and maximum: 1. For default values press enter \n")
         min_contrast=input("Enter Minimum contrast\n")
-        max_contrast= input("Enter Maximum contrast\n")
-        fixed_spatial=input("Enter fixed spatial frequency. Default value= 0.5\n")
         if min_contrast == "":
             min_contrast = "0.02"
+        if float(min_contrast) < 0.0:
+            print("Invalid input. Setting to default\n")
+            min_contrast = "0.02"
+        max_contrast= input("Enter Maximum contrast\n")
         if max_contrast == "":
             max_contrast = "1"
+        # if float(max_contrast) > 10.0:
+        #     print("Invalid input. Setting to default\n")
+        #     min_contrast = "1"
+        fixed_spatial=input("Enter fixed spatial frequency. Default value= 0.5\n")
         if fixed_spatial == "":
+            fixed_spatial = "0.5"
+        if float(fixed_spatial) < 0.0:
+            print("Invalid input. Setting to default\n")
             fixed_spatial = "0.5"
         feedback,value,response=fixedincrement(case,min_contrast,max_contrast,fixed_spatial)
     else:
         print("Enter minimum and maximum phase\n")
         print("Default values: minimum: 0.25 and maximum: 8. For default values press enter \n")
         min_phase=input("Enter Minimum phase\n")
-        max_phase= input("Enter Maximum phase\n")
-        fixed_contrast=input("Enter fixed contrast. Default value= 0.5\n")
-        fixed_spatial=input("Enter fixed spatial frequency. Default value= 0.5\n")
         if min_phase == "":
             min_phase = "0.25"
+        if float(min_phase)<0.0:
+            print("Invalid input. Setting to default\n")
+            min_phase = "0.25"
+        max_phase= input("Enter Maximum phase\n")
         if max_phase == "":
             max_phase = "8"
+        fixed_spatial=input("Enter fixed spatial frequency. Default value= 0.5\n")
         if fixed_spatial == "":
             fixed_spatial = "0.5"
+        if float(fixed_spatial) < 0.0:
+            print("Invalid input. Setting to default\n")
+            fixed_spatial = "0.5"
+        fixed_contrast=input("Enter fixed contrast. Default value= 0.5\n")
         if fixed_contrast == "":
+            fixed_contrast = "0.5"
+        if float(fixed_contrast) < 0.0:
+            print("Invalid input. Setting to default\n")
             fixed_contrast = "0.5"
         feedback,value,response=fixedincrement_vernier(case,min_phase,max_phase,fixed_contrast,fixed_spatial)
     psychometric_function(feedback,value,response)
@@ -81,36 +108,57 @@ elif choice=='2':
         print("Enter start spatial frequency(in cycles/deg)\n")
         print("Default value: 0.9  . For default values press enter \n")
         start_spatial= input()
-        print("Enter fixed contrast(maximum 1). Default value= 1\n")
-        start_contrast=input()
         if start_spatial=="":
             start_spatial= "0.9"
+        if float(start_spatial)<0.0:
+            print("Invalid input. Setting to default\n")
+            start_spatial = "0.9"
+        print("Enter fixed contrast(maximum 1). Default value= 1\n")
+        start_contrast=input()
         if start_contrast=="":
             start_contrast="1"
+        if float(start_contrast)<0.0:
+            print("Invalid input. Setting to default\n")
+            start_contrast = "1"
         feedback,value=staircase(case,start_contrast,start_spatial)
         
     elif case=='1' or case=='2':
         print("Enter start contrast(maximum=1 and minimum=0.02)\n")
         print("Default value: 0.09  . For default values press enter \n")
         start_contrast= input()
+        if start_contrast=="":
+            start_contrast="0.09"
+        if float(start_contrast)<0.0:
+            print("Invalid input. Setting to default\n")
+            start_spatial = "0.09"
         print("Enter fixed spatial frequency(in cycles/deg). Default value= 0.5\n")
         start_spatial=input()
         if start_spatial=="":
             start_spatial= "0.5"
-        if start_contrast=="":
-            start_contrast="0.09"
+        if float(start_spatial)<0.0:
+            print("Invalid input. Setting to default\n")
+            start_spatial = "0.5"
         feedback,value=staircase(case,start_contrast,start_spatial)
     else:
         print("Enter starting phase: minimum=0 and maximum=1\n")
         print("Default value: 0.5. For default value press enter \n")
         start_phase=input()
-        fixed_contrast=input("Enter fixed contrast. Default value= 0.5\n")
-        fixed_spatial=input("Enter fixed spatial frequency. Default value= 0.5\n")
         if start_phase == "":
             start_phase = "0.5"
+        if float(start_phase)<0.0:
+            print("Invalid input. Setting to default\n")
+            start_phase = "0.5"
+        fixed_spatial=input("Enter fixed spatial frequency. Default value= 0.5\n")
         if fixed_spatial == "":
             fixed_spatial = "0.5"
+        if float(fixed_spatial)<0.0:
+            print("Invalid input. Setting to default\n")
+            fixed_spatial = "0.5"
+        fixed_contrast=input("Enter fixed contrast. Default value= 0.5\n")
         if fixed_contrast == "":
+            fixed_contrast = "0.5"
+        if float(fixed_contrast)<0.0:
+            print("Invalid input. Setting to default\n")
             fixed_contrast = "0.5"
         feedback,value=staircase_vernier(case,start_phase,fixed_contrast,fixed_spatial)
     psychometric_function(feedback,value,case)

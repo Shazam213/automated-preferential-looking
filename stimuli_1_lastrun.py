@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on April 27, 2023, at 20:09
+    on July 04, 2023, at 19:17
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -25,7 +25,6 @@ from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
 
-import psychopy.iohub as io
 from psychopy.hardware import keyboard
 
 
@@ -87,18 +86,10 @@ else:
     frameDur = 1.0 / 60.0  # could not measure, so guess
 # --- Setup input devices ---
 ioConfig = {}
-
-# Setup iohub keyboard
-ioConfig['Keyboard'] = dict(use_keymap='psychopy')
-
-ioSession = '1'
-if 'session' in expInfo:
-    ioSession = str(expInfo['session'])
-ioServer = io.launchHubServer(window=win, **ioConfig)
-eyetracker = None
+ioSession = ioServer = eyetracker = None
 
 # create a default keyboard (e.g. to check for escape)
-defaultKeyboard = keyboard.Keyboard(backend='iohub')
+defaultKeyboard = keyboard.Keyboard(backend='ptb')
 
 # --- Initialize components for Routine "start_exp" ---
 text = visual.TextStim(win=win, name='text',

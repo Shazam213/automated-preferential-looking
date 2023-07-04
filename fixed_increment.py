@@ -89,22 +89,24 @@ def fixedincrement(response, min, max, fixed):
         frameDur = 1.0 / round(expInfo['frameRate'])
     else:
         frameDur = 1.0 / 60.0  # could not measure, so guess
-    # --- Setup input devices ---
-    ioConfig = {}
-
-    # Setup iohub keyboard
-    ioConfig['Keyboard'] = dict(use_keymap='psychopy')
-
-    ioSession = '1'
-    if 'session' in expInfo:
-        ioSession = str(expInfo['session'])
-    ioServer = io.launchHubServer(window=win, **ioConfig)
-    eyetracker = None
    
-    # create a default keyboard (e.g. to check for escape)
     if os_name == "Windows" or os_name == "Linux" :
+         # --- Setup input devices ---
+        ioConfig = {}
+        # Setup iohub keyboard
+        ioConfig['Keyboard'] = dict(use_keymap='psychopy')
+
+        ioSession = '1'
+        if 'session' in expInfo:
+            ioSession = str(expInfo['session'])
+        ioServer = io.launchHubServer(window=win, **ioConfig)
+        eyetracker = None
         defaultKeyboard = keyboard.Keyboard(backend='iohub')
-    elif os_name == "Darwin":
+    else:
+        ioConfig = {}
+        ioSession = ioServer = eyetracker = None
+
+        # create a default keyboard (e.g. to check for escape)
         defaultKeyboard = keyboard.Keyboard(backend='ptb')
 
 
@@ -813,7 +815,10 @@ def fixedincrement(response, min, max, fixed):
                     win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
                     win.callOnFlip(key_resp_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
                 if key_resp_2.status == STARTED and not waitOnFlip:
-                    theseKeys = key_resp_2.getKeys(keyList=['u','i','j','k'], waitRelease=False)
+                    if opt==1 or opt==3:
+                        theseKeys = key_resp_2.getKeys(keyList=['j','k'], waitRelease=False)
+                    else:
+                        theseKeys = key_resp_2.getKeys(keyList=['u','i','j','k'], waitRelease=False)
                     _key_resp_2_allKeys.extend(theseKeys)
                     if len(_key_resp_2_allKeys):
                         key_resp_2.keys = _key_resp_2_allKeys[-1].name  # just the last key pressed
@@ -1070,21 +1075,23 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
     else:
         frameDur = 1.0 / 60.0  # could not measure, so guess
     # --- Setup input devices ---
-    ioConfig = {}
-
-    # Setup iohub keyboard
-    ioConfig['Keyboard'] = dict(use_keymap='psychopy')
-
-    ioSession = '1'
-    if 'session' in expInfo:
-        ioSession = str(expInfo['session'])
-    ioServer = io.launchHubServer(window=win, **ioConfig)
-    eyetracker = None
-
-    # create a default keyboard (e.g. to check for escape)
     if os_name == "Windows" or os_name == "Linux" :
+         # --- Setup input devices ---
+        ioConfig = {}
+        # Setup iohub keyboard
+        ioConfig['Keyboard'] = dict(use_keymap='psychopy')
+
+        ioSession = '1'
+        if 'session' in expInfo:
+            ioSession = str(expInfo['session'])
+        ioServer = io.launchHubServer(window=win, **ioConfig)
+        eyetracker = None
         defaultKeyboard = keyboard.Keyboard(backend='iohub')
     else:
+        ioConfig = {}
+        ioSession = ioServer = eyetracker = None
+
+        # create a default keyboard (e.g. to check for escape)
         defaultKeyboard = keyboard.Keyboard(backend='ptb')
 
     # --- Initialize components for Routine "start_opt" ---
@@ -1122,6 +1129,7 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
             phase_dict[element] = pos_choices[:]
         phase_value=phase_value*4
         random.shuffle(phase_value)
+        num_phase=len(phase_value)
         contrastContainer = []
     # Set experiment start values for variable component spatial
         spatial = float(spatial)
@@ -1649,7 +1657,11 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
                     win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
                     win.callOnFlip(key_resp_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
                 if key_resp_2.status == STARTED and not waitOnFlip:
-                    theseKeys = key_resp_2.getKeys(keyList=['u','i','j','k'], waitRelease=False)
+                    if opt==5:
+                        theseKeys = key_resp_2.getKeys(keyList=['j','k'], waitRelease=False)
+                    else:
+                        theseKeys = key_resp_2.getKeys(keyList=['u','i','j','k'], waitRelease=False)
+                    _key_resp_2_allKeys.extend(theseKeys)
                     _key_resp_2_allKeys.extend(theseKeys)
                     if len(_key_resp_2_allKeys):
                         key_resp_2.keys = _key_resp_2_allKeys[-1].name  # just the last key pressed
