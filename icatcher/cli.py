@@ -245,6 +245,7 @@ def predict_from_video(opt):
     :return:
     """
     # initialize
+    print(opt)
     loc = -5  # where in the sliding window to take the prediction (should be a function of opt.sliding_window_size)
     cursor = -5 # points to the frame we will write to output relative to current frame
     logging.info("using the following values for per-channel mean: {}".format(opt.per_channel_mean))

@@ -103,14 +103,14 @@ class Encoder_box(torch.nn.Module):
         return x
 
 class GazeCodingModel(torch.nn.Module):
-    def __init__(self, args, add_box=True):
+    def __init__(self, add_box=True):
         super().__init__()
-        self.args = args
-        self.n = (args.sliding_window_size + 1) // args.window_stride
+        # self.args = args
+        self.n = (9 + 1) // 2
         self.add_box = add_box
-        self.encoder_img = resnet18(num_classes=256).to(self.args.device)
-        self.encoder_box = Encoder_box().to(self.args.device)
-        self.predictor = Predictor_fc(self.n, add_box).to(self.args.device)
+        self.encoder_img = resnet18(num_classes=256).to('cpu')
+        self.encoder_box = Encoder_box().to('cpu')
+        self.predictor = Predictor_fc(self.n, add_box).to('cpu')
 
     def forward(self, data):
         imgs = data['imgs']  # bs x n x 3 x 100 x 100

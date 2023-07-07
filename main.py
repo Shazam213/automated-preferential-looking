@@ -3,5 +3,5 @@ from contrast_sensitivity_task import *
 
 
 input=cst()
-main(input)
+# main(input)
 
