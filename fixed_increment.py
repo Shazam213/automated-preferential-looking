@@ -231,7 +231,7 @@ def fixedincrement(response, min, max, fixed):
         win=win, name='polygon',
         size=(0.05, 0.05), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=-3.0, interpolate=True)
     text_3 = visual.TextStim(win=win, name='text_3',
         text='',
@@ -247,7 +247,7 @@ def fixedincrement(response, min, max, fixed):
         win=win, name='polygon_2',
         size=(0.05, 0.05), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=-2.0, interpolate=True)
     text_4 = visual.TextStim(win=win, name='text_4',
         text='',
@@ -262,7 +262,7 @@ def fixedincrement(response, min, max, fixed):
         win=win, name='polygon_3',
         size=(0.05, 0.05), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
 
     # Create some handy timers
@@ -1118,7 +1118,8 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
     # Set experiment start values for variable component contrast
     if response=='5':
         opt=5
-        num_steps = math.ceil(math.log(float(max_phase) / float(min_phase), math.sqrt(2)))
+        num_steps=19
+        # num_steps = math.ceil(math.log(float(max_phase) / float(min_phase), math.sqrt(2)))
         phase_octave = [float(min_phase) * math.pow(math.sqrt(2), i) for i in range(num_steps + 1)]
         phase_value = [(value - min(phase_octave)) / (max(phase_octave) - min(phase_octave)) for value in phase_octave]
         # contrast_values=contrast_values.tolist()
@@ -1140,7 +1141,8 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
         # contrast_values2=contrast_values[:]
     elif  response=='6':
         opt=6
-        num_steps = math.ceil(math.log(float(max_phase) / float(min_phase), math.sqrt(2)))
+        num_steps=19
+        # num_steps = math.ceil(math.log(float(max_phase) / float(min_phase), math.sqrt(2)))
         phase_octave = [float(min_phase) * math.pow(math.sqrt(2), i) for i in range(num_steps + 1)]
         phase_value = [(value - min(phase_octave)) / (max(phase_octave) - min(phase_octave)) for value in phase_octave]
         # contrast_values=contrast_values.tolist()
@@ -1188,12 +1190,12 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
             color=[1,1,1], colorSpace='rgb',
             opacity=None, contrast=1.0, blendmode='avg',
             texRes=512.0, interpolate=True, depth=-2.0)
-    polygon = visual.ShapeStim(
-        win=win, name='polygon',
-        size=(0.05, 0.05), vertices='circle',
-        ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
-        opacity=None, depth=-3.0, interpolate=True)
+    # polygon = visual.ShapeStim(
+    #     win=win, name='polygon',
+    #     size=(0.05, 0.05), vertices='circle',
+    #     ori=0.0, pos=(0, 0), anchor='center',
+    #     lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
+    #     opacity=None, depth=-3.0, interpolate=True)
     text_3 = visual.TextStim(win=win, name='text_3',
         text='',
         font='Open Sans',
@@ -1204,12 +1206,12 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
 
     # --- Initialize components for Routine "central_fixation" ---
     key_resp_2 = keyboard.Keyboard()
-    polygon_2 = visual.ShapeStim(
-        win=win, name='polygon_2',
-        size=(0.05, 0.05), vertices='circle',
-        ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
-        opacity=None, depth=-2.0, interpolate=True)
+    # polygon_2 = visual.ShapeStim(
+    #     win=win, name='polygon_2',
+    #     size=(0.05, 0.05), vertices='circle',
+    #     ori=0.0, pos=(0, 0), anchor='center',
+    #     lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
+    #     opacity=None, depth=-2.0, interpolate=True)
     text_4 = visual.TextStim(win=win, name='text_4',
         text='',
         font='Open Sans',
@@ -1223,7 +1225,7 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
         win=win, name='polygon_3',
         size=(0.05, 0.05), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000,0.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
 
     # Create some handy timers
@@ -1460,7 +1462,7 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
             text_3.setText("Spatial frequency: " +  f'{spatial:.3f}'+"\n"+"Contrast: "+ f'{contrast:.3f}'+"\n"+"Phase: "+ f'{phase:.3f}'
     )
             # keep track of which components have finished
-            grating_acuityComponents = [GA,GA_2, polygon, text_3]
+            grating_acuityComponents = [GA,GA_2, text_3]
             for thisComponent in grating_acuityComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -1515,24 +1517,24 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
                         GA_2.setAutoDraw(False)
                 
                 # *polygon* updates
-                if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    polygon.frameNStart = frameN  # exact frame index
-                    polygon.tStart = t  # local t and not account for scr refresh
-                    polygon.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(polygon, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'polygon.started')
-                    polygon.setAutoDraw(True)
-                if polygon.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > polygon.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
-                        # keep track of stop time/frame for later
-                        polygon.tStop = t  # not accounting for scr refresh
-                        polygon.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'polygon.stopped')
-                        polygon.setAutoDraw(False)
+                # if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                #     # keep track of start time/frame for later
+                #     polygon.frameNStart = frameN  # exact frame index
+                #     polygon.tStart = t  # local t and not account for scr refresh
+                #     polygon.tStartRefresh = tThisFlipGlobal  # on global time
+                #     win.timeOnFlip(polygon, 'tStartRefresh')  # time at next scr refresh
+                #     # add timestamp to datafile
+                #     thisExp.timestampOnFlip(win, 'polygon.started')
+                #     polygon.setAutoDraw(True)
+                # if polygon.status == STARTED:
+                #     # is it time to stop? (based on global clock, using actual start)
+                #     if tThisFlipGlobal > polygon.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+                #         # keep track of stop time/frame for later
+                #         polygon.tStop = t  # not accounting for scr refresh
+                #         polygon.frameNStop = frameN  # exact frame index
+                #         # add timestamp to datafile
+                #         thisExp.timestampOnFlip(win, 'polygon.stopped')
+                #         polygon.setAutoDraw(False)
                 
                 # *text_3* updates
                 if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1605,7 +1607,7 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
                 b='i'    
             text_4.setText("Spatial frequency: " +  f'{spatial:.3f}'+"\n"+"Contrast: "+ f'{contrast:.3f}'+"\n"+"Phase: "+ f'{phase:.3f}')
             # keep track of which components have finished
-            central_fixationComponents = [GA,GA_2,key_resp_2, polygon_2, text_4]
+            central_fixationComponents = [GA,GA_2,key_resp_2, text_4]
             for thisComponent in central_fixationComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -1676,15 +1678,15 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
                 
 
                 # *polygon_2* updates
-                if polygon_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    polygon_2.frameNStart = frameN  # exact frame index
-                    polygon_2.tStart = t  # local t and not account for scr refresh
-                    polygon_2.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(polygon_2, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'polygon_2.started')
-                    polygon_2.setAutoDraw(True)
+                # if polygon_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                #     # keep track of start time/frame for later
+                #     polygon_2.frameNStart = frameN  # exact frame index
+                #     polygon_2.tStart = t  # local t and not account for scr refresh
+                #     polygon_2.tStartRefresh = tThisFlipGlobal  # on global time
+                #     win.timeOnFlip(polygon_2, 'tStartRefresh')  # time at next scr refresh
+                #     # add timestamp to datafile
+                #     thisExp.timestampOnFlip(win, 'polygon_2.started')
+                #     polygon_2.setAutoDraw(True)
                 
                 # *text_4* updates
                 if text_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:

@@ -168,7 +168,7 @@ def staircase(response, str_contrast, str_spatial):
         win=win, name='polygon',
         size=(0.05, 0.05), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=-3.0, interpolate=True)
     text_3 = visual.TextStim(win=win, name='text_3',
         text='',
@@ -184,7 +184,7 @@ def staircase(response, str_contrast, str_spatial):
         win=win, name='polygon_2',
         size=(0.05, 0.05), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=-2.0, interpolate=True)
     text_4 = visual.TextStim(win=win, name='text_4',
         text='',
@@ -199,7 +199,7 @@ def staircase(response, str_contrast, str_spatial):
         win=win, name='polygon_3',
         size=(0.05, 0.05), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
 
     # --- Initialize components for Routine "grating_acuity_2" ---
@@ -217,7 +217,7 @@ def staircase(response, str_contrast, str_spatial):
         win=win, name='polygon_4',
         size=(0.05, 0.05), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=-3.0, interpolate=True)
     text_5 = visual.TextStim(win=win, name='text_5',
         text='',
@@ -233,7 +233,7 @@ def staircase(response, str_contrast, str_spatial):
         win=win, name='polygon_5',
         size=(0.05, 0.05), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=-2.0, interpolate=True)
     text_6 = visual.TextStim(win=win, name='text_6',
         text='',
@@ -248,7 +248,7 @@ def staircase(response, str_contrast, str_spatial):
         win=win, name='polygon_6',
         size=(0.05, 0.05), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
 
     # Create some handy timers
@@ -889,14 +889,14 @@ def staircase(response, str_contrast, str_spatial):
             stepSizes=[0.05], stepType='lin',
             nReversals=1.0, nTrials=20.0, 
             nUp=2.0, nDown=1.0,
-            minVal=0.2, maxVal=10.0,
+            minVal=0.2, maxVal=5.0,
             originPath=-1, name='staircase_loop2')
         thisExp.addLoop(staircase_loop2)  # add the loop to the experiment
         level = thisStaircase_loop2 = float(str_spatial)  # initialise some vals
-        
+        maxval=5.0
         for thisStaircase_loop2 in staircase_loop2:
             currentLoop = staircase_loop2
-            level = thisStaircase_loop2
+            level = maxval-thisStaircase_loop2
             if level==0.2 and min_count==5:
                 break
             elif level==0.2 and min_count<5:
@@ -1407,12 +1407,12 @@ def staircase_vernier(response,start_phase,contrast,spatial):
             color=[1,1,1], colorSpace='rgb',
             opacity=None, contrast=float(contrast), blendmode='avg',
             texRes=512.0, interpolate=True, depth=-2.0)
-    polygon = visual.ShapeStim(
-        win=win, name='polygon',
-        size=(0.05, 0.05), vertices='circle',
-        ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
-        opacity=None, depth=-3.0, interpolate=True)
+    # polygon = visual.ShapeStim(
+    #     win=win, name='polygon',
+    #     size=(0.05, 0.05), vertices='circle',
+    #     ori=0.0, pos=(0, 0), anchor='center',
+    #     lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
+    #     opacity=None, depth=-3.0, interpolate=True)
     text_3 = visual.TextStim(win=win, name='text_3',
         text='',
         font='Open Sans',
@@ -1423,12 +1423,12 @@ def staircase_vernier(response,start_phase,contrast,spatial):
 
     # --- Initialize components for Routine "central_fixation" ---
     key_resp_2 = keyboard.Keyboard()
-    polygon_2 = visual.ShapeStim(
-        win=win, name='polygon_2',
-        size=(0.05, 0.05), vertices='circle',
-        ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
-        opacity=None, depth=-2.0, interpolate=True)
+    # polygon_2 = visual.ShapeStim(
+    #     win=win, name='polygon_2',
+    #     size=(0.05, 0.05), vertices='circle',
+    #     ori=0.0, pos=(0, 0), anchor='center',
+    #     lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
+    #     opacity=None, depth=-2.0, interpolate=True)
     text_4 = visual.TextStim(win=win, name='text_4',
         text='',
         font='Open Sans',
@@ -1442,7 +1442,7 @@ def staircase_vernier(response,start_phase,contrast,spatial):
         win=win, name='polygon_3',
         size=(0.05, 0.05), vertices='circle',
         ori=0.0, pos=(0, 0), anchor='center',
-        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+        lineWidth=1.0,     colorSpace='rgb',   lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
 
     # Create some handy timers
@@ -1591,10 +1591,10 @@ def staircase_vernier(response,start_phase,contrast,spatial):
         # --------Prepare to start Staircase "staircase_loop" --------
         # set up handler to look after next chosen value etc
     staircase_loop = data.StairHandler(startVal=float(start_phase), extraInfo=expInfo,
-        stepSizes=[0.05], stepType='lin',
+        stepSizes=[0.05], stepType='log',
         nReversals=1.0, nTrials=20.0, 
         nUp=2.0, nDown=1.0,
-        minVal=0.0, maxVal=1.0,
+        minVal=0.02, maxVal=0.99,
         originPath=-1, name='staircase_loop')
     thisExp.addLoop(staircase_loop)  # add the loop to the experiment
     level = thisStaircase_loop = float(start_phase)  # initialise some vals
@@ -1602,9 +1602,9 @@ def staircase_vernier(response,start_phase,contrast,spatial):
     for thisStaircase_loop in staircase_loop:
         currentLoop = staircase_loop
         level = thisStaircase_loop
-        if level==0.0 and min_count==5:
+        if level==0.02 and min_count==5:
             break
-        elif level==0.0 and min_count<5:
+        elif level==0.02 and min_count<5:
             min_count+=1
         # --- Prepare to start Routine "grating_acuity" ---
         continueRoutine = True
@@ -1626,7 +1626,7 @@ def staircase_vernier(response,start_phase,contrast,spatial):
         GA_2.setPhase(float(level))
         text_3.setText("Spatial frequency: " +  spatial +"\n"+"Contrast: "+ contrast +"\n"+"Phase: "+ f'{level:.3f}')
         # keep track of which components have finished
-        grating_acuityComponents = [GA,GA_2, polygon, text_3]
+        grating_acuityComponents = [GA,GA_2, text_3]
         for thisComponent in grating_acuityComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -1679,24 +1679,24 @@ def staircase_vernier(response,start_phase,contrast,spatial):
                     GA_2.setAutoDraw(False)
             
             # *polygon* updates
-            if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                polygon.frameNStart = frameN  # exact frame index
-                polygon.tStart = t  # local t and not account for scr refresh
-                polygon.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(polygon, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'polygon.started')
-                polygon.setAutoDraw(True)
-            if polygon.status == STARTED:
-                # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > polygon.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
-                    # keep track of stop time/frame for later
-                    polygon.tStop = t  # not accounting for scr refresh
-                    polygon.frameNStop = frameN  # exact frame index
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'polygon.stopped')
-                    polygon.setAutoDraw(False)
+            # if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            #     # keep track of start time/frame for later
+            #     polygon.frameNStart = frameN  # exact frame index
+            #     polygon.tStart = t  # local t and not account for scr refresh
+            #     polygon.tStartRefresh = tThisFlipGlobal  # on global time
+            #     win.timeOnFlip(polygon, 'tStartRefresh')  # time at next scr refresh
+            #     # add timestamp to datafile
+            #     thisExp.timestampOnFlip(win, 'polygon.started')
+            #     polygon.setAutoDraw(True)
+            # if polygon.status == STARTED:
+            #     # is it time to stop? (based on global clock, using actual start)
+            #     if tThisFlipGlobal > polygon.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+            #         # keep track of stop time/frame for later
+            #         polygon.tStop = t  # not accounting for scr refresh
+            #         polygon.frameNStop = frameN  # exact frame index
+            #         # add timestamp to datafile
+            #         thisExp.timestampOnFlip(win, 'polygon.stopped')
+            #         polygon.setAutoDraw(False)
             
             # *text_3* updates
             if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1768,7 +1768,7 @@ def staircase_vernier(response,start_phase,contrast,spatial):
         text_4.setText("Spatial frequency: " +  spatial +"\n"+"Contrast: "+ contrast +"\n"+"Phase: "+ f'{level:.3f}')
 
         # keep track of which components have finished
-        central_fixationComponents = [GA,GA_2,key_resp_2, polygon_2, text_4]
+        central_fixationComponents = [GA,GA_2,key_resp_2, text_4]
         for thisComponent in central_fixationComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -1837,15 +1837,15 @@ def staircase_vernier(response,start_phase,contrast,spatial):
                     continueRoutine = False
             
             # *polygon_2* updates
-            if polygon_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                polygon_2.frameNStart = frameN  # exact frame index
-                polygon_2.tStart = t  # local t and not account for scr refresh
-                polygon_2.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(polygon_2, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'polygon_2.started')
-                polygon_2.setAutoDraw(True)
+            # if polygon_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            #     # keep track of start time/frame for later
+            #     polygon_2.frameNStart = frameN  # exact frame index
+            #     polygon_2.tStart = t  # local t and not account for scr refresh
+            #     polygon_2.tStartRefresh = tThisFlipGlobal  # on global time
+            #     win.timeOnFlip(polygon_2, 'tStartRefresh')  # time at next scr refresh
+            #     # add timestamp to datafile
+            #     thisExp.timestampOnFlip(win, 'polygon_2.started')
+            #     polygon_2.setAutoDraw(True)
             
             # *text_4* updates
             if text_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:

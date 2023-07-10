@@ -36,7 +36,7 @@ if choice=='1':
         # if float(max_spatial)>10.0:
         #     print("Invalid input. Setting to default\n")
         #     max_spatial = "10"
-        fixed_contrast=input("Enter fixed contrast. Default value= 1\n")
+        fixed_contrast=input("Enter fixed contrast.Range: 0 to 1. Default value= 1\n")
         if fixed_contrast == "":
             fixed_contrast = "1"
         if float(fixed_contrast) <0.0:
@@ -44,7 +44,7 @@ if choice=='1':
             fixed_contrast = "1"    
         feedback,value,response=fixedincrement(case,min_spatial,max_spatial,fixed_contrast)
     elif case=='1' or case=='2':
-        print("Enter minimum and maximum contrast\n")
+        print("Enter minimum and maximum contrast. Range: 0 to 1. \n")
         print("Default values: minimum: 0.02 and maximum: 1. For default values press enter \n")
         min_contrast=input("Enter Minimum contrast\n")
         if min_contrast == "":
@@ -58,7 +58,7 @@ if choice=='1':
         # if float(max_contrast) > 10.0:
         #     print("Invalid input. Setting to default\n")
         #     min_contrast = "1"
-        fixed_spatial=input("Enter fixed spatial frequency. Default value= 0.5\n")
+        fixed_spatial=input("Enter fixed spatial frequency.Range: 0 to 1. Default value= 0.5\n")
         if fixed_spatial == "":
             fixed_spatial = "0.5"
         if float(fixed_spatial) < 0.0:
@@ -77,13 +77,13 @@ if choice=='1':
         max_phase= input("Enter Maximum phase\n")
         if max_phase == "":
             max_phase = "8"
-        fixed_spatial=input("Enter fixed spatial frequency. Default value= 0.5\n")
+        fixed_spatial=input("Enter fixed spatial frequency.Range: 0 to 1. Default value= 0.5\n")
         if fixed_spatial == "":
             fixed_spatial = "0.5"
         if float(fixed_spatial) < 0.0:
             print("Invalid input. Setting to default\n")
             fixed_spatial = "0.5"
-        fixed_contrast=input("Enter fixed contrast. Default value= 0.5\n")
+        fixed_contrast=input("Enter fixed contrast.Range: 0 to 1. Default value= 0.5\n")
         if fixed_contrast == "":
             fixed_contrast = "0.5"
         if float(fixed_contrast) < 0.0:
@@ -105,15 +105,15 @@ elif choice=='2':
 
     case= input()
     if case=='3' or case=='4':
-        print("Enter start spatial frequency(in cycles/deg)\n")
-        print("Default value: 0.9  . For default values press enter \n")
+        print("Enter start spatial frequency(in cycles/deg). Range: 0.2 to 5\n")
+        print("Default value: 2.5  . For default values press enter \n")
         start_spatial= input()
         if start_spatial=="":
-            start_spatial= "0.9"
+            start_spatial= "2.5"
         if float(start_spatial)<0.0:
             print("Invalid input. Setting to default\n")
-            start_spatial = "0.9"
-        print("Enter fixed contrast(maximum 1). Default value= 1\n")
+            start_spatial = "2.5"
+        print("Enter fixed contrast(Range: 0 to 1). Default value= 1\n")
         start_contrast=input()
         if start_contrast=="":
             start_contrast="1"
@@ -131,7 +131,7 @@ elif choice=='2':
         if float(start_contrast)<0.0:
             print("Invalid input. Setting to default\n")
             start_spatial = "0.09"
-        print("Enter fixed spatial frequency(in cycles/deg). Default value= 0.5\n")
+        print("Enter fixed spatial frequency(in cycles/deg).Range: 0 to 1. Default value= 0.5\n")
         start_spatial=input()
         if start_spatial=="":
             start_spatial= "0.5"
@@ -148,13 +148,13 @@ elif choice=='2':
         if float(start_phase)<0.0:
             print("Invalid input. Setting to default\n")
             start_phase = "0.5"
-        fixed_spatial=input("Enter fixed spatial frequency. Default value= 0.5\n")
+        fixed_spatial=input("Enter fixed spatial frequency.Range: 0 to 1. Default value= 0.5\n")
         if fixed_spatial == "":
             fixed_spatial = "0.5"
         if float(fixed_spatial)<0.0:
             print("Invalid input. Setting to default\n")
             fixed_spatial = "0.5"
-        fixed_contrast=input("Enter fixed contrast. Default value= 0.5\n")
+        fixed_contrast=input("Enter fixed contrast.Range: 0 to 1. Default value= 0.5\n")
         if fixed_contrast == "":
             fixed_contrast = "0.5"
         if float(fixed_contrast)<0.0:
