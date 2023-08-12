@@ -163,3 +163,22 @@ elif choice=='2':
         feedback,value=staircase_vernier(case,start_phase,fixed_contrast,fixed_spatial)
     psychometric_function(feedback,value,case)
 core.quit()
+
+# import tkinter as tk
+# from gui import ExperimentGUI  # Import the ExperimentGUI class from experiment_gui.py
+
+
+# def main():
+#     root = tk.Tk()
+#     gui = ExperimentGUI(root)
+
+#     root.mainloop()
+
+#     # After the mainloop finishes (GUI window is closed), retrieve the selected values
+#     selected_values = gui.start_experiment()
+#     root.destroy()
+#     del gui
+#     print("Selected Values:", selected_values)
+
+# if __name__ == "__main__":
+#     main()
