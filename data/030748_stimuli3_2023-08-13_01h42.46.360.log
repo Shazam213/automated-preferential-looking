@@ -1,0 +1,115 @@
+13.3086 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000026D4C2860B0>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000026D4C286110>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000026D4C286410>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000026D511EC880>, multiSample=False, name='window1', numSamples=2, pos=(0, 0), screen=0, size=array([1536,  864]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+13.3088 	EXP 	window1: mouseVisible = True
+13.3088 	EXP 	window1: backgroundImage = None
+13.3089 	EXP 	window1: backgroundFit = 'cover'
+13.3090 	EXP 	window1: mouseVisible = False
+13.3090 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+13.3091 	EXP 	window1: recordFrameIntervals = False
+13.3773 	EXP 	window1: recordFrameIntervals = True
+13.4542 	EXP 	Screen (0) actual frame rate measured at 143.47Hz
+13.4543 	EXP 	window1: recordFrameIntervals = False
+15.4837 	EXP 	Created text_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='text_2', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+15.5171 	EXP 	Created GA = GratingStim(__class__=<class 'psychopy.visual.grating.GratingStim'>, anchor='center', autoDraw=False, autoLog=True, blendmode='avg', color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, interpolate=True, mask='circle', maskParams=None, name='GA', opacity=1.0, ori=0.0, phase=array([0., 0.]), pos=array([0., 0.]), rgbPedestal=array([0., 0., 0.]), sf=array([1., 1.]), size=array([8.5]), tex='sqr', texRes=512.0, units='deg', win=Window(...))
+15.5216 	EXP 	Created polygon = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-3.0, fillColor=array([0., 0., 0.]), fillColorSpace='rgb', fillRGB=array([0., 0., 0.]), interpolate=True, lineColor=array([0., 0., 0.]), lineColorSpace='rgb', lineRGB=array([0., 0., 0.]), lineWidth=1.0, name='polygon', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.05, 0.05]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.5228 	EXP 	Created text_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='text_3', opacity=1.0, ori=0.0, pos=array([0.   , 0.125]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+15.5256 	EXP 	Created polygon_2 = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-2.0, fillColor=array([0., 0., 0.]), fillColorSpace='rgb', fillRGB=array([0., 0., 0.]), interpolate=True, lineColor=array([0., 0., 0.]), lineColorSpace='rgb', lineRGB=array([0., 0., 0.]), lineWidth=1.0, name='polygon_2', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.05, 0.05]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.5268 	EXP 	Created text_4 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='text_4', opacity=1.0, ori=0.0, pos=array([0.   , 0.125]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+15.5299 	EXP 	Created polygon_3 = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0.0, fillColor=array([0., 0., 0.]), fillColorSpace='rgb', fillRGB=array([0., 0., 0.]), interpolate=True, lineColor=array([0., 0., 0.]), lineColorSpace='rgb', lineRGB=array([0., 0., 0.]), lineWidth=1.0, name='polygon_3', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.05, 0.05]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+15.5457 	EXP 	text_2: autoDraw = True
+17.4287 	EXP 	Created sequence: random, trialTypes=1, nReps=76, seed=None
+17.4291 	EXP 	New trial (rep=0, index=0): None
+17.4297 	EXP 	Created sequence: random, trialTypes=1, nReps=1, seed=None
+17.4298 	EXP 	New trial (rep=0, index=0): None
+17.5109 	DATA 	Keypress: space
+17.5151 	EXP 	text_2: autoDraw = False
+17.5151 	EXP 	GA: sf = array([0.37606031, 0.37606031])
+17.5151 	EXP 	GA: phase = array([0., 0.])
+17.5151 	EXP 	text_3: height = 0.05
+17.5151 	EXP 	text_3: height = 0.05
+17.5151 	EXP 	text_3: height = 0.05
+17.5151 	EXP 	text_3: text = 'Spatial frequency: 0.376\nContrast: 0.500'
+17.5151 	EXP 	GA: autoDraw = True
+17.5151 	EXP 	polygon: autoDraw = True
+17.5151 	EXP 	text_3: autoDraw = True
+17.5151 	EXP 	GA: tex = 'sqr'
+17.6233 	EXP 	GA: autoDraw = False
+17.6233 	EXP 	polygon: autoDraw = False
+17.6233 	EXP 	text_3: autoDraw = False
+17.6233 	EXP 	GA: autoDraw = False
+17.6233 	EXP 	polygon: autoDraw = False
+17.6233 	EXP 	text_3: autoDraw = False
+17.6233 	EXP 	text_4: height = 0.05
+17.6233 	EXP 	text_4: height = 0.05
+17.6233 	EXP 	text_4: height = 0.05
+17.6233 	EXP 	text_4: text = 'Spatial frequency: 0.376\nContrast: 0.500'
+17.6233 	EXP 	GA: autoDraw = True
+17.6233 	EXP 	polygon_2: autoDraw = True
+17.6233 	EXP 	text_4: autoDraw = True
+18.4853 	DATA 	Keypress: j
+18.4887 	EXP 	GA: autoDraw = False
+18.4887 	EXP 	polygon_2: autoDraw = False
+18.4887 	EXP 	text_4: autoDraw = False
+18.4887 	EXP 	polygon_3: autoDraw = True
+18.9827 	EXP 	New trial (rep=1, index=0): None
+18.9834 	EXP 	Created sequence: random, trialTypes=1, nReps=1, seed=None
+18.9836 	EXP 	New trial (rep=0, index=0): None
+19.0044 	EXP 	polygon_3: autoDraw = False
+19.0044 	EXP 	polygon_3: autoDraw = False
+19.0044 	EXP 	GA: sf = array([0.02, 0.02])
+19.0044 	EXP 	GA: phase = array([0., 0.])
+19.0044 	EXP 	text_3: height = 0.05
+19.0044 	EXP 	text_3: height = 0.05
+19.0044 	EXP 	text_3: height = 0.05
+19.0044 	EXP 	text_3: text = 'Spatial frequency: 0.020\nContrast: 0.500'
+19.0044 	EXP 	GA: autoDraw = True
+19.0044 	EXP 	polygon: autoDraw = True
+19.0044 	EXP 	text_3: autoDraw = True
+19.0044 	EXP 	GA: tex = 'sqr'
+19.1083 	EXP 	GA: autoDraw = False
+19.1083 	EXP 	polygon: autoDraw = False
+19.1083 	EXP 	text_3: autoDraw = False
+19.1083 	EXP 	GA: autoDraw = False
+19.1083 	EXP 	polygon: autoDraw = False
+19.1083 	EXP 	text_3: autoDraw = False
+19.1083 	EXP 	text_4: height = 0.05
+19.1083 	EXP 	text_4: height = 0.05
+19.1083 	EXP 	text_4: height = 0.05
+19.1083 	EXP 	text_4: text = 'Spatial frequency: 0.020\nContrast: 0.500'
+19.1083 	EXP 	GA: autoDraw = True
+19.1083 	EXP 	polygon_2: autoDraw = True
+19.1083 	EXP 	text_4: autoDraw = True
+19.6185 	DATA 	Keypress: k
+19.6215 	EXP 	GA: autoDraw = False
+19.6215 	EXP 	polygon_2: autoDraw = False
+19.6215 	EXP 	text_4: autoDraw = False
+19.6215 	EXP 	polygon_3: autoDraw = True
+20.1151 	EXP 	New trial (rep=2, index=0): None
+20.1157 	EXP 	Created sequence: random, trialTypes=1, nReps=1, seed=None
+20.1158 	EXP 	New trial (rep=0, index=0): None
+20.1370 	EXP 	polygon_3: autoDraw = False
+20.1370 	EXP 	polygon_3: autoDraw = False
+20.1370 	EXP 	GA: sf = array([0.37606031, 0.37606031])
+20.1370 	EXP 	GA: phase = array([0., 0.])
+20.1370 	EXP 	text_3: height = 0.05
+20.1370 	EXP 	text_3: height = 0.05
+20.1370 	EXP 	text_3: height = 0.05
+20.1370 	EXP 	text_3: text = 'Spatial frequency: 0.376\nContrast: 0.500'
+20.1370 	EXP 	GA: autoDraw = True
+20.1370 	EXP 	polygon: autoDraw = True
+20.1370 	EXP 	text_3: autoDraw = True
+20.1370 	EXP 	GA: tex = 'sqr'
+20.2428 	EXP 	GA: autoDraw = False
+20.2428 	EXP 	polygon: autoDraw = False
+20.2428 	EXP 	text_3: autoDraw = False
+20.2428 	EXP 	GA: autoDraw = False
+20.2428 	EXP 	polygon: autoDraw = False
+20.2428 	EXP 	text_3: autoDraw = False
+20.2428 	EXP 	text_4: height = 0.05
+20.2428 	EXP 	text_4: height = 0.05
+20.2428 	EXP 	text_4: height = 0.05
+20.2428 	EXP 	text_4: text = 'Spatial frequency: 0.376\nContrast: 0.500'
+20.2428 	EXP 	GA: autoDraw = True
+20.2428 	EXP 	polygon_2: autoDraw = True
+20.2428 	EXP 	text_4: autoDraw = True
+24.2973 	DATA 	Keypress: escape
+24.8654 	EXP 	window1: mouseVisible = True
