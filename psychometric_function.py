@@ -3,7 +3,7 @@ from matplotlib.backend_bases import MouseButton
 
 def psychometric_function(feedback,value,response):
     
-    plt.plot(value,feedback)
+    plt.plot(value,feedback, marker='o')
         # naming the x axis
     if response=='1' or response=='2':
         plt.xlabel('contrast')
