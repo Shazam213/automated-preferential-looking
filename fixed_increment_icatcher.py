@@ -12,6 +12,9 @@ If you publish work using this script the most relevant publication is:
 """
 
 # --- Import packages ---
+from predict import *
+import cv2
+# from icatcher.cli import *
 from psychopy import locale_setup
 from psychopy import prefs
 from psychopy import  gui, visual, core, data, event, logging, clock, colors, layout
@@ -34,10 +37,11 @@ import math
 import platform
 
 
-
-def fixedincrement(response, min, max, fixed):
+def fixedincrement_icatcher(response, min, max, fixed):
     os_name = platform.system()
-
+    buffer_size=15
+    answers = []  # list of answers for each frame
+    confidences = []
     # Ensure that relative paths start from the same directory as this script
     _thisDir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(_thisDir)
@@ -47,7 +51,7 @@ def fixedincrement(response, min, max, fixed):
     expInfo = {
         'participant': f"{randint(0, 999999):06.0f}",
         'session': '001',
-        'stimulus duration': '0.1',
+        'stimulus duration': '3',
     }
     # --- Show participant info dialog --
     dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -123,23 +127,15 @@ def fixedincrement(response, min, max, fixed):
     # --- Initialize components for Routine "start_opt" ---
     if response=='1' or response=='3':
         text_2 = visual.TextStim(win=win, name='text_2',
-            text="Press spacebar to start the experiment\n\nUse the 'j','k' keys to point to respective directions of the stimuli",
+            text="Press spacebar to start the experiment\n\n",
             font='Open Sans',
             pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
             color='white', colorSpace='rgb', opacity=None, 
             languageStyle='LTR',
             depth=0.0);
         key_resp = keyboard.Keyboard()
-    else:
-        text_2 = visual.TextStim(win=win, name='text_2',
-            text="Press spacebar to start the experiment\n\nUse the 'u','i','j','k' keys to point to respective directions of the stimuli",
-            font='Open Sans',
-            pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-            color='white', colorSpace='rgb', opacity=None, 
-            languageStyle='LTR',
-            depth=0.0);
-        key_resp = keyboard.Keyboard()
-
+    
+    cap = cv2.VideoCapture(0)
     # --- Initialize components for Routine "set_values" ---
     # Set experiment start values for variable component contrast
     if response=='1':
@@ -160,24 +156,7 @@ def fixedincrement(response, min, max, fixed):
         # left_max= len(contrast_values)/2
         # right_max=left_max
         # contrast_values2=contrast_values[:]
-    elif  response=='2':
-        opt=2
-        contrast_values = np.logspace(np.log10(float(min)), np.log10(float(max)), num=5)
-        contrast_values=contrast_values.tolist()
-        contrast_dict={}
-        pos_choices = [(-16, 8), (16, -8),(-16, -8), (16, 8)]
-        for element in contrast_values:
-            random.shuffle(pos_choices)
-            contrast_dict[element] = pos_choices[:]
-        contrast_values=contrast_values*4
-        random.shuffle(contrast_values)
-        contrastContainer = []
-    # Set experiment start values for variable component spatial
-        spatial = float(fixed)
-        spatialContainer = []
-        # left_max= len(contrast_values)/2
-        # right_max=left_max
-        # contrast_values2=contrast_values[:]
+    
     elif  response=='3':
         opt=3
         spatial_values = np.logspace(np.log10(float(min)), np.log10(float(max)), num=5)
@@ -196,24 +175,7 @@ def fixedincrement(response, min, max, fixed):
         # left_max= len(spatial_values)/2
         # right_max=left_max
         # spatial_values2=spatial_values[:]
-    else:
-        opt=4
-        spatial_values = np.logspace(np.log10(float(min)), np.log10(float(max)), num=5)
-        spatial_values=spatial_values.tolist()
-        spatial_dict={}
-        pos_choices = [(-16, 8), (16, -8),(-16, -8), (16, 8)]
-        for element in spatial_values:
-            random.shuffle(pos_choices)
-            spatial_dict[element] = pos_choices[:]
-        spatial_values=spatial_values*4
-        random.shuffle(spatial_values)
-        contrastContainer = []
-    # Set experiment start values for variable component spatial
-        contrast = float(fixed)
-        spatialContainer = []
-        # left_max= len(spatial_values)/2
-        # right_max=left_max
-        # spatial_values2=spatial_values[:]
+    
 
 
     # --- Initialize components for Routine "grating_acuity" ---
@@ -242,7 +204,7 @@ def fixedincrement(response, min, max, fixed):
         depth=-4.0);
 
     # --- Initialize components for Routine "central_fixation" ---
-    key_resp_2 = keyboard.Keyboard()
+    
     polygon_2 = visual.ShapeStim(
         win=win, name='polygon_2',
         size=(0.05, 0.05), vertices='circle',
@@ -639,138 +601,129 @@ def fixedincrement(response, min, max, fixed):
             text_3.setText("Spatial frequency: " +  f'{spatial:.3f}'+"\n"+"Contrast: "+ f'{contrast:.3f}'
     )
             # keep track of which components have finished
-            grating_acuityComponents = [GA, polygon, text_3]
-            for thisComponent in grating_acuityComponents:
-                thisComponent.tStart = None
-                thisComponent.tStop = None
-                thisComponent.tStartRefresh = None
-                thisComponent.tStopRefresh = None
-                if hasattr(thisComponent, 'status'):
-                    thisComponent.status = NOT_STARTED
-            # reset timers
-            t = 0
-            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-            frameN = -1
-            
+            # grating_acuityComponents = [GA, polygon, text_3]
+            # for thisComponent in grating_acuityComponents:
+            #     thisComponent.tStart = None
+            #     thisComponent.tStop = None
+            #     thisComponent.tStartRefresh = None
+            #     thisComponent.tStopRefresh = None
+            #     if hasattr(thisComponent, 'status'):
+            #         thisComponent.status = NOT_STARTED
+            # # reset timers
+            # t = 0
+            # _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+            # frameN = -1
             # --- Run Routine "grating_acuity" ---
-            while continueRoutine:
-                # get current time
-                t = routineTimer.getTime()
-                tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-                # update/draw components on each frame
+            # while continueRoutine:
                 
-                # *GA* updates
-                if GA.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    GA.frameNStart = frameN  # exact frame index
-                    GA.tStart = t  # local t and not account for scr refresh
-                    GA.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(GA, 'tStartRefresh')  # time at next scr refresh
-                    GA.setAutoDraw(True)
+            #     # get current time
+            #     t = routineTimer.getTime()
+            #     tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            #     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            #     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            #     # update/draw components on each frame
+                
+            #     # *GA* updates
+            #     if GA.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            #         # keep track of start time/frame for later
+            #         GA.frameNStart = frameN  # exact frame index
+            #         GA.tStart = t  # local t and not account for scr refresh
+            #         GA.tStartRefresh = tThisFlipGlobal  # on global time
+            #         win.timeOnFlip(GA, 'tStartRefresh')  # time at next scr refresh
+            #         GA.setAutoDraw(True)
          
-                if GA.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > GA.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
-                        # keep track of stop time/frame for later
-                        GA.tStop = t  # not accounting for scr refresh
-                        GA.frameNStop = frameN  # exact frame index
-                        GA.setAutoDraw(False)
+            #     if GA.status == STARTED:
+            #         # is it time to stop? (based on global clock, using actual start)
+            #         if tThisFlipGlobal > GA.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+            #             # keep track of stop time/frame for later
+            #             GA.tStop = t  # not accounting for scr refresh
+            #             GA.frameNStop = frameN  # exact frame index
+            #             GA.setAutoDraw(False)
                 
-                # *polygon* updates
-                if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    polygon.frameNStart = frameN  # exact frame index
-                    polygon.tStart = t  # local t and not account for scr refresh
-                    polygon.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(polygon, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'polygon.started')
-                    polygon.setAutoDraw(True)
-                if polygon.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > polygon.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
-                        # keep track of stop time/frame for later
-                        polygon.tStop = t  # not accounting for scr refresh
-                        polygon.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'polygon.stopped')
-                        polygon.setAutoDraw(False)
+            #     # *polygon* updates
+            #     if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            #         # keep track of start time/frame for later
+            #         polygon.frameNStart = frameN  # exact frame index
+            #         polygon.tStart = t  # local t and not account for scr refresh
+            #         polygon.tStartRefresh = tThisFlipGlobal  # on global time
+            #         win.timeOnFlip(polygon, 'tStartRefresh')  # time at next scr refresh
+            #         # add timestamp to datafile
+            #         thisExp.timestampOnFlip(win, 'polygon.started')
+            #         polygon.setAutoDraw(True)
+            #     if polygon.status == STARTED:
+            #         # is it time to stop? (based on global clock, using actual start)
+            #         if tThisFlipGlobal > polygon.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+            #             # keep track of stop time/frame for later
+            #             polygon.tStop = t  # not accounting for scr refresh
+            #             polygon.frameNStop = frameN  # exact frame index
+            #             # add timestamp to datafile
+            #             thisExp.timestampOnFlip(win, 'polygon.stopped')
+            #             polygon.setAutoDraw(False)
                 
-                # *text_3* updates
-                if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    text_3.frameNStart = frameN  # exact frame index
-                    text_3.tStart = t  # local t and not account for scr refresh
-                    text_3.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(text_3, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'text_3.started')
-                    text_3.setAutoDraw(True)
-                if text_3.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > text_3.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
-                        # keep track of stop time/frame for later
-                        text_3.tStop = t  # not accounting for scr refresh
-                        text_3.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'text_3.stopped')
-                        text_3.setAutoDraw(False)
+            #     # *text_3* updates
+            #     if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            #         # keep track of start time/frame for later
+            #         text_3.frameNStart = frameN  # exact frame index
+            #         text_3.tStart = t  # local t and not account for scr refresh
+            #         text_3.tStartRefresh = tThisFlipGlobal  # on global time
+            #         win.timeOnFlip(text_3, 'tStartRefresh')  # time at next scr refresh
+            #         # add timestamp to datafile
+            #         thisExp.timestampOnFlip(win, 'text_3.started')
+            #         text_3.setAutoDraw(True)
+            #     if text_3.status == STARTED:
+            #         # is it time to stop? (based on global clock, using actual start)
+            #         if tThisFlipGlobal > text_3.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+            #             # keep track of stop time/frame for later
+            #             text_3.tStop = t  # not accounting for scr refresh
+            #             text_3.frameNStop = frameN  # exact frame index
+            #             # add timestamp to datafile
+            #             thisExp.timestampOnFlip(win, 'text_3.stopped')
+            #             text_3.setAutoDraw(False)
                 
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
+            #     # check for quit (typically the Esc key)
+            #     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            #         core.quit()
                 
-                # check if all components have finished
-                if not continueRoutine:  # a component has requested a forced-end of Routine
-                    routineForceEnded = True
-                    break
-                continueRoutine = False  # will revert to True if at least one component still running
-                for thisComponent in grating_acuityComponents:
-                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                        continueRoutine = True
-                        break  # at least one component has not yet finished
+            #     # check if all components have finished
+            #     if not continueRoutine:  # a component has requested a forced-end of Routine
+            #         routineForceEnded = True
+            #         break
+            #     continueRoutine = False  # will revert to True if at least one component still running
+            #     for thisComponent in grating_acuityComponents:
+            #         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            #             continueRoutine = True
+            #             break  # at least one component has not yet finished
                 
-                # refresh the screen
-                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                    win.flip()
+            #     # refresh the screen
+            #     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            #         win.flip()
             
-            # --- Ending Routine "grating_acuity" ---
-            for thisComponent in grating_acuityComponents:
-                if hasattr(thisComponent, "setAutoDraw"):
-                    thisComponent.setAutoDraw(False)
-            thisExp.addData('position.routineEndVal', position)  # Save end routine value
-            # the Routine "grating_acuity" was not non-slip safe, so reset the non-slip timer
-            routineTimer.reset()
+            # # --- Ending Routine "grating_acuity" ---
+            # for thisComponent in grating_acuityComponents:
+            #     if hasattr(thisComponent, "setAutoDraw"):
+            #         thisComponent.setAutoDraw(False)
+            # thisExp.addData('position.routineEndVal', position)  # Save end routine value
+            # # the Routine "grating_acuity" was not non-slip safe, so reset the non-slip timer
+            # routineTimer.reset()
             
-            # --- Prepare to start Routine "central_fixation" ---
-            continueRoutine = True
-            routineForceEnded = False
-            # update component parameters for each repeat
-            key_resp_2.keys = []
-            key_resp_2.rt = []
-            _key_resp_2_allKeys = []
+            # # --- Prepare to start Routine "central_fixation" ---
+            # continueRoutine = True
+            # routineForceEnded = False
+            # # update component parameters for each repeat
+            
             
 
             # Run 'Begin Routine' code from code
             
             if (opt==1 or opt==3) and (position==(-16,0)):
-                b='j'
+                b= 1
             elif (opt==1 or opt==3) and (position==(16,0)):
-                b='k'
-            elif (opt==2 or opt==4) and (position==(-16,-8) ):
-                b='j'
-            elif (opt==2 or opt==4) and (position==(-16,8) ):
-                b='u'
-            elif (opt==2 or opt==4) and (position==(16,-8) ):
-                b='k'
-            elif (opt==2 or opt==4) and (position==(16,8) ):
-                b='i'    
+                b= 2
+              
             text_4.setText("Spatial frequency: " +  f'{spatial:.3f}'+"\n"+"Contrast: "+ f'{contrast:.3f}'
     )
             # keep track of which components have finished
-            central_fixationComponents = [GA,key_resp_2, polygon_2, text_4]
+            central_fixationComponents = [GA, polygon_2, text_4]
             for thisComponent in central_fixationComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -782,9 +735,15 @@ def fixedincrement(response, min, max, fixed):
             t = 0
             _timeToFirstFrame = win.getFutureFlipTime(clock="now")
             frameN = -1
-            
+            rep=0 
             # --- Run Routine "central_fixation" ---
             while continueRoutine:
+               
+                answers = []  # list of answers for each frame
+                confidences = []  # list of confidences for each frame
+                # last_class_text = ""  # Initialize so that we see the first class assignment as an event to record
+                # ret, frame = cap.read()
+               
                 # get current time
                 t = routineTimer.getTime()
                 tThisFlip = win.getFutureFlipTime(clock=routineTimer)
@@ -801,37 +760,13 @@ def fixedincrement(response, min, max, fixed):
                     GA.tStartRefresh = tThisFlipGlobal  # on global time
                     win.timeOnFlip(GA, 'tStartRefresh')  # time at next scr refresh
                     GA.setAutoDraw(True)
-                if key_resp_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    key_resp_2.frameNStart = frameN  # exact frame index
-                    key_resp_2.tStart = t  # local t and not account for scr refresh
-                    key_resp_2.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(key_resp_2, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'key_resp_2.started')
-                    key_resp_2.status = STARTED
-                    # keyboard checking is just starting
-                    waitOnFlip = True
-                    win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
-                    win.callOnFlip(key_resp_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
-                if key_resp_2.status == STARTED and not waitOnFlip:
-                    if opt==1 or opt==3:
-                        theseKeys = key_resp_2.getKeys(keyList=['j','k'], waitRelease=False)
-                    else:
-                        theseKeys = key_resp_2.getKeys(keyList=['u','i','j','k'], waitRelease=False)
-                    _key_resp_2_allKeys.extend(theseKeys)
-                    if len(_key_resp_2_allKeys):
-                        key_resp_2.keys = _key_resp_2_allKeys[-1].name  # just the last key pressed
-                        key_resp_2.rt = _key_resp_2_allKeys[-1].rt
-                        # was this correct?
-                        if (key_resp_2.keys == str(b)) or (key_resp_2.keys == b):
-                            key_resp_2.corr = 1
-                        else:
-                            key_resp_2.corr = 0
-                        # a response ends the routine
-                        continueRoutine = False
-                
-
+                if GA.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > GA.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+                        # keep track of stop time/frame for later
+                        GA.tStop = t  # not accounting for scr refresh
+                        GA.frameNStop = frameN  # exact frame index
+                        GA.setAutoDraw(False)
                 # *polygon_2* updates
                 if polygon_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
@@ -842,7 +777,15 @@ def fixedincrement(response, min, max, fixed):
                     # add timestamp to datafile
                     thisExp.timestampOnFlip(win, 'polygon_2.started')
                     polygon_2.setAutoDraw(True)
-                
+                if polygon_2.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > polygon_2.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+                        # keep track of stop time/frame for later
+                        polygon_2.tStop = t  # not accounting for scr refresh
+                        polygon_2.frameNStop = frameN  # exact frame index
+                        # add timestamp to datafile
+                        thisExp.timestampOnFlip(win, 'polygon_2.stopped')
+                        polygon_2.setAutoDraw(False)
                 # *text_4* updates
                 if text_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
@@ -853,8 +796,27 @@ def fixedincrement(response, min, max, fixed):
                     # add timestamp to datafile
                     thisExp.timestampOnFlip(win, 'text_4.started')
                     text_4.setAutoDraw(True)
-                
-                # check for quit (typically the Esc key)
+                if text_4.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > text_4.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+                        # keep track of stop time/frame for later
+                        text_4.tStop = t  # not accounting for scr refresh
+                        text_4.frameNStop = frameN  # exact frame index
+                        # add timestamp to datafile
+                        thisExp.timestampOnFlip(win, 'text_4.stopped')
+                        text_4.setAutoDraw(False)
+            
+                if(rep==0):
+                    print("gaze detection")
+                    answers,confidences,frames= predict_from_frame(cap)
+                    print(answers)
+                    print(confidences)
+                    # print(frames)
+                    if answers[np.argmax(confidences)]==b:
+                        correct = 1  # correct non-response
+                    else:
+                        correct = 0
+                    rep+=1
                 if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
                     core.quit()
                 
@@ -876,29 +838,24 @@ def fixedincrement(response, min, max, fixed):
             for thisComponent in central_fixationComponents:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
+            
             # check responses
-            if key_resp_2.keys in ['', [], None]:  # No response was made
-                key_resp_2.keys = None
-                # was no response the correct answer?!
-                if str(b).lower() == 'none':
-                    key_resp_2.corr = 1;  # correct non-response
-                else:
-                    key_resp_2.corr = 0;  # failed to respond (incorrectly)
+        
+              # failed to respond (incorrectly)
             # store data for psychometric_func (TrialHandler)
-            psychometric_func.addData('key_resp_2.keys',key_resp_2.keys)
-            psychometric_func.addData('key_resp_2.corr', key_resp_2.corr)
+            psychometric_func.addData('key_resp_2.keys',"")
+            psychometric_func.addData('key_resp_2.corr', correct)
             if opt==1 or opt==2:
                 if contrast in feedback:
-                    feedback[contrast].append(key_resp_2.corr)  # Append the new value to the existing list
+                    feedback[contrast].append(correct)  # Append the new value to the existing list
                 else:
-                    feedback[contrast] = [key_resp_2.corr]
+                    feedback[contrast] = [correct]
             else:
                 if spatial in feedback:
-                    feedback[spatial].append(key_resp_2.corr)  # Append the new value to the existing list
+                    feedback[spatial].append(correct)  # Append the new value to the existing list
                 else:
-                    feedback[spatial] = [key_resp_2.corr]
-            if key_resp_2.keys != None:  # we had a response
-                psychometric_func.addData('key_resp_2.rt', key_resp_2.rt)
+                    feedback[spatial] = [correct]
+            
             # the Routine "central_fixation" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
@@ -1021,7 +978,7 @@ def fixedincrement(response, min, max, fixed):
     
     # return value,feedback,response
 
-def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
+def fixedincrement_vernier_icatcher(response, min_phase, max_phase, contrast,spatial):
     # Ensure that relative paths start from the same directory as this script
     os_name = platform.system()
     _thisDir = os.path.dirname(os.path.abspath(__file__))
@@ -1032,7 +989,7 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
     expInfo = {
         'participant': f"{randint(0, 999999):06.0f}",
         'session': '001',
-        'stimulus duration': '0.1',
+        'stimulus duration': '3',
     }
     # --- Show participant info dialog --
     dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -1095,74 +1052,44 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
         defaultKeyboard = keyboard.Keyboard(backend='ptb')
 
     # --- Initialize components for Routine "start_opt" ---
-    if response=='5':
-        text_2 = visual.TextStim(win=win, name='text_2',
-            text="Press spacebar to start the experiment\n\nUse the 'j','k' keys to point to respective directions of the stimuli",
-            font='Open Sans',
-            pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-            color='white', colorSpace='rgb', opacity=None, 
-            languageStyle='LTR',
-            depth=0.0);
-        key_resp = keyboard.Keyboard()
-    else:
-        text_2 = visual.TextStim(win=win, name='text_2',
-            text="Press spacebar to start the experiment\n\nUse the 'u','i','j','k' keys to point to respective directions of the stimuli",
-            font='Open Sans',
-            pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-            color='white', colorSpace='rgb', opacity=None, 
-            languageStyle='LTR',
-            depth=0.0);
-        key_resp = keyboard.Keyboard()
+  
+    text_2 = visual.TextStim(win=win, name='text_2',
+        text="Press spacebar to start the experiment\n\n",
+        font='Open Sans',
+        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
+    key_resp = keyboard.Keyboard()
+   
 
     # --- Initialize components for Routine "set_values" ---
     # Set experiment start values for variable component contrast
-    if response=='5':
-        opt=5
-        num_steps=5
-        # num_steps = math.ceil(math.log(float(max_phase) / float(min_phase), math.sqrt(2)))
-        phase_octave = [float(min_phase) * math.pow(math.sqrt(2), i) for i in range(num_steps + 1)]
-        phase_value = [(value - min(phase_octave)) / (max(phase_octave) - min(phase_octave)) for value in phase_octave]
-        # contrast_values=contrast_values.tolist()
-        phase_dict={}
-        pos_choices = [(-16, 0), (16, 0),(-16, 0), (16, 0)]
-        for element in phase_value:
-            random.shuffle(pos_choices)
-            phase_dict[element] = pos_choices[:]
-        phase_value=phase_value*4
-        random.shuffle(phase_value)
-        num_phase=len(phase_value)
-        contrastContainer = []
-    # Set experiment start values for variable component spatial
-        spatial = float(spatial)
-        contrast=float(contrast)
-        spatialContainer = []
-        # left_max= len(contrast_values)/2
-        # right_max=left_max
-        # contrast_values2=contrast_values[:]
-    elif  response=='6':
-        opt=6
-        num_steps=5
-        # num_steps = math.ceil(math.log(float(max_phase) / float(min_phase), math.sqrt(2)))
-        phase_octave = [float(min_phase) * math.pow(math.sqrt(2), i) for i in range(num_steps + 1)]
-        phase_value = [(value - min(phase_octave)) / (max(phase_octave) - min(phase_octave)) for value in phase_octave]
-        # contrast_values=contrast_values.tolist()
-        phase_dict={}
-        pos_choices = [(-16, 8), (16, -8),(-16, -8), (16, 8)]
-        for element in phase_value:
-            random.shuffle(pos_choices)
-            phase_dict[element] = pos_choices[:]
-        phase_value=phase_value*4
-        random.shuffle(phase_value)
-        num_phase=len(phase_value)
-        contrastContainer = []
-    # Set experiment start values for variable component spatial
-        spatial = float(spatial)
-        contrast=float(contrast)
-        spatialContainer = []
-        
+    cap = cv2.VideoCapture(0)
+    opt=5
+    num_steps=5
+    # num_steps = math.ceil(math.log(float(max_phase) / float(min_phase), math.sqrt(2)))
+    # phase_octave = [float(min_phase) * math.pow(math.sqrt(2), i) for i in range(num_steps + 1)]
+    # phase_value = [(value - min(phase_octave)) / (max(phase_octave) - min(phase_octave)) for value in phase_octave]
+    phase_value =  np.linspace(min_phase, max_phase, num_steps).tolist()
+    # contrast_values=contrast_values.tolist()
+    phase_dict={}
+    pos_choices = [(-16, 0), (16, 0),(-16, 0), (16, 0)]
+    for element in phase_value:
+        random.shuffle(pos_choices)
+        phase_dict[element] = pos_choices[:]
+    phase_value=phase_value*4
+    random.shuffle(phase_value)
+    num_phase=len(phase_value)
+    contrastContainer = []
+# Set experiment start values for variable component spatial
+    spatial = float(spatial)
+    contrast=float(contrast)
+    spatialContainer = []
+    # left_max= len(contrast_values)/2
+    # right_max=left_max
+    # contrast_values2=contrast_values[:]
    
-
-
     # --- Initialize components for Routine "grating_acuity" ---
     # Set experiment start values for variable component position
     position = (0, 0)
@@ -1174,22 +1101,15 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
         color=[1,1,1], colorSpace='rgb',
         opacity=None, contrast=1.0, blendmode='avg',
         texRes=512.0, interpolate=True, depth=-2.0)
-    if opt==5:
-        GA_2 = visual.GratingStim(
-            win=win, name='GA',units='deg', 
-            tex='sqr', mask='sqr', anchor='center',
-            ori=0.0, pos=[0,0], size=[32,16], sf=1.0, phase=0.0,
-            color=[1,1,1], colorSpace='rgb',
-            opacity=None, contrast=1.0, blendmode='avg',
-            texRes=512.0, interpolate=True, depth=-2.0)
-    else:
-        GA_2 = visual.GratingStim(
-            win=win, name='GA',units='deg', 
-            tex='sqr', mask='sqr', anchor='center',
-            ori=0.0, pos=[0,0], size=[32,8], sf=1.0, phase=0.0,
-            color=[1,1,1], colorSpace='rgb',
-            opacity=None, contrast=1.0, blendmode='avg',
-            texRes=512.0, interpolate=True, depth=-2.0)
+ 
+    GA_2 = visual.GratingStim(
+        win=win, name='GA',units='deg', 
+        tex='sqr', mask='sqr', anchor='center',
+        ori=0.0, pos=[0,0], size=[32,16], sf=1.0, phase=0.0,
+        color=[1,1,1], colorSpace='rgb',
+        opacity=None, contrast=1.0, blendmode='avg',
+        texRes=512.0, interpolate=True, depth=-2.0)
+    
     # polygon = visual.ShapeStim(
     #     win=win, name='polygon',
     #     size=(0.05, 0.05), vertices='circle',
@@ -1475,139 +1395,132 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
             _timeToFirstFrame = win.getFutureFlipTime(clock="now")
             frameN = -1
             
-            # --- Run Routine "grating_acuity" ---
-            while continueRoutine:
-                # get current time
-                t = routineTimer.getTime()
-                tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-                # update/draw components on each frame
+            # # --- Run Routine "grating_acuity" ---
+            # while continueRoutine:
+            #     # get current time
+            #     t = routineTimer.getTime()
+            #     tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            #     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            #     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            #     # update/draw components on each frame
                 
-                # *GA* updates
-                if GA.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    GA.frameNStart = frameN  # exact frame index
-                    GA.tStart = t  # local t and not account for scr refresh
-                    GA.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(GA, 'tStartRefresh')  # time at next scr refresh
-                    GA.setAutoDraw(True)
-         
-                if GA.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > GA.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
-                        # keep track of stop time/frame for later
-                        GA.tStop = t  # not accounting for scr refresh
-                        GA.frameNStop = frameN  # exact frame index
-                        GA.setAutoDraw(False)
-                if GA_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    GA_2.frameNStart = frameN  # exact frame index
-                    GA_2.tStart = t  # local t and not account for scr refresh
-                    GA_2.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(GA_2, 'tStartRefresh')  # time at next scr refresh
-                    GA_2.setAutoDraw(True)
-         
-                if GA_2.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > GA_2.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
-                        # keep track of stop time/frame for later
-                        GA_2.tStop = t  # not accounting for scr refresh
-                        GA_2.frameNStop = frameN  # exact frame index
-                        GA_2.setAutoDraw(False)
-                
-                # *polygon* updates
-                # if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                #     # keep track of start time/frame for later
-                #     polygon.frameNStart = frameN  # exact frame index
-                #     polygon.tStart = t  # local t and not account for scr refresh
-                #     polygon.tStartRefresh = tThisFlipGlobal  # on global time
-                #     win.timeOnFlip(polygon, 'tStartRefresh')  # time at next scr refresh
-                #     # add timestamp to datafile
-                #     thisExp.timestampOnFlip(win, 'polygon.started')
-                #     polygon.setAutoDraw(True)
-                # if polygon.status == STARTED:
-                #     # is it time to stop? (based on global clock, using actual start)
-                #     if tThisFlipGlobal > polygon.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
-                #         # keep track of stop time/frame for later
-                #         polygon.tStop = t  # not accounting for scr refresh
-                #         polygon.frameNStop = frameN  # exact frame index
-                #         # add timestamp to datafile
-                #         thisExp.timestampOnFlip(win, 'polygon.stopped')
-                #         polygon.setAutoDraw(False)
-                
-                # *text_3* updates
-                if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    text_3.frameNStart = frameN  # exact frame index
-                    text_3.tStart = t  # local t and not account for scr refresh
-                    text_3.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(text_3, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'text_3.started')
-                    text_3.setAutoDraw(True)
-                if text_3.status == STARTED:
-                    # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > text_3.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
-                        # keep track of stop time/frame for later
-                        text_3.tStop = t  # not accounting for scr refresh
-                        text_3.frameNStop = frameN  # exact frame index
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'text_3.stopped')
-                        text_3.setAutoDraw(False)
-                
-                # check for quit (typically the Esc key)
-                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                    core.quit()
-                
-                # check if all components have finished
-                if not continueRoutine:  # a component has requested a forced-end of Routine
-                    routineForceEnded = True
-                    break
-                continueRoutine = False  # will revert to True if at least one component still running
-                for thisComponent in grating_acuityComponents:
-                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                        continueRoutine = True
-                        break  # at least one component has not yet finished
-                
-                # refresh the screen
-                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                    win.flip()
+            #     # *GA* updates
+            #     if GA.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            #         # keep track of start time/frame for later
+            #         GA.frameNStart = frameN  # exact frame index
+            #         GA.tStart = t  # local t and not account for scr refresh
+            #         GA.tStartRefresh = tThisFlipGlobal  # on global time
+            #         win.timeOnFlip(GA, 'tStartRefresh')  # time at next scr refresh
+            #         GA.setAutoDraw(True)
             
-            # --- Ending Routine "grating_acuity" ---
-            for thisComponent in grating_acuityComponents:
-                if hasattr(thisComponent, "setAutoDraw"):
-                    thisComponent.setAutoDraw(False)
-            thisExp.addData('position.routineEndVal', position)  # Save end routine value
-            # the Routine "grating_acuity" was not non-slip safe, so reset the non-slip timer
-            routineTimer.reset()
+            #     if GA.status == STARTED:
+            #         # is it time to stop? (based on global clock, using actual start)
+            #         if tThisFlipGlobal > GA.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+            #             # keep track of stop time/frame for later
+            #             GA.tStop = t  # not accounting for scr refresh
+            #             GA.frameNStop = frameN  # exact frame index
+            #             GA.setAutoDraw(False)
+            #     if GA_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            #         # keep track of start time/frame for later
+            #         GA_2.frameNStart = frameN  # exact frame index
+            #         GA_2.tStart = t  # local t and not account for scr refresh
+            #         GA_2.tStartRefresh = tThisFlipGlobal  # on global time
+            #         win.timeOnFlip(GA_2, 'tStartRefresh')  # time at next scr refresh
+            #         GA_2.setAutoDraw(True)
+         
+            #     if GA_2.status == STARTED:
+            #         # is it time to stop? (based on global clock, using actual start)
+            #         if tThisFlipGlobal > GA_2.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+            #             # keep track of stop time/frame for later
+            #             GA_2.tStop = t  # not accounting for scr refresh
+            #             GA_2.frameNStop = frameN  # exact frame index
+            #             GA_2.setAutoDraw(False)
+                
+            #     # *polygon* updates
+            #     # if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            #     #     # keep track of start time/frame for later
+            #     #     polygon.frameNStart = frameN  # exact frame index
+            #     #     polygon.tStart = t  # local t and not account for scr refresh
+            #     #     polygon.tStartRefresh = tThisFlipGlobal  # on global time
+            #     #     win.timeOnFlip(polygon, 'tStartRefresh')  # time at next scr refresh
+            #     #     # add timestamp to datafile
+            #     #     thisExp.timestampOnFlip(win, 'polygon.started')
+            #     #     polygon.setAutoDraw(True)
+            #     # if polygon.status == STARTED:
+            #     #     # is it time to stop? (based on global clock, using actual start)
+            #     #     if tThisFlipGlobal > polygon.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+            #     #         # keep track of stop time/frame for later
+            #     #         polygon.tStop = t  # not accounting for scr refresh
+            #     #         polygon.frameNStop = frameN  # exact frame index
+            #     #         # add timestamp to datafile
+            #     #         thisExp.timestampOnFlip(win, 'polygon.stopped')
+            #     #         polygon.setAutoDraw(False)
+                
+            #     # *text_3* updates
+            #     if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            #         # keep track of start time/frame for later
+            #         text_3.frameNStart = frameN  # exact frame index
+            #         text_3.tStart = t  # local t and not account for scr refresh
+            #         text_3.tStartRefresh = tThisFlipGlobal  # on global time
+            #         win.timeOnFlip(text_3, 'tStartRefresh')  # time at next scr refresh
+            #         # add timestamp to datafile
+            #         thisExp.timestampOnFlip(win, 'text_3.started')
+            #         text_3.setAutoDraw(True)
+            #     if text_3.status == STARTED:
+            #         # is it time to stop? (based on global clock, using actual start)
+            #         if tThisFlipGlobal > text_3.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+            #             # keep track of stop time/frame for later
+            #             text_3.tStop = t  # not accounting for scr refresh
+            #             text_3.frameNStop = frameN  # exact frame index
+            #             # add timestamp to datafile
+            #             thisExp.timestampOnFlip(win, 'text_3.stopped')
+            #             text_3.setAutoDraw(False)
+                
+            # #     # check for quit (typically the Esc key)
+            #     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            #         core.quit()
+                
+            #     # check if all components have finished
+            #     if not continueRoutine:  # a component has requested a forced-end of Routine
+            #         routineForceEnded = True
+            #         break
+            #     continueRoutine = False  # will revert to True if at least one component still running
+            #     for thisComponent in grating_acuityComponents:
+            #         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            #             continueRoutine = True
+            #             break  # at least one component has not yet finished
+                
+            #     # refresh the screen
+            #     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            #         win.flip()
             
-            # --- Prepare to start Routine "central_fixation" ---
-            continueRoutine = True
-            routineForceEnded = False
-            # update component parameters for each repeat
-            key_resp_2.keys = []
-            key_resp_2.rt = []
-            _key_resp_2_allKeys = []
+            # # --- Ending Routine "grating_acuity" ---
+            # for thisComponent in grating_acuityComponents:
+            #     if hasattr(thisComponent, "setAutoDraw"):
+            #         thisComponent.setAutoDraw(False)
+            # thisExp.addData('position.routineEndVal', position)  # Save end routine value
+            # # the Routine "grating_acuity" was not non-slip safe, so reset the non-slip timer
+            # routineTimer.reset()
+            
+            # # # --- Prepare to start Routine "central_fixation" ---
+            # continueRoutine = True
+            # routineForceEnded = False
+            # # update component parameters for each repeat
+            # key_resp_2.keys = []
+            # key_resp_2.rt = []
+            # _key_resp_2_allKeys = []
             
 
             # Run 'Begin Routine' code from code
             
-            if (opt==5 ) and (position==(-16,0)):
-                b='j'
-            elif (opt==5 ) and (position==(16,0)):
-                b='k'
-            elif (opt==6) and (position==(-16,-8) ):
-                b='j'
-            elif (opt==6) and (position==(-16,8) ):
-                b='u'
-            elif (opt==6) and (position==(16,-8) ):
-                b='k'
-            elif (opt==6) and (position==(16,8) ):
-                b='i'    
+            if position==(-16,0):
+                b=1
+            elif position==(16,0):
+                b=2
+       
             text_4.setText("Spatial frequency: " +  f'{spatial:.3f}'+"\n"+"Contrast: "+ f'{contrast:.3f}'+"\n"+"Phase: "+ f'{phase:.3f}')
             # keep track of which components have finished
-            central_fixationComponents = [GA,GA_2,key_resp_2, text_4]
+            central_fixationComponents = [GA,GA_2, text_4]
             for thisComponent in central_fixationComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -1619,10 +1532,12 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
             t = 0
             _timeToFirstFrame = win.getFutureFlipTime(clock="now")
             frameN = -1
-            
+            rep=0
             # --- Run Routine "central_fixation" ---
             while continueRoutine:
                 # get current time
+                answers = []  # list of answers for each frame
+                confidences = []  # list of confidences for each frame
                 t = routineTimer.getTime()
                 tThisFlip = win.getFutureFlipTime(clock=routineTimer)
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
@@ -1645,38 +1560,7 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
                     GA_2.tStartRefresh = tThisFlipGlobal  # on global time
                     win.timeOnFlip(GA_2, 'tStartRefresh')  # time at next scr refresh
                     GA_2.setAutoDraw(True)
-                if key_resp_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    key_resp_2.frameNStart = frameN  # exact frame index
-                    key_resp_2.tStart = t  # local t and not account for scr refresh
-                    key_resp_2.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(key_resp_2, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'key_resp_2.started')
-                    key_resp_2.status = STARTED
-                    # keyboard checking is just starting
-                    waitOnFlip = True
-                    win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
-                    win.callOnFlip(key_resp_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
-                if key_resp_2.status == STARTED and not waitOnFlip:
-                    if opt==5:
-                        theseKeys = key_resp_2.getKeys(keyList=['j','k'], waitRelease=False)
-                    else:
-                        theseKeys = key_resp_2.getKeys(keyList=['u','i','j','k'], waitRelease=False)
-                    _key_resp_2_allKeys.extend(theseKeys)
-                    _key_resp_2_allKeys.extend(theseKeys)
-                    if len(_key_resp_2_allKeys):
-                        key_resp_2.keys = _key_resp_2_allKeys[-1].name  # just the last key pressed
-                        key_resp_2.rt = _key_resp_2_allKeys[-1].rt
-                        # was this correct?
-                        if (key_resp_2.keys == str(b)) or (key_resp_2.keys == b):
-                            key_resp_2.corr = 1
-                        else:
-                            key_resp_2.corr = 0
-                        # a response ends the routine
-                        continueRoutine = False
                 
-
                 # *polygon_2* updates
                 # if polygon_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 #     # keep track of start time/frame for later
@@ -1699,6 +1583,40 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
                     thisExp.timestampOnFlip(win, 'text_4.started')
                     text_4.setAutoDraw(True)
                 
+                if(rep==0):
+                    print("gaze detection")
+                    answers,confidences,frames= predict_from_frame(cap)
+                    print(answers)
+                    print(confidences)
+                    # print(frames)
+                    if answers[np.argmax(confidences)]==b:
+                        correct = 1  # correct non-response
+                    else:
+                        correct = 0
+                    rep+=1
+                if GA.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > GA.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+                        # keep track of stop time/frame for later
+                        GA.tStop = t  # not accounting for scr refresh
+                        GA.frameNStop = frameN  # exact frame index
+                        GA.setAutoDraw(False)
+                if GA_2.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > GA_2.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+                        # keep track of stop time/frame for later
+                        GA_2.tStop = t  # not accounting for scr refresh
+                        GA_2.frameNStop = frameN  # exact frame index
+                        GA_2.setAutoDraw(False)
+                if text_4.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > text_4.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
+                        # keep track of stop time/frame for later
+                        text_4.tStop = t  # not accounting for scr refresh
+                        text_4.frameNStop = frameN  # exact frame index
+                        # add timestamp to datafile
+                        thisExp.timestampOnFlip(win, 'text_4.stopped')
+                        text_4.setAutoDraw(False)
                 # check for quit (typically the Esc key)
                 if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
                     core.quit()
@@ -1722,21 +1640,15 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
             # check responses
-            if key_resp_2.keys in ['', [], None]:  # No response was made
-                key_resp_2.keys = None
-                # was no response the correct answer?!
-                if str(b).lower() == 'none':
-                    key_resp_2.corr = 1;  # correct non-response
-                else:
-                    key_resp_2.corr = 0;  # failed to respond (incorrectly)
+  # failed to respond (incorrectly)
             # store data for psychometric_func (TrialHandler)
             psychometric_func.addData('key_resp_2.keys',key_resp_2.keys)
             psychometric_func.addData('key_resp_2.corr', key_resp_2.corr)
             
             if phase in feedback:
-                feedback[phase].append(key_resp_2.corr)  # Append the new value to the existing list
+                feedback[phase].append(correct)  # Append the new value to the existing list
             else:
-                feedback[phase] = [key_resp_2.corr]
+                feedback[phase] = [correct]
             
             if key_resp_2.keys != None:  # we had a response
                 psychometric_func.addData('key_resp_2.rt', key_resp_2.rt)

@@ -1120,8 +1120,9 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
         opt=5
         num_steps=5
         # num_steps = math.ceil(math.log(float(max_phase) / float(min_phase), math.sqrt(2)))
-        phase_octave = [float(min_phase) * math.pow(math.sqrt(2), i) for i in range(num_steps + 1)]
-        phase_value = [(value - min(phase_octave)) / (max(phase_octave) - min(phase_octave)) for value in phase_octave]
+        # phase_octave = [float(min_phase) * math.pow(math.sqrt(2), i) for i in range(num_steps + 1)]
+        # phase_value = [(value - min(phase_octave)) / (max(phase_octave) - min(phase_octave)) for value in phase_octave]
+        phase_value =  np.linspace(min_phase, max_phase, num_steps).tolist()
         # contrast_values=contrast_values.tolist()
         phase_dict={}
         pos_choices = [(-16, 0), (16, 0),(-16, 0), (16, 0)]
@@ -1143,8 +1144,9 @@ def fixedincrement_vernier(response, min_phase, max_phase, contrast,spatial):
         opt=6
         num_steps=5
         # num_steps = math.ceil(math.log(float(max_phase) / float(min_phase), math.sqrt(2)))
-        phase_octave = [float(min_phase) * math.pow(math.sqrt(2), i) for i in range(num_steps + 1)]
-        phase_value = [(value - min(phase_octave)) / (max(phase_octave) - min(phase_octave)) for value in phase_octave]
+        # phase_octave = [float(min_phase) * math.pow(math.sqrt(2), i) for i in range(num_steps + 1)]
+        # phase_value = [(value - min(phase_octave)) / (max(phase_octave) - min(phase_octave)) for value in phase_octave]
+        phase_value =  np.linspace(min_phase, max_phase, num_steps).tolist()
         # contrast_values=contrast_values.tolist()
         phase_dict={}
         pos_choices = [(-16, 8), (16, -8),(-16, -8), (16, 8)]

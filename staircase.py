@@ -1269,7 +1269,7 @@ def staircase(response, str_contrast, str_spatial):
         eyetracker.setConnectionState(False)
     thisExp.abort()  # or data files will save again on exit
     win.close()
-    return feedback_value,feedback_key
+    return feedback_value,feedback_key, response
     # core.quit()
 
 def staircase_vernier(response,start_phase,contrast,spatial):
@@ -2000,5 +2000,5 @@ def staircase_vernier(response,start_phase,contrast,spatial):
         eyetracker.setConnectionState(False)
     thisExp.abort()  # or data files will save again on exit
     win.close()
-    return feedback_value,feedback_key
+    return feedback_value,feedback_key, response
     # core.quit()
