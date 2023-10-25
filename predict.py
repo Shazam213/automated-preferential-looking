@@ -1,3 +1,8 @@
+"""
+file uses functions from icatcher to correctly predict the gaze direction of the infant using the frames collected.
+to integrate any other model can make changes here.
+"""
+
 import logging
 import torch
 import numpy as np
@@ -11,7 +16,6 @@ def extract_crop(frame, bbox):
     extracts a crop from a frame using bbox, and transforms it
     :param frame: the frame
     :param bbox: opencv bbox 4x1
-    :param opt: command line options
     :return: the crop and the 5x1 box features
     """
     if bbox is None:

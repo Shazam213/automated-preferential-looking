@@ -29,16 +29,7 @@ import psychopy.iohub as io
 from psychopy.hardware import keyboard
 import platform
 
-# Run 'Before Experiment' code from code_3
-#if opt==1 or opt==3:
-#    pos=(randchoice([-1, 1])*16,0)
-#else:
-#    pos= (randchoice([-1, 1])*16,randchoice([-1, 1])*8)
-# Run 'Before Experiment' code from code_5
-#if opt==1 or opt==3:
-#    pos=(randchoice([-1, 1])*16,0)
-#else:
-#    pos= (randchoice([-1, 1])*16,randchoice([-1, 1])*8)
+
 
 def staircase(response, str_contrast, str_spatial):
     # Ensure that relative paths start from the same directory as this script
@@ -93,17 +84,7 @@ def staircase(response, str_contrast, str_spatial):
         frameDur = 1.0 / round(expInfo['frameRate'])
     else:
         frameDur = 1.0 / 60.0  # could not measure, so guess
-    # # --- Setup input devices ---
-    # ioConfig = {}
-
-    # # Setup iohub keyboard
-    # ioConfig['Keyboard'] = dict(use_keymap='psychopy')
-
-    # ioSession = '1'
-    # if 'session' in expInfo:
-    #     ioSession = str(expInfo['session'])
-    # ioServer = io.launchHubServer(window=win, **ioConfig)
-    # eyetracker = None
+   
     feedback={}
     value=[]
     # create a default keyboard (e.g. to check for escape)
@@ -278,79 +259,6 @@ def staircase(response, str_contrast, str_spatial):
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
 
-    # --- Run Routine "start_exp" ---
-    # while continueRoutine:
-    #     # get current time
-    #     t = routineTimer.getTime()
-    #     tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-    #     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-    #     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-    #     # update/draw components on each frame
-        
-    #     # *text* updates
-    #     if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-    #         # keep track of start time/frame for later
-    #         text.frameNStart = frameN  # exact frame index
-    #         text.tStart = t  # local t and not account for scr refresh
-    #         text.tStartRefresh = tThisFlipGlobal  # on global time
-    #         win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
-    #         # add timestamp to datafile
-    #         thisExp.timestampOnFlip(win, 'text.started')
-    #         text.setAutoDraw(True)
-        
-    #     # *option_resp* updates
-    #     waitOnFlip = False
-    #     if option_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-    #         # keep track of start time/frame for later
-    #         option_resp.frameNStart = frameN  # exact frame index
-    #         option_resp.tStart = t  # local t and not account for scr refresh
-    #         option_resp.tStartRefresh = tThisFlipGlobal  # on global time
-    #         win.timeOnFlip(option_resp, 'tStartRefresh')  # time at next scr refresh
-    #         # add timestamp to datafile
-    #         thisExp.timestampOnFlip(win, 'option_resp.started')
-    #         option_resp.status = STARTED
-    #         # keyboard checking is just starting
-    #         waitOnFlip = True
-    #         win.callOnFlip(option_resp.clock.reset)  # t=0 on next screen flip
-    #         win.callOnFlip(option_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
-    #     if option_resp.status == STARTED and not waitOnFlip:
-    #         theseKeys = option_resp.getKeys(keyList=['1','2','3','4'], waitRelease=False)
-    #         _option_resp_allKeys.extend(theseKeys)
-    #         if len(_option_resp_allKeys):
-    #             option_resp.keys = _option_resp_allKeys[-1].name  # just the last key pressed
-    #             option_resp.rt = _option_resp_allKeys[-1].rt
-    #             # a response ends the routine
-    #             continueRoutine = False
-        
-    #     # check for quit (typically the Esc key)
-    #     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-    #         core.quit()
-        
-    #     # check if all components have finished
-    #     if not continueRoutine:  # a component has requested a forced-end of Routine
-    #         routineForceEnded = True
-    #         break
-    #     continueRoutine = False  # will revert to True if at least one component still running
-    #     for thisComponent in start_expComponents:
-    #         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-    #             continueRoutine = True
-    #             break  # at least one component has not yet finished
-        
-    #     # refresh the screen
-    #     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-    #         win.flip()
-
-    # # --- Ending Routine "start_exp" ---
-    # for thisComponent in start_expComponents:
-    #     if hasattr(thisComponent, "setAutoDraw"):
-    #         thisComponent.setAutoDraw(False)
-    # # check responses
-    # if option_resp.keys in ['', [], None]:  # No response was made
-    #     option_resp.keys = None
-    # thisExp.addData('option_resp.keys',option_resp.keys)
-    # if option_resp.keys != None:  # we had a response
-    #     thisExp.addData('option_resp.rt', option_resp.rt)
-    # thisExp.nextEntry()
     # Run 'End Routine' code from code_4
     if response== '1':
         opt=1
@@ -1326,17 +1234,7 @@ def staircase_vernier(response,start_phase,contrast,spatial):
         frameDur = 1.0 / round(expInfo['frameRate'])
     else:
         frameDur = 1.0 / 60.0  # could not measure, so guess
-    # # --- Setup input devices ---
-    # ioConfig = {}
-
-    # # Setup iohub keyboard
-    # ioConfig['Keyboard'] = dict(use_keymap='psychopy')
-
-    # ioSession = '1'
-    # if 'session' in expInfo:
-    #     ioSession = str(expInfo['session'])
-    # ioServer = io.launchHubServer(window=win, **ioConfig)
-    # eyetracker = None
+   
     feedback={}
     value=[]
     # create a default keyboard (e.g. to check for escape)
@@ -1407,12 +1305,7 @@ def staircase_vernier(response,start_phase,contrast,spatial):
             color=[1,1,1], colorSpace='rgb',
             opacity=None, contrast=float(contrast), blendmode='avg',
             texRes=512.0, interpolate=True, depth=-2.0)
-    # polygon = visual.ShapeStim(
-    #     win=win, name='polygon',
-    #     size=(0.05, 0.05), vertices='circle',
-    #     ori=0.0, pos=(0, 0), anchor='center',
-    #     lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
-    #     opacity=None, depth=-3.0, interpolate=True)
+    
     text_3 = visual.TextStim(win=win, name='text_3',
         text='',
         font='Open Sans',
@@ -1423,12 +1316,7 @@ def staircase_vernier(response,start_phase,contrast,spatial):
 
     # --- Initialize components for Routine "central_fixation" ---
     key_resp_2 = keyboard.Keyboard()
-    # polygon_2 = visual.ShapeStim(
-    #     win=win, name='polygon_2',
-    #     size=(0.05, 0.05), vertices='circle',
-    #     ori=0.0, pos=(0, 0), anchor='center',
-    #     lineWidth=1.0,     colorSpace='rgb',  lineColor=[0.0000, 0.0000, 0.0000], fillColor=[0.0000, 0.0000, 0.0000],
-    #     opacity=None, depth=-2.0, interpolate=True)
+   
     text_4 = visual.TextStim(win=win, name='text_4',
         text='',
         font='Open Sans',
@@ -1452,21 +1340,9 @@ def staircase_vernier(response,start_phase,contrast,spatial):
     # --- Prepare to start Routine "start_exp" ---
     continueRoutine = True
     routineForceEnded = False
-    # update component parameters for each repeat
-    # option_resp.keys = []
-    # option_resp.rt = []
-    # _option_resp_allKeys = []
+    
     min_count=0
-    # condition=True
-    # keep track of which components have finished
-    # start_expComponents = [text, option_resp]
-    # for thisComponent in start_expComponents:
-    #     thisComponent.tStart = None
-    #     thisComponent.tStop = None
-    #     thisComponent.tStartRefresh = None
-    #     thisComponent.tStopRefresh = None
-    #     if hasattr(thisComponent, 'status'):
-    #         thisComponent.status = NOT_STARTED
+    
     # reset timers
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
@@ -1569,25 +1445,6 @@ def staircase_vernier(response,start_phase,contrast,spatial):
     # the Routine "start_opt" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
 
-    # set up handler to look after randomisation of conditions etc
-    # opt1 = data.TrialHandler(nReps=1, method='random', 
-    #     extraInfo=expInfo, originPath=-1,
-    #     trialList=[None],
-    #     seed=None, name='opt1')
-    # thisExp.addLoop(opt1)  # add the loop to the experiment
-    # thisOpt1 = opt1.trialList[0]  # so we can initialise stimuli with some values
-    # # abbreviate parameter names if possible (e.g. rgb = thisOpt1.rgb)
-    # if thisOpt1 != None:
-    #     for paramName in thisOpt1:
-    #         exec('{} = thisOpt1[paramName]'.format(paramName))
-
-    # for thisOpt1 in opt1:
-    #     currentLoop = opt1
-    #     # abbreviate parameter names if possible (e.g. rgb = thisOpt1.rgb)
-    #     if thisOpt1 != None:
-    #         for paramName in thisOpt1:
-    #             exec('{} = thisOpt1[paramName]'.format(paramName))
-        
         # --------Prepare to start Staircase "staircase_loop" --------
         # set up handler to look after next chosen value etc
     staircase_loop = data.StairHandler(startVal=float(start_phase), extraInfo=expInfo,
@@ -1678,25 +1535,6 @@ def staircase_vernier(response,start_phase,contrast,spatial):
                     GA_2.frameNStop = frameN  # exact frame index
                     GA_2.setAutoDraw(False)
             
-            # *polygon* updates
-            # if polygon.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            #     # keep track of start time/frame for later
-            #     polygon.frameNStart = frameN  # exact frame index
-            #     polygon.tStart = t  # local t and not account for scr refresh
-            #     polygon.tStartRefresh = tThisFlipGlobal  # on global time
-            #     win.timeOnFlip(polygon, 'tStartRefresh')  # time at next scr refresh
-            #     # add timestamp to datafile
-            #     thisExp.timestampOnFlip(win, 'polygon.started')
-            #     polygon.setAutoDraw(True)
-            # if polygon.status == STARTED:
-            #     # is it time to stop? (based on global clock, using actual start)
-            #     if tThisFlipGlobal > polygon.tStartRefresh + float(expInfo["stimulus duration"])-frameTolerance:
-            #         # keep track of stop time/frame for later
-            #         polygon.tStop = t  # not accounting for scr refresh
-            #         polygon.frameNStop = frameN  # exact frame index
-            #         # add timestamp to datafile
-            #         thisExp.timestampOnFlip(win, 'polygon.stopped')
-            #         polygon.setAutoDraw(False)
             
             # *text_3* updates
             if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1835,17 +1673,7 @@ def staircase_vernier(response,start_phase,contrast,spatial):
                         key_resp_2.corr = 0
                     # a response ends the routine
                     continueRoutine = False
-            
-            # *polygon_2* updates
-            # if polygon_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            #     # keep track of start time/frame for later
-            #     polygon_2.frameNStart = frameN  # exact frame index
-            #     polygon_2.tStart = t  # local t and not account for scr refresh
-            #     polygon_2.tStartRefresh = tThisFlipGlobal  # on global time
-            #     win.timeOnFlip(polygon_2, 'tStartRefresh')  # time at next scr refresh
-            #     # add timestamp to datafile
-            #     thisExp.timestampOnFlip(win, 'polygon_2.started')
-            #     polygon_2.setAutoDraw(True)
+           
             
             # *text_4* updates
             if text_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
