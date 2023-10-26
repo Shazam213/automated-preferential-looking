@@ -1,5 +1,13 @@
-Numpy
-Matplotlib
+numpy
+matplotlib
 PsychoPy
 opencv-python
 tk
+torch>=1.11.0
+torchvision>=0.12
+Pillow 
+ffmpeg-python
+tqdm
+pooch
+batch-face
+pathos
