@@ -2,4 +2,4 @@ Numpy
 Matplotlib
 PsychoPy
 opencv-python
-Tkinter
+tk
