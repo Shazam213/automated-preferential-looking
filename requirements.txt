@@ -1,5 +1,5 @@
 Numpy
 Matplotlib
 PsychoPy
-OpenCV
+opencv-python
 Tkinter
