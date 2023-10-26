@@ -1,0 +1,5 @@
+Numpy
+Matplotlib
+PsychoPy
+OpenCV
+Tkinter
