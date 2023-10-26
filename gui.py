@@ -274,3 +274,7 @@ class ExperimentGUI:
         self.root.quit()
         return selected_values
        
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = ExperimentGUI(root)
+    root.mainloop()
