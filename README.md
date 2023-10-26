@@ -2,19 +2,7 @@
 This project aims to develop a ready-to-deploy application suite that will address these limitations by integrating hardware devices or deep learning-based infant eye trackers, and visual stimuli analysis into a user-friendly graphical user interface (GUI).
 
 ## Getting Started
-* Clone the repository:
-```sh 
-git clone https://github.com/Shazam213/automated-preferential-looking.git 
-```
-* Navigate to the cloned directory:
-```sh
-cd automated-preferential-looking
-```
 
-* Switch to the visual-stimuli branch:
-```sh
-git checkout visual-stimuli
-```
 * Because calling pip install psychopy generates issues, we would have to specifically install pyWinhook before installing psychopy and all its dependencies.
 
 * Check your python version using:
