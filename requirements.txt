@@ -11,3 +11,4 @@ tqdm
 pooch
 batch-face
 pathos
+psychtoolbox
