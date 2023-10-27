@@ -11,6 +11,8 @@ from PIL import Image
 from pathlib import Path
 import pooch
 from icatcher.cli import *
+
+
 def extract_crop(frame, bbox):
     """
     extracts a crop from a frame using bbox, and transforms it

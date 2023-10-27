@@ -944,7 +944,7 @@ def staircase_vernier_icatcher(response,start_phase,contrast,spatial):
     expInfo = {
         'participant': f"{randint(0, 999999):06.0f}",
         'session': '001',
-        'stimulus duration': '0.1',
+        'stimulus duration': '3',
     }
     # --- Show participant info dialog --
     dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -1220,7 +1220,7 @@ def staircase_vernier_icatcher(response,start_phase,contrast,spatial):
         GA_2.setPos(position)
         GA_2.setSF(float(spatial))
         GA_2.setPhase(float(level))
-        text_3.setText("Spatial frequency: " +  spatial +"\n"+"Contrast: "+ contrast +"\n"+"Phase: "+ f'{level:.3f}')
+        text_3.setText("Spatial frequency: " +  f'{spatial}' +"\n"+"Contrast: "+ f'{contrast}' +"\n"+"Phase: "+ f'{level:.3f}')
         # keep track of which components have finished
         grating_acuityComponents = [GA,GA_2, text_3]
         for thisComponent in grating_acuityComponents:
@@ -1247,7 +1247,7 @@ def staircase_vernier_icatcher(response,start_phase,contrast,spatial):
         elif (opt==5) and (position==(16,0)):
             b=2
         
-        text_4.setText("Spatial frequency: " +  spatial +"\n"+"Contrast: "+ contrast +"\n"+"Phase: "+ f'{level:.3f}')
+        text_4.setText("Spatial frequency: " +  f'{spatial}' +"\n"+"Contrast: "+ f'{contrast}' +"\n"+"Phase: "+ f'{level:.3f}')
 
         # keep track of which components have finished
         central_fixationComponents = [GA,GA_2, text_4]

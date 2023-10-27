@@ -1,60 +1,3 @@
-<!-- # automated-preferential-looking
-This project aims to develop a ready-to-deploy application suite that will address these limitations by integrating hardware devices or deep learning-based infant eye trackers, and visual stimuli analysis into a user-friendly graphical user interface (GUI).
-
-## Steps to test the program:
-### To test the gui:
-* Navigate to the cloned directory:
-```sh
-cd automated-preferential-looking
-```
-
-* Get the latest changes in the local repo:
-```sh
-git pull
-```
-
-* Also clone all the newly added branches:
-```sh
-git fetch
-```
-* Change to the final directory to test the gui:
-```sh
-git checkout final
-```
-* Now run the main.py file:
-```sh
-python main.py
-```
-### To test the icatcher integration with the dummy experiment:
-* Navigate to the cloned directory:
-```sh
-cd automated-preferential-looking
-```
-
-* Get the latest changes in the local repo:
-```sh
-git pull
-```
-
-* Also clone all the newly added branches:
-```sh
-git fetch
-```
-* Change to the final directory to test the gui:
-```sh
-git checkout icatcher-integration
-```
-* Install the required dependencies:
-```sh
-pip install icatcher
-```
-```sh
-pip install ffmpeg-python   
-```
-* Now run the main.py file:
-```sh
-python main.py
-``` -->
 
 
 # APL: Automated Preferential Looking
@@ -122,11 +65,30 @@ The result of this work which was about 420 hours, is divided in the following p
 4. User-Friendly GUI and Program Integration:
 
     * Development of an intuitive and user-friendly graphical user interface (GUI) using Tkinter. Integration of all three components, including the visual stimuli experiments, eye-tracking functionality, and data analysis, into a cohesive Python program.
-
+-----------------------------------------------------
 
 <!-- :paw_prints:-->
 <!-- FOLDER STRUCTURE -->
 <h2 id="folder-structure"> :cactus: Folder Structure</h2>
+    .
+    └── automated-preferential-looking/
+        ├── resources
+        ├── src/
+        │   ├── data
+        │   ├── __pycache__
+        │   ├── icatcher/
+        │   ├── __init__.py
+        │   ├── fixed_increment.py
+        │   ├── fixed_increment_icatcher.py
+        │   ├── gui.py
+        │   ├── main.py
+        │   ├── predict.py
+        │   ├── psychometric_function.py
+        │   ├── staircase.py
+        │   └── staircase_icatcher.py
+        ├── LICENSE
+        ├── README.md
+        └── requirements.txt
 
 -----------------------------------------------------
 <!-- :paw_prints:-->
@@ -148,6 +110,10 @@ To execute the program on your system, please follow these steps.
     ```sh
     pip install -r requirements.txt
     ```
+* Navigate to the src folder:
+    ```sh
+    cd src
+    ```
 
 * Now execute the program:
     ```sh
@@ -155,7 +121,23 @@ To execute the program on your system, please follow these steps.
     ```
 Ps- You might face errors while psychopy installations. You can refer this [link](https://github.com/Shazam213/automated-preferential-looking/tree/visual-stimuli#getting-started).
 
+* When running for the first time the app may take some time to load all the packages and also to download the eye tracking model.
 
+-----------------------------------------------------
+<!-- :paw_prints:-->
+<!-- FEATURE -->
+<h2 id="feature"> Features</h2>
+ 
+ 1. Starting the Program you first get the easy to use GUI.
+ ![Alt text](resources/gui_screen1.png)
+ ![Alt text](resources/gui_screen2.png)
+ ![Alt text](resources/gui_screen3.png)
+ ![Alt text](resources/gui_screen4.png)
+ 2. Once you've chosen the particular experiment and configured the parameter values, the experiment commences. Here is the example of staircase pattern of spatial frequency experiment using eye tracking model
+ ![Alt text](resources/experiment_start_screen.png)
+ ![Alt text](resources/stimuli.png)
+ 3. Upon finishing the experiment, you'll see the psychometric function.
+![Alt text](resources/psychometric_funct.png)
 -----------------------------------------------------
 <!-- FUTURE -->
 <h2 id="future"> Future Goals </h2>
