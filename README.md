@@ -70,25 +70,27 @@ The result of this work which was about 420 hours, is divided in the following p
 <!-- :paw_prints:-->
 <!-- FOLDER STRUCTURE -->
 <h2 id="folder-structure"> :cactus: Folder Structure</h2>
-    .
-    └── automated-preferential-looking/
+  
+        .
+        └── automated-preferential-looking/
         ├── resources
         ├── src/
-        │   ├── data
-        │   ├── __pycache__
-        │   ├── icatcher/
-        │   ├── __init__.py
-        │   ├── fixed_increment.py
-        │   ├── fixed_increment_icatcher.py
-        │   ├── gui.py
-        │   ├── main.py
-        │   ├── predict.py
-        │   ├── psychometric_function.py
-        │   ├── staircase.py
-        │   └── staircase_icatcher.py
+        │ ├── data
+        │ ├── pycache
+        │ ├── icatcher/
+        │ ├── init.py
+        │ ├── fixed_increment.py
+        │ ├── fixed_increment_icatcher.py
+        │ ├── gui.py
+        │ ├── main.py
+        │ ├── predict.py
+        │ ├── psychometric_function.py
+        │ ├── staircase.py
+        │ └── staircase_icatcher.py
         ├── LICENSE
         ├── README.md
         └── requirements.txt
+    
 
 -----------------------------------------------------
 <!-- :paw_prints:-->
@@ -129,15 +131,15 @@ Ps- You might face errors while psychopy installations. You can refer this [link
 <h2 id="feature"> Features</h2>
  
  1. Starting the Program you first get the easy to use GUI.
- ![Alt text](resources/gui_screen1.png)
- ![Alt text](resources/gui_screen2.png)
- ![Alt text](resources/gui_screen3.png)
- ![Alt text](resources/gui_screen4.png)
+ ![GUI screen 1](/resources/gui_screen1.png)
+ ![GUI screen 2](/resources/gui_screen2.png)
+ ![GUI screen 3](/resources/gui_screen3.png)
+ ![GUI screen 4](/resources/gui_screen4.png)
  2. Once you've chosen the particular experiment and configured the parameter values, the experiment commences. Here is the example of staircase pattern of spatial frequency experiment using eye tracking model
- ![Alt text](resources/experiment_start_screen.png)
- ![Alt text](resources/stimuli.png)
+ ![Experiment start](/resources/experiment_start_screen.png)
+ ![Stimuli](/resources/stimuli.png)
  3. Upon finishing the experiment, you'll see the psychometric function.
-![Alt text](resources/psychometric_funct.png)
+![Psychometric fucntion](/resources/psychometric_funct.png)
 -----------------------------------------------------
 <!-- FUTURE -->
 <h2 id="future"> Future Goals </h2>
