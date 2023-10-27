@@ -22,7 +22,7 @@
 <h2 id="about-the-project"> :pencil: About The project</h2>
 
 This project is the work for the Google Summer of Code 2023, with the organisation INCF. The project is created by [Soham Mulye](@Shazam213) under the mentoring of Suresh Krishna, PhD from McGill University.
-This project aims to develop a ready-to-deploy application suite that will address these limitations by integrating hardware devices or deep learning-based infant eye trackers, and visual stimuli analysis into a user-friendly graphical user interface (GUI).
+This project aims to develop a ready-to-deploy application suite that will address the limitations of traditional preferential looking tests in infants by integrating hardware devices or deep learning-based infant eye trackers, and visual stimuli analysis into a user-friendly graphical user interface (GUI).
 
 
 -----------------------------------------------------
