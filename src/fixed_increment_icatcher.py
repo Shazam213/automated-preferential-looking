@@ -558,10 +558,10 @@ def fixedincrement_icatcher(response, min, max, fixed):
                         text_4.setAutoDraw(False)
                 # predict the gaze direction from the collected frames
                 if(rep==0):
-                    print("gaze detection")
+                    # print("gaze detection")
                     answers,confidences,frames= predict_from_frame(cap)
-                    print(answers)
-                    print(confidences)
+                    # print(answers)
+                    # print(confidences)
                     # print(frames)
                     if answers[np.argmax(confidences)]==b:
                         correct = 1  # correct non-response
@@ -1191,10 +1191,10 @@ def fixedincrement_vernier_icatcher(response, min_phase, max_phase, contrast,spa
                     text_4.setAutoDraw(True)
                 # predict the gaze direction from the collected frames
                 if(rep==0):
-                    print("gaze detection")
+                    # print("gaze detection")
                     answers,confidences,frames= predict_from_frame(cap)
-                    print(answers)
-                    print(confidences)
+                    # print(answers)
+                    # print(confidences)
                     # print(frames)
                     if answers[np.argmax(confidences)]==b:
                         correct = 1  # correct non-response

@@ -505,10 +505,10 @@ def staircase_icatcher(response, str_contrast, str_spatial):
                     core.quit()
                 
                 if(rep==0):
-                    print("gaze detection")
+                    # print("gaze detection")
                     answers,confidences,frames= predict_from_frame(cap)
-                    print(answers)
-                    print(confidences)
+                    # print(answers)
+                    # print(confidences)
                     # print(frames)
                     if answers[np.argmax(confidences)]==b:
                         correct = 1  # correct non-response
@@ -1323,10 +1323,10 @@ def staircase_vernier_icatcher(response,start_phase,contrast,spatial):
                     thisExp.timestampOnFlip(win, 'text_4.stopped')
                     text_4.setAutoDraw(False)
             if(rep==0):
-                    print("gaze detection")
+                    # print("gaze detection")
                     answers,confidences,frames= predict_from_frame(cap)
-                    print(answers)
-                    print(confidences)
+                    # print(answers)
+                    # print(confidences)
                     # print(frames)
                     if answers[np.argmax(confidences)]==b:
                         correct = 1  # correct non-response

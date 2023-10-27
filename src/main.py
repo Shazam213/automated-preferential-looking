@@ -11,16 +11,16 @@ from gui import ExperimentGUI  # Import the ExperimentGUI class from experiment_
 def main():
     root = tk.Tk()
     gui = ExperimentGUI(root)
-    print("gui object created")
+    # print("gui object created")
     root.mainloop()
 
     # After the mainloop finishes (GUI window is closed), retrieve the selected values
     selected_values = gui.start_experiment()
-    print("retrieved the values")
+    # print("retrieved the values")
     root.destroy()
     del gui
-    print("obj deleted")
-    print("Selected Values:", selected_values)
+    # print("obj deleted")
+    # print("Selected Values:", selected_values)
     if selected_values["experiment"]=="Fixed Increment":
         if selected_values["test"]=="Contrast Sensitivity":
             if selected_values["eye_tracker"]=="Eye Tracker":
