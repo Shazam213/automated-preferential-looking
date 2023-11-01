@@ -69,7 +69,7 @@ def staircase_icatcher(response, str_contrast, str_spatial):
     endExpNow = False  # flag for 'escape' or other condition => quit the exp
     frameTolerance = 0.001  # how close to onset before 'same' frame
     cap = cv2.VideoCapture(0)
-
+    vid_frames=[]
     # Start Code - component code to be run after the window creation
 
     # --- Setup the Window ---
@@ -507,6 +507,7 @@ def staircase_icatcher(response, str_contrast, str_spatial):
                 if(rep==0):
                     # print("gaze detection")
                     answers,confidences,frames= predict_from_frame(cap)
+                    vid_frames += frames
                     # print(answers)
                     # print(confidences)
                     # print(frames)
@@ -805,10 +806,11 @@ def staircase_icatcher(response, str_contrast, str_spatial):
                 if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
                     win.flip()
                 if(rep==0):
-                    print("gaze detection")
+                    # print("gaze detection")
                     answers,confidences,frames= predict_from_frame(cap)
-                    print(answers)
-                    print(confidences)
+                    vid_frames += frames
+                    # print(answers)
+                    # print(confidences)
                     # print(frames)
                     if answers[np.argmax(confidences)]==b:
                         correct = 1  # correct non-response
@@ -919,7 +921,20 @@ def staircase_icatcher(response, str_contrast, str_spatial):
     # Flip one final time so any remaining win.callOnFlip() 
     # and win.timeOnFlip() tasks get executed before quitting
     win.flip()
+    # save the video
+    output_filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])+'.avi'  # Change the filename and extension as needed
+    frame_width, frame_height = vid_frames[0].shape[1], vid_frames[0].shape[0]
+    fps = 8  # Frames per second
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')  # Codec used for the output video
 
+    # Create a VideoWriter object
+    out = cv2.VideoWriter(output_filename, fourcc, fps, (frame_width, frame_height))
+
+    # Write each frame from the list to the output video
+    for frame in vid_frames:
+        out.write(frame)
+
+    out.release()
     # these shouldn't be strictly necessary (should auto-save)
     thisExp.saveAsWideText(filename+'.csv', delim='auto')
     thisExp.saveAsPickle(filename)
@@ -973,6 +988,7 @@ def staircase_vernier_icatcher(response,start_phase,contrast,spatial):
     # Start Code - component code to be run after the window creation
     answers = []  # list of answers for each frame
     confidences = []
+    vid_frames=[]
     cap = cv2.VideoCapture(0)
     # --- Setup the Window ---
     win = visual.Window(
@@ -1325,6 +1341,7 @@ def staircase_vernier_icatcher(response,start_phase,contrast,spatial):
             if(rep==0):
                     # print("gaze detection")
                     answers,confidences,frames= predict_from_frame(cap)
+                    vid_frames += frames
                     # print(answers)
                     # print(confidences)
                     # print(frames)
@@ -1458,7 +1475,20 @@ def staircase_vernier_icatcher(response,start_phase,contrast,spatial):
     # Flip one final time so any remaining win.callOnFlip() 
     # and win.timeOnFlip() tasks get executed before quitting
     win.flip()
+    # saving the video
+    output_filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])+'.avi'  # Change the filename and extension as needed
+    frame_width, frame_height = vid_frames[0].shape[1], vid_frames[0].shape[0]
+    fps = 8  # Frames per second
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')  # Codec used for the output video
 
+    # Create a VideoWriter object
+    out = cv2.VideoWriter(output_filename, fourcc, fps, (frame_width, frame_height))
+
+    # Write each frame from the list to the output video
+    for frame in vid_frames:
+        out.write(frame)
+
+    out.release()
     # these shouldn't be strictly necessary (should auto-save)
     thisExp.saveAsWideText(filename+'.csv', delim='auto')
     thisExp.saveAsPickle(filename)

@@ -11,7 +11,7 @@ class ExperimentGUI:
         self.current_screen = 0  # To keep track of the current screen
         self.test_var = tk.StringVar(value="")
         self.experiment_var = tk.StringVar(value="")
-        self.eye_tracker_var = tk.StringVar(value="")
+        self.eye_tracker_var = tk.StringVar(value="Eye Tracker")
         self.hemisphere_var = tk.StringVar(value="")
 
         # First screen: Select Test
@@ -94,6 +94,16 @@ class ExperimentGUI:
 
         for option in eye_tracker_options:
             tk.Radiobutton(eye_tracker_frame, text=option, variable=self.eye_tracker_var, value=option, font=("Helvetica", 12)).pack(side=tk.LEFT, padx=10)
+
+        # eye_tracker_options = ["Eye Tracker", "Eye Tracking Model"]
+        # eye_tracker_frame = ttk.Frame(self.screen2)
+        # eye_tracker_frame.pack(pady=20)
+
+        # # Create a StringVar to hold the selected option
+        # self.eye_tracker_var = tk.StringVar()
+
+        # for option in eye_tracker_options:
+        #     tk.Radiobutton(eye_tracker_frame, text=option, variable=self.eye_tracker_var, value=option, font=("Helvetica", 12)).pack(side=tk.LEFT, padx=10)
 
         back_button2 = ttk.Button(self.screen2, text="Back", command=self.show_test_screen, style="Custom.TButton")
         back_button2.pack(side=tk.LEFT, pady=20)
