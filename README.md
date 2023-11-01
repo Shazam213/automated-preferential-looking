@@ -53,7 +53,7 @@ The following open source packages are used in this project:
 The result of this work which was about 420 hours, is divided in the following parts:
 
 1. Psychophysics Research and Experimentation:
-    *   In-depth research into psychophysics, including the study of various psychophysical experiments and the underlying psychometric functions.Exploration and understanding of the theoretical aspects related to visual perception and responses.
+    *   In-depth research into psychophysics, including the study of various psychophysical experiments and the underlying psychometric functions.Exploration and understanding of the theoretical aspects related to visual perception and responses. All the experiments were created using [PsychoPy](https://www.psychopy.org/)
 
 2. Psychopy Experiment Development:
 
@@ -140,6 +140,8 @@ Ps- You might face errors while psychopy installations. You can refer this [link
  ![Stimuli](./resources/stimuli.png)
  3. Upon finishing the experiment, you'll see the psychometric function.
 ![Psychometric fucntion](./resources/psychometric_funct.png)
+ 4. Here's a look at the eye tracking model (iCatcher+) in operation.  Because the model was trained for infants and young children, its accuracy suffers when tested on adults:
+<video src="resources/icatcher_demo.mp4" controls title="Title"></video>
 -----------------------------------------------------
 <!-- FUTURE -->
 <h2 id="future"> Future Goals </h2>
@@ -159,6 +161,6 @@ Also due to the unavailibility of traditional eye tracking devices, eye tracker 
 <h2 id="acknowledgments"> Acknowledgments! </h2>
 I'd like to express my gratitude to my mentor, Dr. Suresh Krishna from McGill University, for providing invaluable insights and information throughout this project. While at times the information was quite complex, I understand that it will greatly benefit future iterations of the application and collaborative research with other scientists.
 
-I would also like to extend my appreciation to the developers of iCatcher+, the eye-tracking model that has been seamlessly integrated into the program for gaze detection and test automation.
+I would also like to extend my appreciation to the developers of [iCatcher+](https://github.com/icatcherplus/icatcher_plus), the eye-tracking model that has been seamlessly integrated into the program for gaze detection and test automation.
 
 With the generous support of Google's open-source initiatives, I hope that I've sown the seeds of a useful program and provided valuable code suggestions. These contributions have the potential to make a significant impact in clinical settings in the future. Thank you, Google!
