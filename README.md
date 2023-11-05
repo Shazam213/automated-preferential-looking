@@ -10,7 +10,7 @@
 4. [➤ Folder Structure](#cactus-folder-structure)
 5. [➤ Implementation](#implementation)
 6. [➤ Features](#features)
-7. [➤ Future Goals](#future-goals-)
+7. [➤ Future Goals](#future-goals)
 8. [➤ Acknowledgments](#acknowledgments)
 
     <!-- <li><a href="#libraries-used"> ➤ Libraries Used</a></li>
