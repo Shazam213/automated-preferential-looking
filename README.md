@@ -5,13 +5,13 @@
 ## :book: Table of Contents
 
 1. [➤ About The Project](#pencil-about-the-project)
-2. [➤ Prerequisites](#-prerequisites)
-3. [➤ Roadmap](#-dart-roadmap)
-4. [➤ Folder Structure](#-cactus-folder-structure)
-5. [➤ Implementation](#-implementation)
-6. [➤ Features](#-features)
-7. [➤ Future Goals](#-future-goals-)
-8. [➤ Acknowledgments](#-acknowledgments)
+2. [➤ Prerequisites](#prerequisites)
+3. [➤ Roadmap](#dart-roadmap)
+4. [➤ Folder Structure](#cactus-folder-structure)
+5. [➤ Implementation](#implementation)
+6. [➤ Features](#features)
+7. [➤ Future Goals](#future-goals-)
+8. [➤ Acknowledgments](#acknowledgments)
 
     <!-- <li><a href="#libraries-used"> ➤ Libraries Used</a></li>
     <li><a href="#roadmap"> ➤ Roadmap</a></li>
