@@ -2,7 +2,7 @@
 
 # APL: Automated Preferential Looking
 <!-- TABLE OF CONTENTS -->
-<h2 id="table-of-contents"> :book: Table of Contents</h2>
+## :book: Table of Contents
 
 1. [➤ About The Project](#about-the-project)
 2. [➤ Prerequisites](#prerequisites)
@@ -21,12 +21,12 @@
     <li><a href="#future"> ➤ Future Goals</a></li>
     <li><a href="#acknowledgments"> ➤ Acknowledgments</a></li>
   <!-- </ol>
-</details> --> 
+
 
 -----------------------------------------------------
 
-<h2 id="about-the-project"> :pencil: About The project</h2>
-<!-- ## :pencil: About The project -->
+<!-- <h2 id="about-the-project"> :pencil: About The project</h2> -->
+## :pencil: About The project
 This project is the work for the Google Summer of Code 2023, with the organisation INCF. The project is created by [Soham Mulye](https://github.com/Shazam213) under the mentoring of Suresh Krishna, PhD from McGill University.
 This project aims to develop a ready-to-deploy application suite that will address the limitations of traditional preferential looking tests in infants by integrating hardware devices or deep learning-based infant eye trackers, and visual stimuli analysis into a user-friendly graphical user interface (GUI).
 
