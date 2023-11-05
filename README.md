@@ -12,6 +12,7 @@
     <li><a href="#roadmap"> ➤ Roadmap</a></li>
     <li><a href="#folder-structure"> ➤ Folder Structure</a></li>
     <li><a href="#implementation"> ➤ Implementation</a></li>
+    <li><a href="#feature"> ➤ Features</a></li>
     <li><a href="#future"> ➤ Future Goals</a></li>
     <li><a href="#acknowledgments"> ➤ Acknowledgments</a></li>
   </ol>
@@ -141,7 +142,7 @@ Ps- You might face errors while psychopy installations. You can refer this [link
  3. Upon finishing the experiment, you'll see the psychometric function.
 ![Psychometric fucntion](./resources/psychometric_funct.png)
  4. Here's a look at the eye tracking model (iCatcher+) in operation.  Because the model was trained for infants and young children, its accuracy suffers when tested on adults:
-[![iCatcher representatiion](resources\icatcher_demo_thumbnail.png)](https://www.youtube.com/watch?v=W6m5DITmA8A)
+[![iCatcher representatiion](resources\demo_icatcher_experiment.png)](https://youtu.be/AfOxSQmwGKM)
 -----------------------------------------------------
 <!-- FUTURE -->
 <h2 id="future"> Future Goals </h2>
