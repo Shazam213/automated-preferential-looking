@@ -7,7 +7,15 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#about-the-project"> ➤ About The Project</a></li>
+    <!-- <li><a href="#about-the-project"> ➤ About The Project</a></li>
+    <li><a href="#libraries-used"> ➤ Libraries Used</a></li>
+    <li><a href="#roadmap"> ➤ Roadmap</a></li>
+    <li><a href="#folder-structure"> ➤ Folder Structure</a></li>
+    <li><a href="#implementation"> ➤ Implementation</a></li>
+    <li><a href="#feature"> ➤ Features</a></li>
+    <li><a href="#future"> ➤ Future Goals</a></li>
+    <li><a href="#acknowledgments"> ➤ Acknowledgments</a></li> -->
+     <li><a href="#about-the-project"> ➤ About The Project</a></li>
     <li><a href="#libraries-used"> ➤ Libraries Used</a></li>
     <li><a href="#roadmap"> ➤ Roadmap</a></li>
     <li><a href="#folder-structure"> ➤ Folder Structure</a></li>
@@ -20,9 +28,9 @@
 
 -----------------------------------------------------
 
-<h2 id="about-the-project"> :pencil: About The project</h2>
-
-This project is the work for the Google Summer of Code 2023, with the organisation INCF. The project is created by [Soham Mulye](@Shazam213) under the mentoring of Suresh Krishna, PhD from McGill University.
+<!-- <h2 id="about-the-project"> :pencil: About The project</h2> -->
+## :pencil: About The project
+This project is the work for the Google Summer of Code 2023, with the organisation INCF. The project is created by [Soham Mulye](https://github.com/Shazam213) under the mentoring of Suresh Krishna, PhD from McGill University.
 This project aims to develop a ready-to-deploy application suite that will address the limitations of traditional preferential looking tests in infants by integrating hardware devices or deep learning-based infant eye trackers, and visual stimuli analysis into a user-friendly graphical user interface (GUI).
 
 
