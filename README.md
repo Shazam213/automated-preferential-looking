@@ -4,14 +4,14 @@
 <!-- TABLE OF CONTENTS -->
 ## :book: Table of Contents
 
-1. [➤ About The Project](#about-the-project)
-2. [➤ Prerequisites](#prerequisites)
-3. [➤ Roadmap](#roadmap)
-4. [➤ Folder Structure](#folder-structure)
-5. [➤ Implementation](#implementation)
-6. [➤ Features](#feature)
-7. [➤ Future Goals](#future)
-8. [➤ Acknowledgments](#acknowledgments)
+1. [➤ About The Project](#pencil-about-the-project)
+2. [➤ Prerequisites](#-prerequisites)
+3. [➤ Roadmap](#-dart-roadmap)
+4. [➤ Folder Structure](#-cactus-folder-structure)
+5. [➤ Implementation](#-implementation)
+6. [➤ Features](#-features)
+7. [➤ Future Goals](#-future-goals-)
+8. [➤ Acknowledgments](#-acknowledgments)
 
     <!-- <li><a href="#libraries-used"> ➤ Libraries Used</a></li>
     <li><a href="#roadmap"> ➤ Roadmap</a></li>
@@ -34,8 +34,8 @@ This project aims to develop a ready-to-deploy application suite that will addre
 -----------------------------------------------------
 
 <!-- PREREQUISITES -->
-<h2 id="prerequisites"> Prerequisites</h2>
-
+<!-- <h2 id="prerequisites"> Prerequisites</h2> -->
+## Prerequisites
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) <br>
 
 
@@ -54,7 +54,8 @@ The following open source packages are used in this project:
 
 
 <!-- ROADMAP -->
-<h2 id="roadmap"> :dart: Roadmap</h2>
+<!-- <h2 id="roadmap"> :dart: Roadmap</h2> -->
+## :dart: Roadmap
 
 The result of this work which was about 420 hours, is divided in the following parts:
 
@@ -75,8 +76,8 @@ The result of this work which was about 420 hours, is divided in the following p
 
 <!-- :paw_prints:-->
 <!-- FOLDER STRUCTURE -->
-<h2 id="folder-structure"> :cactus: Folder Structure</h2>
-  
+<!-- <h2 id="folder-structure"> :cactus: Folder Structure</h2> -->
+## :cactus: Folder Structure  
         .
         └── automated-preferential-looking/
         ├── resources
@@ -101,7 +102,8 @@ The result of this work which was about 420 hours, is divided in the following p
 -----------------------------------------------------
 <!-- :paw_prints:-->
 <!-- IMPLEMENTATION -->
-<h2 id="implementation"> Implementation</h2>
+<!-- <h2 id="implementation"> Implementation</h2> -->
+## Implementation
 
 To execute the program on your system, please follow these steps.
 * Clone the repository into your local system:
@@ -134,7 +136,8 @@ Ps- You might face errors while psychopy installations. You can refer this [link
 -----------------------------------------------------
 <!-- :paw_prints:-->
 <!-- FEATURE -->
-<h2 id="feature"> Features</h2>
+<!-- <h2 id="feature"> Features</h2> -->
+## Features
  
  1. Starting the Program you first get the easy to use GUI.
  ![GUI screen 1](./resources/gui_screen1.png)
@@ -150,7 +153,8 @@ Ps- You might face errors while psychopy installations. You can refer this [link
 [![iCatcher representatiion](resources\demo_icatcher_experiment.png)](https://youtu.be/AfOxSQmwGKM)
 -----------------------------------------------------
 <!-- FUTURE -->
-<h2 id="future"> Future Goals </h2>
+<!-- <h2 id="future"> Future Goals </h2> -->
+## Future Goals
 
 Alas, the end of Summer of Code shouldn't be the end of this project! With an amazing scope to go forward, I would love to put much more effort and create a full-working application that could be used in a clinical setting with help and testing from other researchers and labs we already had contact with.The project has laid a strong foundation for efficient measurement of visual functions in infants and young children. Future work may include:
 
@@ -164,7 +168,8 @@ Also due to the unavailibility of traditional eye tracking devices, eye tracker 
 -----------------------------------------------------
 
 <!-- Acknowledgments -->
-<h2 id="acknowledgments"> Acknowledgments! </h2>
+<!-- <h2 id="acknowledgments"> Acknowledgments! </h2> -->
+## Acknowledgments
 I'd like to express my gratitude to my mentor, Dr. Suresh Krishna from McGill University, for providing invaluable insights and information throughout this project. While at times the information was quite complex, I understand that it will greatly benefit future iterations of the application and collaborative research with other scientists.
 
 I would also like to extend my appreciation to the developers of [iCatcher+](https://github.com/icatcherplus/icatcher_plus), the eye-tracking model that has been seamlessly integrated into the program for gaze detection and test automation.
